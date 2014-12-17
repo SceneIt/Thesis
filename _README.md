@@ -4,13 +4,13 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: raymondma1
+  - __Scrum Master__: mochicat8
+  - __Development Team Members__: power9, timhua
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Usage](#Usage)s
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)

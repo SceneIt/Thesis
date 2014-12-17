@@ -1,4 +1,4 @@
-# Project Name #
+# Project Name # Hike App
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -18,27 +18,28 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Map, review, and research your outdoor trip. 
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-
+For avid and novice hikers, bikers, and other outdoor lovers alike who want to discover new trails. 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-
-## Problem ##
+Hike app is a mobile web app that provides users the necessary resources to research, plan, map, and review their outdoor trips. The primary benefit of this app is that users have a centralized forum where they can communicate with other outdoor lovers, receive real time information and updates, and easily plan their trip.
+## Problem #
   > Describe the problem your product solves.
-
+Currently, people who enjoy the outdoors, particularly bikers and hikers, have no way of receiving real-time information and live updates about their destination. For example, it is difficult for a hiker to determine which trail he wants to take based on difficulty or time.
 ## Solution ##
   > Describe how your product elegantly solves the problem.
-
+This app would allow a hiker to determine a trail real-time based on weather conditions, trail difficulty, popularity, landscape, etc.
 ## Quote from You ##
   > A quote from a spokesperson in your company.
-
+"Use this app for your outdoor trips, and you are guaranteed to never get lost!"
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
+"I finally found it! I see the waterfall! If it wasn't for this app, I never would have found it!!"
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
