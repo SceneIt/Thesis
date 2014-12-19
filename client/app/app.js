@@ -5,7 +5,7 @@ angular.module('sceneit', [
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
   .state('home', {
