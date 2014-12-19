@@ -1,16 +1,14 @@
 angular.module('sceneit.map', [])
 
 .controller('MapController',function($scope) {
-    // Choose center and zoom level
-// var map = L.map('map').setView([51.505, -0.09], 13);
+	var options = {
+    center: [40.4000, -3.6833], // Madrid
+    zoom: 7,
+    scrollwheel: true,
+    shareable: false
+	};
 
-// // add an OpenStreetMap tile layer
-// L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-//     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-// }).addTo(map);
-
-// // add a marker in the given location, attach some popup content to it and open the popup
-// L.marker([51.5, -0.09]).addTo(map)
-//     .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
-//     .openPopup();
+    var vizjson = 'http://secenit.cartodb.com/api/v2/viz/ba34720c-87c5-11e4-930e-0e853d047bba/viz.json';
+    cartodb.createVis('map', vizjson, options);
+    console.log('loaded');
 });
