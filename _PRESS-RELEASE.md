@@ -17,29 +17,37 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  Map, review, and research your outdoor trip. 
+  
+  Real-time photo updates on a map 
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-For avid and novice hikers, bikers, and other outdoor lovers alike who want to discover new trails. 
+
+  This app caters to everyone with a phone. 
+ 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-Hike app is a mobile web app that provides users the necessary resources to research, plan, map, and review their outdoor trips. The primary benefit of this app is that users have a centralized forum where they can communicate with other outdoor lovers, receive real time information and updates, and easily plan their trip.
+
+  This project is a mobile app that brings the user an informative geographical real-time photo feed.  The benefit of this app is that users have access to real-time visual updates to geographical areas of interest.    
+
 ## Problem #
   > Describe the problem your product solves.
-Currently, people who enjoy the outdoors, particularly bikers and hikers, have no way of receiving real-time information and live updates about their destination. For example, it is difficult for a hiker to determine which trail he wants to take based on difficulty or time.
+
+  Many social media apps do not have a user interface that show photographs at a geographical or mapped location. 
+
 ## Solution ##
   > Describe how your product elegantly solves the problem.
-This app would allow a hiker to determine a trail real-time based on weather conditions, trail difficulty, popularity, landscape, etc.
+  
+  This app provides real-time photographs that are displayed and pinpointed at a mapped location.  
+
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
-"Use this app for your outdoor trips, and you are guaranteed to never get lost!"
+
+  "Be your own photojournalist!"
+
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Content uploaders wil be able to point click and upload photos which will automatically be placed on the map. Others will be able to access and see the photo on the map.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-"I finally found it! I see the waterfall! If it wasn't for this app, I never would have found it!!"
+"I know whats going on around me all the time now!."
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
