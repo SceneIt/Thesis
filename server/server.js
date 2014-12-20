@@ -6,3 +6,4 @@ app.use(express.static(__dirname + '/../client'))
 require('./config/middleware')(app, express);
 
 module.exports = app;
+
