@@ -22,12 +22,45 @@
   </script>
 </head>
 <body>
- <div ui-view>
   <header class="main-header">
-      <div class="logo">
-        <h1>SceneIt</h1>
-      </div>
+    <div class="logo">
+      <h1>SceneIt</h1>
+    </div>
+
+    <i class="menu-open-icon glyphicon glyphicon-align-justify"></i>
+    <div id="side-menu" class="move-me" >
+      <!-- <hr class="hr-set"/> -->
+      <i  class="menu-close-icon glyphicon glyphicon-align-justify"></i> 
+      <hr class="hr-set-two"/>
+
+      <ul>
+          <li>
+           <a href="#"> <i class="glyphicon glyphicon-home"></i>Home</a>
+          </li>
+
+          <li>
+           <a href="#"> <i class="glyphicon glyphicon-user"></i>Sign In</a>
+          </li>
+      </ul>
+    </div>
+
+    <script>
+     $(document).ready(function () {
+            $('.menu-close-icon').click(function (e) {
+                e.preventDefault();
+                $('#side-menu').animate({ right: '-250px' });
+               
+            });
+            $('.menu-open-icon').click(function (e) {
+                e.preventDefault();
+                $('#side-menu').animate({right: '0px', top: '0px' });
+               
+            });
+      });
+    </script>
   </header>
+
+ <div ui-view>
 
 
 
@@ -35,8 +68,6 @@
 
  </div>
 
-
-    </div>
 
 </body>
 </html>
