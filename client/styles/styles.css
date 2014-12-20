@@ -1,9 +1,9 @@
   header.main-header{
     width: 100%;
-    height: 68px;
-    background: #fff;
+    height: 55px;
+    /*background: #fff;*/
     padding-top: 15px;
-    border-bottom: 1px solid #2C3E50;
+    /*border-bottom: 1px solid #2C3E50;*/
     -webkit-box-shadow: 0px 0px 0px 0px rgba(50, 50, 50, 0.7);
     -moz-box-shadow:    0px 0px 0px 0px rgba(50, 50, 50, 0.7);
     box-shadow:         0px 0px 0px 0px rgba(50, 50, 50, 0.7);
@@ -18,12 +18,15 @@
   }
 
   .logo h1{
-    font-family: 'Poiret One', cursive;
-    font-size: 2em;
+    /*font-family: 'Poiret One', cursive;*/
+    font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+    letter-spacing: 0.18rem;
+    font-size: 4em;
     cursor: pointer;
-    margin-top: 3%;
+    margin-top: 1%;
     vertical-align: baseline;
-    color: rgb(25, 208, 146);
+    color: black;
+    font-weight:100;
   }
 
   header.fixed{
@@ -69,12 +72,24 @@
     font-size: 4em;
     letter-spacing: 0.16rem;
     font-weight: 100;
-    color:black;
+    color:blue;
   }
 
-  span {
+  span.glyphicon-search {
     margin-right: 25%;
     margin-top: 0.25%;
+  }
+
+  i.glyphicon-align-justify {
+    display:inline-block;
+    font-size: 1.4em;
+    right: 0;
+  }
+
+  .options {
+    float: right;
+    margin-right: 5%;
+    margin-top:0.6%;
   }
 
   .centered input{
@@ -89,3 +104,76 @@
     text-align: center;
   }
 
+/* */
+
+/*.dropdown .dropdown-menu{
+  display: block;
+}*/
+
+
+.menu-open-icon {
+    cursor:pointer;
+    /*color:#fff;*/
+    padding:20px 30px;
+     /*padding:20px 25px;*/
+     position:fixed;
+}
+
+.menu-close-icon {
+    padding:20px 100px;
+    cursor: pointer;
+    font-size:25px;
+}
+
+
+#side-menu {
+    height:100%;
+    position:fixed;
+    bottom:1000px;
+    right:0px;
+    background-color:black;
+    color:#fff;
+    z-index:999;
+    overflow:auto;
+    max-width:150px;
+    opacity:0.4;
+
+}
+#side-menu ul {
+  list-style:none;
+  padding:0px;
+}
+
+#side-menu ul li {
+  border-bottom:1px solid rgba(95, 87, 88, 0.2);
+  padding: 20px 37px;
+  display:inline-block;
+}
+
+#side-menu ul li a i {
+  padding-right:10px;
+}
+
+#side-menu ul li a,#side-menu ul li a:hover {
+  color:#fff;
+  text-decoration:none;
+  font-size: 16px;
+}
+            
+.p-set {
+    padding-top:120px;
+     line-height:30px;
+     color:#fff;
+     font-size:16px;
+}
+
+.hr-set {
+    border-top:1px solid rgba(0, 0, 0, 0)!important;
+    margin-bottom:20px;
+}
+
+.hr-set-two {
+    margin-top: -6px;
+    border-top:1px solid rgba(0, 0, 0, 0.05)!important;
+    margin-bottom:5px;
+}
