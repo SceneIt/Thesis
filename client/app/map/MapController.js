@@ -75,3 +75,4 @@ angular.module('sceneit.map', [])
     plotPoints : plotPoints
   };
 });
+

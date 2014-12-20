@@ -63,4 +63,4 @@ angular.module('sceneit', [
       event.preventDefault();
     }
   })
-})
+});

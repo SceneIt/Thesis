@@ -29,6 +29,14 @@
     "nodemon": "^1.2.1",
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^2.0.0-rc4"
-  }
+    "sequelize": "^2.0.0-rc4",
+    "method-override": "^2.3.0"
+  },
+  "author": "Issac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/power9/Thesis/issues"
+  },
+  "homepage": "https://github.com/power9/Thesis",
+
 }
