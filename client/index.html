@@ -13,28 +13,30 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <!-- <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" /> -->
   <!-- <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" /> -->
+ <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
+
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
-  <script>var map = L.map('map').setView([51.505, -0.09], 13);
+  <script>
 
-// add an OpenStreetMap tile layer
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-// add a marker in the given location, attach some popup content to it and open the popup
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
-    .openPopup();</script>
+  </script>
 </head>
 <body>
+ <div ui-view>
   <header class="main-header">
       <div class="logo">
         <h1>SceneIt</h1>
       </div>
   </header>
 
-    <div ui-view></div>
+
+
+
+
+ </div>
+
+
+    </div>
 
 </body>
 </html>
