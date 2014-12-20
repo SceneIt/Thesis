@@ -3,6 +3,7 @@
 <head>
  <title>SceneIt</title>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.onepage-scroll.min.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -13,30 +14,75 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <!-- <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" /> -->
   <!-- <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" /> -->
- <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
-
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+  <link rel="stylesheet" type="text/css" href="/styles/onepage-scroll.css" />
   <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
   <script>
-
+      $(document).ready(function(){
+        $(".main").onepage_scroll({
+         sectionContainer: "section",
+         easing: "ease",                  
+         animationTime: 1000,             
+         pagination: true,               
+         updateURL: false,               
+         beforeMove: function(index) {},  
+         afterMove: function(index) {},   
+         loop: false,                     
+         keyboard: true,                  
+         responsiveFallback: false,        
+         direction: "vertical"    
+        });
+      });
+      
   </script>
 </head>
 <body>
- <div ui-view>
-  <header class="main-header">
+    <header class="main-header">
       <div class="logo">
         <h1>SceneIt</h1>
       </div>
-  </header>
+
+      <i class="menu-open-icon glyphicon glyphicon-align-justify"></i>
+      <div id="side-menu" class="move-me" >
+        <i  class="menu-close-icon glyphicon glyphicon-align-justify"></i> 
+        <hr class="hr-set-two"/>
+
+        <ul>
+            <li>
+             <a href="#"> <i class="glyphicon glyphicon-home"></i>Home</a>
+            </li>
+
+            <li>
+             <a href="#"> <i class="glyphicon glyphicon-user"></i>Sign In</a>
+            </li>
+        </ul>
+      </div>
+
+      <script>
+       $(document).ready(function () {
+          $('.menu-close-icon').click(function (e) {
+              e.preventDefault();
+              $('#side-menu').animate({ right: '-250px' });
+             
+          });
+          $('.menu-open-icon').click(function (e) {
+              e.preventDefault();
+              $('#side-menu').animate({right: '0px', top: '0px' });        
+          });
+        });
+      </script>
+    </header>
+
+     <div class="main">
+      <div class="section">
+       <div ui-view>
 
 
-
-
-
- </div>
-
-
+       </div>
+     </div>
     </div>
+
 
 </body>
 </html>
