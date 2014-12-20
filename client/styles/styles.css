@@ -112,12 +112,12 @@
     cursor:pointer;
     /*color:#fff;*/
     padding:20px 30px;
-     padding:20px 25px;
+     /*padding:20px 25px;*/
      position:fixed;
 }
 
 .menu-close-icon {
-    padding:20px 105px;
+    padding:20px 100px;
     cursor: pointer;
     font-size:25px;
 }
@@ -126,8 +126,8 @@
 #side-menu {
     height:100%;
     position:fixed;
-   /* bottom:1000px;
-    right:0px;*/
+    bottom:1000px;
+    right:0px;
     background-color:black;
     color:#fff;
     z-index:999;
