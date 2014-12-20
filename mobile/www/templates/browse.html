@@ -1,0 +1,15 @@
+<ion-view view-title="Browse">
+  <ion-content>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0I-bDS6FqqflDFKrPMBST1rMjQ_h2smE"></script>
+
+    <h1>GeoLoc</h1>
+    <p>
+      {{ geoloc | json }}
+    </p>
+
+    <div id="map-canvas" ng-init="getLocation()">
+    </div>
+  </ion-content>
+</ion-view>
+
+
