@@ -18,24 +18,6 @@
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
   <link rel="stylesheet" type="text/css" href="/styles/onepage-scroll.css" />
   <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
-  <script>
-      $(document).ready(function(){
-        $(".main").onepage_scroll({
-         sectionContainer: "section",
-         easing: "ease",                  
-         animationTime: 1000,             
-         pagination: true,               
-         updateURL: false,               
-         beforeMove: function(index) {},  
-         afterMove: function(index) {},   
-         loop: false,                     
-         keyboard: true,                  
-         responsiveFallback: false,        
-         direction: "vertical"    
-        });
-      });
-      
-  </script>
 </head>
 <body>
     <header class="main-header">
@@ -61,6 +43,20 @@
 
       <script>
        $(document).ready(function () {
+          $(".main").onepage_scroll({
+           sectionContainer: "section",
+           easing: "ease",                  
+           animationTime: 1000,             
+           pagination: true,               
+           updateURL: false,               
+           beforeMove: function(index) {},  
+           afterMove: function(index) {},   
+           loop: false,                     
+           keyboard: true,                  
+           responsiveFallback: false,        
+           direction: "vertical"    
+          });
+
           $('.menu-close-icon').click(function (e) {
               e.preventDefault();
               $('#side-menu').animate({ right: '-250px' });
