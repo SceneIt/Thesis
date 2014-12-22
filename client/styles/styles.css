@@ -72,7 +72,7 @@
     font-size: 4em;
     letter-spacing: 0.16rem;
     font-weight: 100;
-    color:blue;
+    color: rgb(249, 255, 13);
   }
 
   span.glyphicon-search {
@@ -129,8 +129,7 @@
 #side-menu {
     height:100%;
     position:fixed;
-    bottom:1000px;
-    right:0px;
+    right: -150px;
     background-color:black;
     color:#fff;
     z-index:999;
