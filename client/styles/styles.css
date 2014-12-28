@@ -51,6 +51,25 @@
     margin-top: 20%;
   }*/
 
+  .logo{
+    /*float: left;*/
+    margin: 0 0 0 5%;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .logo h1{
+    font-family: 'Poiret One', cursive;
+    font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+    letter-spacing: 0.18rem;
+    font-size: 4em;
+    cursor: pointer;
+    margin-top: 1%;
+    vertical-align: baseline;
+    color: black;
+    font-weight:100;
+  }
+
   .city {
     background-image: url(../app/images/city.png);
   }
