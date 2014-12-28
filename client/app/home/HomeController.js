@@ -7,7 +7,7 @@ angular.module('sceneit.home', [])
 		//testing
 		console.log(2);
 	}
-	angular.element(document.body).css('background-image', 'url("../app/images/city.png")');
+	angular.element(document.body).css('background-image', 'url("../app/images/city2.png")');
 })
 
 //this registers enter event on keydown

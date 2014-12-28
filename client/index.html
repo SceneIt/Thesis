@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html ng-app="sceneit">
 <head>
- <title>SceneIt</title>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script src="bower_components/leaflet/dist/leaflet.js"></script>
-  <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+ <title>SceneIt</title> 
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css"/>
-    <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
-  <script src="app/app.js"></script>
-  <script src="app/home/HomeController.js"></script>
-  <script src="app/map/MapController.js"></script>
+  <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">  
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="styles/styles.css" />
 </head>
 <body>
     <header class="main-header">
       <div class="logo">
-        <h1>SceneIt</h1>
+        <h1 data-0="color:white" data-1150="color:black" data-2350="color:white">SceneIt</h1>
+      
+        <i class="menu-open-icon glyphicon glyphicon-align-justify" data-0="color:white" data-1150="color:black" data-2350="color:white"></i>
+        <div id="side-menu" class="move-me" >
+          <i  class="menu-close-icon glyphicon glyphicon-align-justify"></i> 
+          <hr class="hr-set-two"/>
+
+          <ul>
+              <li>
+               <a href="#"> <i class="glyphicon glyphicon-home"></i>Home</a>
+              </li>
+
+              <li>
+               <a href="#"> <i class="glyphicon glyphicon-user"></i>Sign In</a>
+              </li>
+          </ul>
+        </div>
       </div>
 
-      <i class="menu-open-icon glyphicon glyphicon-align-justify"></i>
-      <div id="side-menu" class="move-me" >
-        <i  class="menu-close-icon glyphicon glyphicon-align-justify"></i> 
-        <hr class="hr-set-two"/>
-
-        <ul>
-            <li>
-             <a href="#"> <i class="glyphicon glyphicon-home"></i>Home</a>
-            </li>
-
-            <li>
-             <a href="#"> <i class="glyphicon glyphicon-user"></i>Sign In</a>
-            </li>
-        </ul>
-      </div>
-
-      <script>
-       $(document).ready(function () {
-          $(".main").onepage_scroll({
-           sectionContainer: "section",
-           easing: "ease",                  
-           animationTime: 1000,             
-           pagination: true,               
-           updateURL: false,               
-           beforeMove: function(index) {},  
-           afterMove: function(index) {},   
-           loop: false,                     
-           keyboard: true,                  
-           responsiveFallback: false,        
-           direction: "vertical"    
-          });
-
-          $('.menu-close-icon').click(function (e) {
-              e.preventDefault();
-              $('#side-menu').animate({ right: '-250px' });
-             
-          });
-          $('.menu-open-icon').click(function (e) {
-              e.preventDefault();
-              $('#side-menu').animate({right: '0px', top: '0px' });        
-          });
-        });
-      </script>
+      
     </header>
 
-     <div class="main">
-      <div class="section">
-       <div ui-view>
+    <div ui-view auto-scroll="false">
 
-
-       </div>
-     </div>
     </div>
 
 
+    <div class="container">
+      <div class="footer-links">
+         <ul>
+             <li>© 2014 Sceneit</li>
+             <li><a ui-sref="/about">About</a></li>
+             <li><a ui-sref="/contact">Contact</a></li>
+             <li><a ui-sref="/privacy">Privacy</a></li>
+         </ul>
+      </div>
+
+    </div>
+    
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/skrollr/skrollr.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/leaflet/dist/leaflet.js"></script>
+  <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/home/HomeController.js"></script>
+  <script src="app/map/MapController.js"></script>
+  <script>
+   $(document).ready(function () {
+      $('.menu-close-icon').click(function (e) {
+          e.preventDefault();
+          $('#side-menu').animate({ right: '-250px' });
+         
+      });
+      $('.menu-open-icon').click(function (e) {
+          e.preventDefault();
+          $('#side-menu').animate({right: '0px', top: '0px' });        
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    var s = skrollr.init({
+    easing: {
+        //This easing will sure drive you crazy
+        forceHeight: false,
+        smoothScrolling: false
+    }
+});
+  </script>
 </body>
 </html>
+
+

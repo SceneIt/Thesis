@@ -1,7 +1,8 @@
 angular.module('sceneit', [
 	'ui.router',
 	'sceneit.home',
-	'sceneit.map'
+	'sceneit.map',
+  'angular-parallax'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
