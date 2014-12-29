@@ -1,7 +1,9 @@
-var express        = require('express');
-var bodyParser     = require('body-parser');
+var express = require('express');
 
 var app = express();
 app.use(express.static(__dirname + '/../client'))
 
+require('./config/middleware')(app, express);
+
 module.exports = app;
+
