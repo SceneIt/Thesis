@@ -3,7 +3,7 @@
 
   module.exports = {
   	getPhoto: function(req,res){
-      console.log('yay');
+      console.log('yays');
   		db.client
   			.query("SELECT * FROM {table}", {table: 'untitled_table'}, function(err,data){
   				if(err){
