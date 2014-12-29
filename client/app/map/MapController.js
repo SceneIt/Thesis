@@ -1,16 +1,26 @@
 angular.module('sceneit.map', [])
 
-.controller('MapController',function($scope) {
+.controller('MapController',function($scope, $http) {
+	//loads map tiles from custom maps of mapbox
+	var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
+  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+	});
+	//creates leaflet map with given lat / long points with zoom level of 6.
+	var map = L.map('map', {
+    center: [40.7127837, -74.0059413],
+    zoom: 6
+	});
 
-    //loads the map onto the div
-    var vizjson = 'http://secenit.cartodb.com/api/v2/viz/ba34720c-87c5-11e4-930e-0e853d047bba/viz.json';
-    cartodb.createVis('map', vizjson, options);
-    console.log('loaded');
 
-
-
-		var options = {
-			center: [40.4000, -3.6833] // Madrid
-		};
-
+	//adds custom map layer to maps
+	map.addLayer(layer);
+	$http.get('/data')
+    .success(function(data){
+      console.log(data);
+      $scope.globalStats = data;
+    })
+    .error(function(data,status) {
+      //console.log('ERROR', status, data);
+      $scope.globalStats;
+    })
 });
