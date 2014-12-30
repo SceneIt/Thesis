@@ -17,7 +17,7 @@ var Photo = sequelize.define('Photo',{
 	longitude: Sequelize.STRING, 
 	description: Sequelize.STRING, 
 	photoUrl: Sequelize.STRING, 
-	timeStamp: Sequelize.STRING, 
+	timeStamp: Sequelize.DATE, 
 	score: Sequelize.INTEGER
 });
 //comment table schema
