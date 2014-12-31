@@ -3,8 +3,14 @@ var bodyParser     = require('body-parser');
 <<<<<<< HEAD
 
 var app = express();
+<<<<<<< HEAD
 
 app.use(express.static(__dirname + '/../client'))
+=======
+app.use(express.static(__dirname + '/../client'))
+
+module.exports = app;
+>>>>>>> staging
 =======
 // var methodOverride = require('method-override');
 
@@ -12,6 +18,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/../client'));
 //console.log(__dirname + '/../client');
+<<<<<<< HEAD
 >>>>>>> c9a3d0eaa0db4228dae6f5e6b0755370917eee43
 
 var port = process.env.PORT || 8000;
@@ -22,6 +29,14 @@ app.listen(app.get('port'), function(){
 });
 <<<<<<< HEAD
 =======
+=======
+
+
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), function(){
+  console.log("Applet listening on port " + process.env.PORT);
+});
+>>>>>>> staging
 
 var express = require('express');
 var bodyParser = require('body-parser');
