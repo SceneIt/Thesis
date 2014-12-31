@@ -11,26 +11,16 @@ angular.module('sceneit.map', [])
     zoom: 6
 	});
   //initializes markercluster
-  var markers = L.markerClusterGroup();
-  var picIcon = L.Icon.extend({
-    options: {
-      iconSize: [40, 40]
-    }
-  });
 	//add base map tiles
 	map.addLayer(layer);
-  $scope.plotPoints = function(){
+  $scope.initPoints = function(){
     MapFactory.getPoints().then(function(data){
       console.log(data);
-      $scope.photos = data;
-      for(var i = 0; i < $scope.photos.length; i ++){
-        markers.addLayer(new L.marker([$scope.photos[i].latitude,$scope.photos[i].longitude], {icon: new picIcon({iconUrl: $scope.photos[i].photoUrl})}))
-      }
-      map.addLayer(markers);
+      map.addLayer(MapFactory.plotPoints(data));
     });
   };
 
-  $scope.plotPoints();
+  $scope.initPoints();
   //calling the post photo function
 })
 
@@ -55,8 +45,21 @@ angular.module('sceneit.map', [])
         return res.data;
     })
   };
+  var plotPoints = function(points){
+    var markers = L.markerClusterGroup();
+    var picIcon = L.Icon.extend({
+      options: {
+        iconSize: [40, 40]
+      }
+    })
+    for(var i = 0; i < points.length; i ++){
+      markers.addLayer(new L.marker([points[i].latitude, points[i].longitude], {icon: new picIcon({iconUrl: points[i].photoUrl})}))
+    }
+    return markers;
+  };
   return {
     getPoints : getPoints,
-    postPhotos : postPhotos
+    postPhotos : postPhotos,
+    plotPoints : plotPoints
   };
 });
