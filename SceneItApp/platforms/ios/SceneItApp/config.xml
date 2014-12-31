@@ -19,6 +19,7 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+<<<<<<< HEAD
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
@@ -28,6 +29,8 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+=======
+>>>>>>> initial IOS build
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>

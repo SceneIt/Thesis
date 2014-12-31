@@ -1,7 +1,7 @@
 angular.module('sceneit', [
-	'ui.router',
-	'sceneit.home',
-	'sceneit.map',
+  'ui.router',
+  'sceneit.home',
+  'sceneit.map',
   'sceneit.signin',
   'sceneit.signup',
   'sceneit.factories'

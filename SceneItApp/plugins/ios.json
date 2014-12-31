@@ -5,6 +5,7 @@
     },
     "config_munge": {
         "files": {
+<<<<<<< HEAD
             "config.xml": {
                 "parents": {
                     "/*": [
@@ -35,6 +36,8 @@
                     ]
                 }
             },
+=======
+>>>>>>> initial IOS build
             "framework": {
                 "parents": {
                     "CoreLocation.framework": [
@@ -69,6 +72,27 @@
                     ]
                 }
             },
+<<<<<<< HEAD
+=======
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+>>>>>>> initial IOS build
             "*-Info.plist": {
                 "parents": {
                     "NSLocationWhenInUseUsageDescription": [
@@ -82,6 +106,7 @@
         }
     },
     "installed_plugins": {
+<<<<<<< HEAD
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.sceneitapp213516"
         },
@@ -91,6 +116,8 @@
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.ionicframework.sceneitapp213516"
         },
+=======
+>>>>>>> initial IOS build
         "org.apache.cordova.geolocation": {
             "PACKAGE_NAME": "com.ionicframework.sceneitapp213516"
         },

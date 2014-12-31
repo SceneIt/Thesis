@@ -23,7 +23,7 @@ angular.module('sceneit.home', [])
 //     };
 // })
 
-.directive('skrollrTag', ['skrollrService', 
+.directive('skrollrTag', ['skrollrService',
     function(skrollrService){
         return {
             link: function(scope, element, attrs){
@@ -50,7 +50,7 @@ angular.module('sceneit.home', [])
     }
 ])
 
-.service('skrollrService', ['$document', '$q', '$rootScope', '$window', 
+.service('skrollrService', ['$document', '$q', '$rootScope', '$window',
     function($document, $q, $rootScope, $window){
         var defer = $q.defer();
 
@@ -111,4 +111,5 @@ angular.module('sceneit.home', [])
 //     };
 // });
 // >>>>>>> initial mobile app
+
 

@@ -48,7 +48,11 @@ angular.module('sceneIt.controllers', [])
   // onError Callback receives a PositionError object
   //
   function onError(error) {
+<<<<<<< HEAD
       alert('code: '    + error.code    + '\n' +
+=======
+      console.log('code: '    + error.code    + '\n' +
+>>>>>>> initial IOS build
             'message: ' + error.message + '\n');
   }
 
