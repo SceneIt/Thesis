@@ -15,7 +15,6 @@ angular.module('sceneit.map', [])
 	map.addLayer(layer);
   $scope.initPoints = function(){
     MapFactory.getPoints().then(function(data){
-      console.log(data);
       map.addLayer(MapFactory.plotPoints(data));
     });
   };
@@ -51,10 +50,17 @@ angular.module('sceneit.map', [])
       options: {
         iconSize: [40, 40]
       }
-    })
+    });
     for(var i = 0; i < points.length; i ++){
-      markers.addLayer(new L.marker([points[i].latitude, points[i].longitude], {icon: new picIcon({iconUrl: points[i].photoUrl})}))
-    }
+      var picMarker = new L.marker([points[i].latitude, points[i].longitude], {
+        icon: new picIcon({
+          iconUrl: points[i].photoUrl
+        })
+      });
+      picMarker.bindPopup('<h5>'+points[i].description+'</h5><br></br><img src = '+points[i].photoUrl+' height = "300", width = "300">')
+      markers.addLayer(picMarker);
+    };
+    console.log(markers);    
     return markers;
   };
   return {
