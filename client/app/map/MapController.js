@@ -10,8 +10,8 @@ angular.module('sceneit.map', [])
     center: [40.7127837, -74.0059413],
     zoom: 6
 	});
-
-
+  //initializes markercluster
+  var markers = L.markerClusterGroup();
 	//add base map tiles
 	map.addLayer(layer);
   $scope.plotPoints = function(){
@@ -19,13 +19,13 @@ angular.module('sceneit.map', [])
       console.log(data);
       $scope.photos = data;
       for(var i = 0; i < $scope.photos.length; i ++){
-        var marker = new L.marker([$scope.photos[i].latitude,$scope.photos[i].longitude])
-        map.addLayer(marker);
+        markers.addLayer(new L.marker([$scope.photos[i].latitude,$scope.photos[i].longitude]))
       }
+      map.addLayer(markers);
     })
   }
 
-  $scope.plotPoints();
+  $scope.plotPoints()
   //calling the post photo function
 })
 

@@ -7,9 +7,9 @@ var sequelize = new Sequelize('sceneitDB',process.env.DB_USER, process.env.DB_PW
 //define schema
 sequelize.authenticate().complete(function(err){
 if(!!err){
-		console.log(err,'suck');
+		console.log(err);
 	} else {
-		console.log('yay')
+		console.log('sequelize authenticated');
 	}
 })
 var Photo = sequelize.define('Photo',{
