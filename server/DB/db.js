@@ -7,9 +7,9 @@ var sequelize = new Sequelize('sceneitDB',process.env.DB_USER, process.env.DB_PW
 //define schema
 sequelize.authenticate().complete(function(err){
 if(!!err){
-		console.log(err,'suck');
+		console.log(err);
 	} else {
-		console.log('yay')
+		console.log('sequelize authenticated');
 	}
 })
 var Photo = sequelize.define('Photo',{
@@ -17,7 +17,7 @@ var Photo = sequelize.define('Photo',{
 	longitude: Sequelize.STRING, 
 	description: Sequelize.STRING, 
 	photoUrl: Sequelize.STRING, 
-	timeStamp: Sequelize.STRING, 
+	timeStamp: Sequelize.DATE, 
 	score: Sequelize.INTEGER
 });
 //comment table schema
@@ -48,15 +48,4 @@ exports.User = User;
 exports.Photo = Photo;
 exports.Comment = Comment;
 
-// var CartoDB   = require("cartoDB");
-// var client    = new CartoDB({
-// 	user: process.env.CARTODB_USER, /*|| 'secenit',*/
-// 	api_key: process.env.CARTODB_API /*|| '0f195be5428ef6691bb4af378123eb237522f8af'*/
-// });
-// var db        = {};
-// db.client = client;
-// db.CartoDB = CartoDB;
 
-
-
-// module.exports = db;
