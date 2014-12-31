@@ -1,0 +1,43 @@
+{
+  "name": "Thesis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raymondma1/Thesis.git"
+  },
+  "author": "Issac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/power9/Thesis/issues"
+  },
+  "homepage": "https://github.com/power9/Thesis",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "cartodb": "^0.2.1",
+    "express": "^4.10.6",
+<<<<<<< HEAD
+    "http": "0.0.0",
+    "nodemon": "^1.2.1",
+    "sequelize": "^2.0.0-rc3"
+=======
+    "method-override": "^2.3.0",
+    "url": "https://github.com/power9/Thesis.git"
+  },
+  "author": "Issac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/power9/Thesis/issues"
+  },
+  "homepage": "https://github.com/power9/Thesis",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "express": "^4.10.6",
+    "nodemon": "^1.2.1"
+>>>>>>> c9a3d0eaa0db4228dae6f5e6b0755370917eee43
+  }
+}
