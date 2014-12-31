@@ -3,43 +3,20 @@
 <head>
  <title>SceneIt</title>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<<<<<<< HEAD
-  <script src="bower_components/jquery/dist/jquery.onepage-scroll.min.js"></script>
-=======
->>>>>>> c9a3d0eaa0db4228dae6f5e6b0755370917eee43
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/leaflet/dist/leaflet.js"></script>
+  <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
   <script src="app/app.js"></script>
   <script src="app/home/HomeController.js"></script>
   <script src="app/map/MapController.js"></script>
-<<<<<<< HEAD
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-  <!-- <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" /> -->
-  <!-- <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" /> -->
-  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" />
-  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
-  <link rel="stylesheet" type="text/css" href="/styles/onepage-scroll.css" />
   <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
-  <script>
-      $(document).ready(function(){
-        $(".main").onepage_scroll({
-         sectionContainer: "section",
-         easing: "ease",                  
-         animationTime: 1000,             
-         pagination: true,               
-         updateURL: false,               
-         beforeMove: function(index) {},  
-         afterMove: function(index) {},   
-         loop: false,                     
-         keyboard: true,                  
-         responsiveFallback: false,        
-         direction: "vertical"    
-        });
-      });
-      
-  </script>
 </head>
 <body>
     <header class="main-header">
@@ -90,26 +67,3 @@
 
 </body>
 </html>
-=======
- <!--  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-  <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
-  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.11/themes/css/cartodb.css" /> -->
-  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
-
-</head>
-<body>
-  <header class="main-header">
-      <div class="logo">
-        <h1>SceneIt</h1>
-      </div>
-  </header>
-
-    <div ui-view>
-      
-    </div>
-
-</body>
-</html>
->>>>>>> c9a3d0eaa0db4228dae6f5e6b0755370917eee43
