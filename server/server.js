@@ -1,13 +1,11 @@
-var express        = require('express');
-var bodyParser     = require('body-parser');
+var express = require('express');
+var db = require('./DB/db.js');
+
 
 var app = express();
-
 app.use(express.static(__dirname + '/../client'))
 
-var port = process.env.PORT || 8000;
-app.set('port', port);
+require('./config/middleware')(app, express);
 
-app.listen(app.get('port'), function(){
-  console.log("Applet listening on port " + port);
-});
+module.exports = app;
+
