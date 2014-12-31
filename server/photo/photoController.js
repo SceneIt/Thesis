@@ -11,7 +11,14 @@
     //adds photo to database ~ req comes in as JSON
     postPhoto: function(req,res){
       var newPhoto = req.body
-      db.Photo.create({latitude: newPhoto.latitude, longitude: newPhoto.longitude, description: newPhoto.description, photoUrl: newPhoto.photoUrl, timeStamp: new Date(),score:0})
+      db.Photo.create({
+        latitude: newPhoto.latitude, 
+        longitude: newPhoto.longitude, 
+        description: newPhoto.description, 
+        photoUrl: newPhoto.photoUrl, 
+        timeStamp: new Date(),
+        score:0
+      })
       .success(function(data){
         res.json(data.values);
         //console.log(data.values);
