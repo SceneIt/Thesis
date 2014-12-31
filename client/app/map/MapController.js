@@ -12,8 +12,20 @@ angular.module('sceneit.map', [])
 	});
 
 
-	//adds custom map layer to maps
+	//add base map tiles
 	map.addLayer(layer);
+  $scope.plotPoints = function(){
+    MapFactory.getPoints().then(function(data){
+      console.log(data);
+      $scope.photos = data;
+      for(var i = 0; i < $scope.photos.length; i ++){
+        var marker = new L.marker([$scope.photos[i].latitude,$scope.photos[i].longitude])
+        map.addLayer(marker);
+      }
+    })
+  }
+
+  $scope.plotPoints();
   //calling the post photo function
 })
 
