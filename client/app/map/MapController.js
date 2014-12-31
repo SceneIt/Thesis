@@ -14,20 +14,32 @@ angular.module('sceneit.map', [])
 
 	//adds custom map layer to maps
 	map.addLayer(layer);
-  MapFactory.getPoints();
-  //getPoints();
+  //calling the post photo function
 })
 
 .factory('MapFactory', function($http){
+  //getPoints function will return an array of objects
   var getPoints = function(){
     return $http({
       method: 'GET',
       url: '/api/photo/data'
     }).then(function(res){
-      console.log(res.data);
+      return(res.data);
     });
-  }
+  };
+  //postPhotos function will post object into database
+  var postPhotos = function(photoData){
+    return $http({
+      method: 'POST',
+      url: 'api/photo/data',
+      data: photoData
+    }).then(function(res){
+        console.log('uplodaded',res.data);
+        return res.data;
+    })
+  };
   return {
-    getPoints : getPoints
+    getPoints : getPoints,
+    postPhotos : postPhotos
   }
 })
