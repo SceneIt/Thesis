@@ -1,41 +1,60 @@
-<!-- 
-<div parallax-background parallax-ratio="0.2">
-	<form class="centered">
-	  	<h1>Look anywhere. Anytime.</h1>
-	  	<div class="form-group has-feedback">
-	    	<input placeholder="San Francisco, CA" type="text" ng-enter="func()">
-	    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-	  	</div>
-	</form>
+
+<div class="parallax-image-wrapper parallax-image-wrapper-100 skrollable skrollable-between" 
+			data-anchor-target="#section1" 
+			>
 </div>
 
-<div parallax-background parallax-ratio="1.88" style="background-position:50% 360px">
-	<form class="centered">
-	  	<h1>Been there. Done that.</h1>
-	  	<div class="form-group has-feedback">
-	    	<input placeholder="Los Angeles, CA" type="text" ng-enter="func()">
-	    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-	  	</div>
-	</form>
+<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#section2"
+		>
 </div>
- -->
 
-<!-- <h1 parallax parallax-ratio="2.4" parallax-vertical-offset="100" parallax-horizontal-offset="600" style="position:absolute;">Angular Parallax</h1> -->
-<div parallax-background class="city photo" parallax-ratio=".2">
+<div
+		class="parallax-image-wrapper parallax-image-wrapper-50"
+		data-anchor-target="#section3"
+		>
 </div>
-<div parallax-background class="city2 photo" parallax-ratio=".2">
-	<!-- <div parallax parallax-ratio="-0.6"> -->
-		<form class="centered" >
-			<h1>Photos that tell stories.</h1>
-	  	<div class="form-group has-feedback">
-	    	<input placeholder="San Francisco, CA" type="text" ng-enter="func()">
-	    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-	  	</div>
-		</form>
-	<!-- </div> -->
-</div>
-<div parallax-background class="city3 photo" parallax-ratio=".2" ></div>
 
 
-<!-- <div parallax-background class="city photo" parallax-ratio="1.2" ></div> -->
-        <!-- <img parallax parallax-ratio="1.88" parallax-vertical-offset="100" parallax-horizontal-offset="40" style="position:absolute;" src="app/images/city2.png" /> -->
+<div skrollr-tag id="skrollr-body">
+		<div class="header city2 photo" id="section1">
+				<div class="homeText" data-0="top:0%" data-700="top:10%">
+					<h1>Photos that tell stories.</h1>
+				</div>
+				<form class="centered">
+					<h2>Find out what's going on</h2>
+					<h3> All around the world </h3>
+			  	<div class="form-group has-feedback">
+			    	<input placeholder="FIND YOUR CITY" type="text" ng-enter="func()">
+			    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+			  	</div>
+				</form>
+		</div>
+
+		<div class="content city photo" id="section2">
+		<!-- 	<div class="centered" data-700="top:100%" data-1200="top:25%">
+				<h1>Find out what's going on</h1>
+				<h3> All around the world </h3>
+			</div>
+			<form class="centered" data-700="top:100%" data-1200="top:35%">
+				<h1>Photos that tell stories.</h1>
+		  	<div class="form-group has-feedback">
+		    	<input placeholder="Find your city" type="text" ng-enter="func()">
+		    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+		  	</div>
+			</form> -->
+		</div>
+
+		<div class="content city3 photo" id="section3">
+			
+		</div>
+	
+</div>
+<!-- <form class="centered" >
+					<h1>Photos that tell stories.</h1>
+			  	<div class="form-group has-feedback">
+			    	<input placeholder="San Francisco, CA" type="text" ng-enter="func()">
+			    		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+			  	</div>
+				</form> -->
