@@ -44,6 +44,13 @@
 		2461B4C4568C405AA3302E1E /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2C63F6EEB142E18744027D /* CDVCamera.m */; };
 		F44704B3D9B64D988554A9BD /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC275929DE241198151A2AE /* CDVJpegHeaderWriter.m */; };
 		C870E7BB8C5443479BDBC7A0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A67FE612EC74134AC5BFA00 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		61B24C55A9AF4BE9B15D8962 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D66A8428760454E9421FC22 /* MBProgressHUD.m */; };
+		F5CF9F45DBBB4ECA984CCFC4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */; };
+		9646BC2DEB4043D0B1D543C0 /* ProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 375B1514689B487E8336C5ED /* ProgressIndicator.bundle */; };
+		6439907A6AB94785AE654181 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B683897E65341FB90CD31C0 /* CDVFile.m */; };
+		A9B5B0D7549E4F4297A48AF6 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5CEEA2FB5341AEB91C2BDD /* CDVLocalFilesystem.m */; };
+		21AC03C339C644E982F3E4A1 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF73D7D7E314685A6C760D8 /* CDVAssetLibraryFilesystem.m */; };
+		1D1A9A98AE514C5BB3E3B642 /* CDVFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8FA74E58C4EAE895411FE /* CDVFileTransfer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +125,19 @@
 		DC4F188D21BB4FBEB2E6728C /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVJpegHeaderWriter.h"; path = "org.apache.cordova.camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		87535F5C543A4489B66A07E5 /* CDVExif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVExif.h"; path = "org.apache.cordova.camera/CDVExif.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		5A67FE612EC74134AC5BFA00 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		9D66A8428760454E9421FC22 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD.m"; path = "org.pbernasconi.progressindicator/MBProgressHUD.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ProgressIndicator.m"; path = "org.pbernasconi.progressindicator/ProgressIndicator.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1B86952D7B2C4D23A7F499F4 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD.h"; path = "org.pbernasconi.progressindicator/MBProgressHUD.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		337692891DCA4919AE9D3D69 /* ProgressIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ProgressIndicator.h"; path = "org.pbernasconi.progressindicator/ProgressIndicator.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		375B1514689B487E8336C5ED /* ProgressIndicator.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "ProgressIndicator.bundle"; path = "ProgressIndicator.bundle"; sourceTree = "<group>"; };
+		8B683897E65341FB90CD31C0 /* CDVFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVFile.m"; path = "org.apache.cordova.file/CDVFile.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6D5CEEA2FB5341AEB91C2BDD /* CDVLocalFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocalFilesystem.m"; path = "org.apache.cordova.file/CDVLocalFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1FF73D7D7E314685A6C760D8 /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAssetLibraryFilesystem.m"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		2562FB784CBC4943999E14F3 /* CDVFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFile.h"; path = "org.apache.cordova.file/CDVFile.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F469C11174CE44E2861E790C /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocalFilesystem.h"; path = "org.apache.cordova.file/CDVLocalFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		1130E3420AF5499E9BAA74E6 /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAssetLibraryFilesystem.h"; path = "org.apache.cordova.file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		52D8FA74E58C4EAE895411FE /* CDVFileTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVFileTransfer.m"; path = "org.apache.cordova.file-transfer/CDVFileTransfer.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		AE674C1357C2492890D4B7AC /* CDVFileTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFileTransfer.h"; path = "org.apache.cordova.file-transfer/CDVFileTransfer.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +212,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* SceneItApp-Info.plist */,
+				375B1514689B487E8336C5ED /* ProgressIndicator.bundle */,
 			);
 			name = Resources;
 			path = "SceneItApp/Resources";
@@ -227,6 +248,18 @@
 				B63CCC5CE8E046B2BC388EB8 /* CDVCamera.h */,
 				DC4F188D21BB4FBEB2E6728C /* CDVJpegHeaderWriter.h */,
 				87535F5C543A4489B66A07E5 /* CDVExif.h */,
+				9D66A8428760454E9421FC22 /* MBProgressHUD.m */,
+				F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */,
+				1B86952D7B2C4D23A7F499F4 /* MBProgressHUD.h */,
+				337692891DCA4919AE9D3D69 /* ProgressIndicator.h */,
+				8B683897E65341FB90CD31C0 /* CDVFile.m */,
+				6D5CEEA2FB5341AEB91C2BDD /* CDVLocalFilesystem.m */,
+				1FF73D7D7E314685A6C760D8 /* CDVAssetLibraryFilesystem.m */,
+				2562FB784CBC4943999E14F3 /* CDVFile.h */,
+				F469C11174CE44E2861E790C /* CDVLocalFilesystem.h */,
+				1130E3420AF5499E9BAA74E6 /* CDVAssetLibraryFilesystem.h */,
+				52D8FA74E58C4EAE895411FE /* CDVFileTransfer.m */,
+				AE674C1357C2492890D4B7AC /* CDVFileTransfer.h */,
 			);
 			name = Plugins;
 			path = "SceneItApp/Plugins";
@@ -380,6 +413,7 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				9646BC2DEB4043D0B1D543C0 /* ProgressIndicator.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +448,12 @@
 				0DF266BE54BE485B9B6BDD2C /* CDVLocation.m in Sources */,
 				2461B4C4568C405AA3302E1E /* CDVCamera.m in Sources */,
 				F44704B3D9B64D988554A9BD /* CDVJpegHeaderWriter.m in Sources */,
+				61B24C55A9AF4BE9B15D8962 /* MBProgressHUD.m in Sources */,
+				F5CF9F45DBBB4ECA984CCFC4 /* ProgressIndicator.m in Sources */,
+				6439907A6AB94785AE654181 /* CDVFile.m in Sources */,
+				A9B5B0D7549E4F4297A48AF6 /* CDVLocalFilesystem.m in Sources */,
+				21AC03C339C644E982F3E4A1 /* CDVAssetLibraryFilesystem.m in Sources */,
+				1D1A9A98AE514C5BB3E3B642 /* CDVFileTransfer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

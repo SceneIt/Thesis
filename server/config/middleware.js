@@ -7,6 +7,8 @@ module.exports = function(app, express) {
   app.use(bodyParser.json());
 
   app.use('/api/photo',photoRouter);
-
   require('../photo/photoRoutes')(photoRouter);
+
+  app.use('/photo', photoRouter);
+  require('../photo/takePhoto')(photoRouter);
 };

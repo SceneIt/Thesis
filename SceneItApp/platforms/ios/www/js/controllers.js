@@ -56,7 +56,7 @@ angular.module('sceneIt.controllers', [])
   //
   var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 })
-.controller('cameraCtrl', function($scope) {
+.controller('cameraCtrl', function($http, $scope, $cordovaProgress, $timeout, $cordovaFile) {
   var cameraOptions = {
     quality: 50,
     destinationType: Camera.DestinationType.FILE_URI,
@@ -67,16 +67,49 @@ angular.module('sceneIt.controllers', [])
   $scope.data = '_';
   $scope.takePicture = function(){
     navigator.camera.getPicture(function(imageURI) {
-      var image = document.getElementById('myImage');
-          image.src = imageURI;
-          $scope.data = imageURI;
-      // imageURI is the URL of the image that we can use for
-      // an <img> element or backgroundImage.
-      console.log('camera success');
+      $scope.data = 'success';
+      var image = document.getElementById('preview');
+      $scope.imageData = imageURI;
+      image.src = $scope.imageData;
+      // $http.post('http:10.6.32.229:8000/photo/take', imageURI).success(function(data){
+      //   alert('success');
+      // });
+
     }, function(err) {
       $scope.data = 'fail';
       console.log('camera error');
 
     }, cameraOptions);
   }
+
+  $scope.uploadPicture = function(){
+    var server = encodeURI('http://10.6.32.229:8000/photo/take');
+    var win = function (r) {
+      $cordovaProgress.showSuccess(true, "Success!");
+      $timeout($cordovaProgress.hide, 2000);
+    }
+
+    var fail = function (error) {
+        alert('upload Fail');
+    }
+
+    var options = new FileUploadOptions();
+    options.mimeType = "image/JPEG";
+
+    var ft = new FileTransfer();
+    ft.upload($scope.imageData, server, win, fail, options);
+    // $cordovaFile
+    //     .uploadFile(server, $scope.imageData)
+    //     .then(function(result) {
+    //       alert(result);
+    //       $cordovaProgress.showSuccess(true, "Success!");
+    //       $timeout($cordovaProgress.hide, 2000);
+    //     }, function(err) {
+    //       alert('error');
+    //     }, function (progress) {
+    //       // constant progress updates
+    //       alert(progress);
+    //       $cordovaProgress.showBar(true, 50000)
+    //     });
+  };
 });

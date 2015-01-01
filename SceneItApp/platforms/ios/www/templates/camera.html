@@ -1,9 +1,12 @@
 <ion-view view-title="Camera">
   <ion-content>
     <ion-list>
+    <preference name="CameraUsesGeolocation" value="true" />
     <button ng-click="takePicture()"  class="button button-block button-primary">Take pic</button>
     <h4>{{ data }}</h4>
-    <img id="myImage"></img>
+    <img id="preview" width="200" height="200"></img>
+    <button ng-click="uploadPicture()"  class="button button-block button-primary">upload pic</button>
+
     </ion-list>
   </ion-content>
 </ion-view>
