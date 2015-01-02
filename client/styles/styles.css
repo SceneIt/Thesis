@@ -70,6 +70,7 @@
     font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
     font-weight: 100;
     font-size: 60px;
+    color:white;
   }
 
   .container {
@@ -237,13 +238,13 @@
   }
 
   span.glyphicon-search {
-    margin-right: -17%;
-    margin-top: 1.35%;
+    margin-right: -27%;
+    margin-top: 1.5%;
   }
 
   i.glyphicon-align-justify {
     display:inline-block;
-    font-size: 1.4em;
+    font-size: 1.7em;
     right: 0;
     margin-top: 0.4%;
   }
@@ -276,7 +277,7 @@
   }
 
   .menu-close-icon {
-    padding:26px 100px;
+    padding:26px 96px;
     /*padding:20px 100px;*/
     cursor: pointer;
     font-size:25px;
