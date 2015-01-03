@@ -3,7 +3,7 @@ angular.module('sceneit.map', [])
 .controller('MapController',function($scope, $http, MapFactory) {
 	//loads map tiles from custom maps of mapbox
 	var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
-  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	});
 	//creates leaflet map with given lat / long points with zoom level of 6.
 	var map = L.map('map', {
