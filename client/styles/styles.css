@@ -26,8 +26,9 @@
     border-bottom: 1px solid rgb(213, 213, 213);
     margin: 0 auto;
     padding: 0 10px;
-    opacity: 0.95;
-    background-color: rgb(213, 213, 213);
+    opacity: .80;
+    background-color: black;
+    color: white;
   }
   .parallax-image-wrapper {
     position:fixed;
@@ -149,6 +150,7 @@
     margin: 0 0 0 5%;
     position: fixed;
     z-index: 1;
+    opacity: 1.00;
   }
 
   .logo h1{
@@ -159,8 +161,9 @@
     cursor: pointer;
     margin-top: 0%;
     vertical-align: baseline;
-    color: black;
+    color: white;
     font-weight:100;
+    opacity:2.00;
   }
 
   .city {
@@ -168,7 +171,7 @@
   }
 
   .city2 {
-    background-image: url(../app/images/map.png);
+    background-image: url(../app/images/map3.jpg);
   }
 
   .city3 {
