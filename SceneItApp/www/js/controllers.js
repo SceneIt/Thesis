@@ -57,23 +57,34 @@ angular.module('sceneIt.controllers', [])
   var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 })
 .controller('cameraCtrl', function($http, $scope, $cordovaProgress, $timeout, $cordovaFile) {
-  var cameraOptions = {
-    quality: 50,
-    destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.CAMERA,
-    encodingType: Camera.EncodingType.JPEG,
-    allowEdit: true
-  }
   $scope.data = '_';
+  var cameraOptions = {
+    quality: 80,
+    // destinationType: Camera.DestinationType.NATIVE_URI,
+    encodingType: Camera.EncodingType.JPEG,
+    saveToPhotoAlbum: true,
+    targetWidth: 720,
+    targetHeight: 720
+    // allowEdit: true
+  }
+
   $scope.takePicture = function(){
+    cameraOptions.sourceType = Camera.PictureSourceType.CAMERA;
+    cameraOptions.destinationType = Camera.DestinationType.FILE_URI;
+    $scope.grabPicture();
+  }
+  $scope.selectPicture = function(){
+    cameraOptions.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+    cameraOptions.destinationType = Camera.DestinationType.NATIVE_URI;
+    $scope.grabPicture();
+  }
+  $scope.grabPicture = function(){
     navigator.camera.getPicture(function(imageURI) {
       $scope.data = 'success';
       var image = document.getElementById('preview');
       $scope.imageData = imageURI;
       image.src = $scope.imageData;
-      // $http.post('http:10.6.32.229:8000/photo/take', imageURI).success(function(data){
-      //   alert('success');
-      // });
+
 
     }, function(err) {
       $scope.data = 'fail';
@@ -82,8 +93,24 @@ angular.module('sceneIt.controllers', [])
     }, cameraOptions);
   }
 
+  $scope.description = {};
+  $scope.description.comment = '';
+
   $scope.uploadPicture = function(){
     var server = encodeURI('http://10.6.32.229:8000/photo/take');
+    var req = {
+     method: 'POST',
+     url: 'http://10.6.32.229:8000/photo/take',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     data: {desc: $scope.description}
+    }
+    // if($scope.description){
+      $http(req).success(function(){
+        alert('successful comment send');
+      });
+    // }
     var win = function (r) {
       $cordovaProgress.showSuccess(true, "Success!");
       $timeout($cordovaProgress.hide, 2000);
@@ -98,18 +125,5 @@ angular.module('sceneIt.controllers', [])
 
     var ft = new FileTransfer();
     ft.upload($scope.imageData, server, win, fail, options);
-    // $cordovaFile
-    //     .uploadFile(server, $scope.imageData)
-    //     .then(function(result) {
-    //       alert(result);
-    //       $cordovaProgress.showSuccess(true, "Success!");
-    //       $timeout($cordovaProgress.hide, 2000);
-    //     }, function(err) {
-    //       alert('error');
-    //     }, function (progress) {
-    //       // constant progress updates
-    //       alert(progress);
-    //       $cordovaProgress.showBar(true, 50000)
-    //     });
   };
 });
