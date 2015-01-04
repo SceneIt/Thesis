@@ -48,7 +48,7 @@ var path = require('path');
             db.Photo.create({
               latitude: that.convertDMSToDD(exifData.gps.GPSLatitude[0], exifData.gps.GPSLatitude[1], exifData.gps.GPSLatitude[2], exifData.gps.GPSLatitudeRef),
               longitude: that.convertDMSToDD(exifData.gps.GPSLongitude[0], exifData.gps.GPSLongitude[1], exifData.gps.GPSLongitude[2], exifData.gps.GPSLongitudeRef),
-              photoUrl: path.join('http://localhost:8000/photoStore/' + path.basename(saveTo)),
+              photoUrl: path.join('/photoStore/' + path.basename(saveTo)),
               timeStamp: new Date(),
               description: comment, 
               score:0
