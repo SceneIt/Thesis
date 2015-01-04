@@ -21,6 +21,12 @@ angular.module('sceneit.map', [])
 
   $scope.initPoints();
   //calling the post photo function
+
+
+  var control = L.control.geonames({username: 'cbi.test'});
+  console.log(control);
+  map.addControl(control);
+     
 })
 
 .factory('MapFactory', function($http){
