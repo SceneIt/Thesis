@@ -1,12 +1,13 @@
 angular.module('sceneit.map', [])
 
 .controller('MapController',function($scope, $http, MapFactory) {
-  //loads map tiles from custom maps of mapbox
-  var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-  });
-  //creates leaflet map with given lat / long points with zoom level of 6.
-  var map = L.map('map', {
+
+	//loads map tiles from custom maps of mapbox
+	var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
+  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+	//creates leaflet map with given lat / long points with zoom level of 6.
+	var map = L.map('map', {
     center: [40.7127837, -74.0059413],
     zoom: 6
   });
@@ -16,17 +17,18 @@ angular.module('sceneit.map', [])
   map.addLayer(layer);
   $scope.plotPoints = function(){
     MapFactory.getPoints().then(function(data){
-      console.log(data);
-      $scope.photos = data;
-      for(var i = 0; i < $scope.photos.length; i ++){
-        markers.addLayer(new L.marker([$scope.photos[i].latitude,$scope.photos[i].longitude]))
-      }
-      map.addLayer(markers);
-    })
-  }
+      map.addLayer(MapFactory.plotPoints(data));
+    });
+  };
 
-  $scope.plotPoints()
+  $scope.initPoints();
   //calling the post photo function
+
+
+  var control = L.control.geonames({username: 'cbi.test'});
+  console.log(control);
+  map.addControl(control);
+     
 })
 
 .factory('MapFactory', function($http){
@@ -50,8 +52,28 @@ angular.module('sceneit.map', [])
         return res.data;
     })
   };
+  var plotPoints = function(points){
+    var markers = L.markerClusterGroup();
+    var picIcon = L.Icon.extend({
+      options: {
+        iconSize: [40, 40]
+      }
+    });
+    for(var i = 0; i < points.length; i ++){
+      var picMarker = new L.marker([points[i].latitude, points[i].longitude], {
+        icon: new picIcon({
+          iconUrl: points[i].photoUrl
+        })
+      });
+      picMarker.bindPopup('<h5>'+points[i].description+'</h5><br></br><img src = '+points[i].photoUrl+' height = "300", width = "300">')
+      markers.addLayer(picMarker);
+    };
+    console.log(markers);    
+    return markers;
+  };
   return {
     getPoints : getPoints,
-    postPhotos : postPhotos
-  }
-})
+    postPhotos : postPhotos,
+    plotPoints : plotPoints
+  };
+});

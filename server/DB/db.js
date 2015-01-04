@@ -38,6 +38,7 @@ User.hasMany(Comment);
 Photo.hasMany(Comment);
 Photo.hasOne(User);
 
+
 User.sync();
 Photo.sync();
 Comment.sync();

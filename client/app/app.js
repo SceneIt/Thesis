@@ -4,7 +4,7 @@ angular.module('sceneit', [
 	'sceneit.map'
 ])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
@@ -20,4 +20,6 @@ angular.module('sceneit', [
     templateUrl: 'app/map/map.html',
     controller: 'MapController'
   });
+
+  // $locationProvider.html5Mode(true);
 });
