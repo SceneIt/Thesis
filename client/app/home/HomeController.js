@@ -71,7 +71,7 @@ angular.module('sceneit.home', [])
         var scriptTag = $document[0].createElement('script');
         scriptTag.type = 'text/javascript'; 
         scriptTag.async = true;
-        scriptTag.src = '/skrollr/skrollr.min.js';
+        scriptTag.src = '/lib/skrollr.min.js';
 
         scriptTag.onreadystatechange = function () {
             if (this.readyState === 'complete') onScriptLoad();
