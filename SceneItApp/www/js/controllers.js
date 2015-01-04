@@ -56,16 +56,30 @@ angular.module('sceneIt.controllers', [])
   //
   var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 })
-.controller('cameraCtrl', function($scope) {
-  var cameraOptions = {
-    quality: 50,
-    destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.CAMERA,
-    encodingType: Camera.EncodingType.JPEG,
-    allowEdit: true
-  }
+
+.controller('cameraCtrl', function($http, $scope, $cordovaProgress, $timeout, $cordovaFile) {
   $scope.data = '_';
+  var cameraOptions = {
+    quality: 80,
+    // destinationType: Camera.DestinationType.NATIVE_URI,
+    encodingType: Camera.EncodingType.JPEG,
+    saveToPhotoAlbum: true,
+    targetWidth: 720,
+    targetHeight: 720
+    // allowEdit: true
+  }
+
   $scope.takePicture = function(){
+    cameraOptions.sourceType = Camera.PictureSourceType.CAMERA;
+    cameraOptions.destinationType = Camera.DestinationType.FILE_URI;
+    $scope.grabPicture();
+  }
+  $scope.selectPicture = function(){
+    cameraOptions.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+    cameraOptions.destinationType = Camera.DestinationType.NATIVE_URI;
+    $scope.grabPicture();
+  }
+  $scope.grabPicture = function(){
     navigator.camera.getPicture(function(imageURI) {
       var image = document.getElementById('myImage');
           image.src = imageURI;
@@ -73,10 +87,48 @@ angular.module('sceneIt.controllers', [])
       // imageURI is the URL of the image that we can use for
       // an <img> element or backgroundImage.
       console.log('camera success');
+      $scope.data = 'success';
+      var image = document.getElementById('preview');
+      $scope.imageData = imageURI;
+      image.src = $scope.imageData;
     }, function(err) {
       $scope.data = 'fail';
       console.log('camera error');
 
     }, cameraOptions);
   }
+
+  $scope.description = {};
+  $scope.description.comment = '';
+
+  $scope.uploadPicture = function(){
+    var server = encodeURI('http://10.6.32.229:8000/photo/take');
+    var req = {
+     method: 'POST',
+     url: 'http://10.6.32.229:8000/photo/take',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     data: {desc: $scope.description}
+    }
+    // if($scope.description){
+      $http(req).success(function(){
+        alert('successful comment send');
+      });
+    // }
+    var win = function (r) {
+      $cordovaProgress.showSuccess(true, "Success!");
+      $timeout($cordovaProgress.hide, 2000);
+    }
+
+    var fail = function (error) {
+        alert('upload Fail');
+    }
+
+    var options = new FileUploadOptions();
+    options.mimeType = "image/JPEG";
+
+    var ft = new FileTransfer();
+    ft.upload($scope.imageData, server, win, fail, options);
+  };
 });
