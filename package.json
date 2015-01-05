@@ -17,13 +17,18 @@
   },
   "homepage": "https://github.com/power9/Thesis",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.10.0",
     "cartodb": "^0.2.1",
     "dotenv": "^0.4.0",
     "express": "^4.10.6",
+    "express-session": "^1.9.3",
     "http": "0.0.0",
+    "morgan": "^1.5.1",
     "mysql": "^2.5.4",
     "nodemon": "^1.2.1",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
     "sequelize": "^2.0.0-rc4"
   }
 }
