@@ -1,3 +1,4 @@
+
   .textarea {
     width: 20%;
     position: absolute;
@@ -5,7 +6,7 @@
   }
 
   .commentPane {
-    height:100vh;
+    height:100;
     width:20%;
     float:right;
     text-align:center;
@@ -80,6 +81,7 @@
     height:100%;
     overflow:visible;
     position:relative;
+    background:black;
   }
 
   .instructions {
@@ -177,6 +179,11 @@
     background-image: url(../app/images/Optimized-city3.png);
   }
 
+  .sec2 {
+    background-image: url(../app/images/sec2bg.jpeg);
+  }
+
+
 
   #properties {
   width: 100%;
@@ -205,17 +212,27 @@
 
   .homeText h1 {
     font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
-    font-size: 4em;
+    font-size: 3em;
     letter-spacing: 0.2rem;
     font-weight: 100;
     color: rgb(255, 132, 13);
     width:140%;
-    margin-left: -14%;
+    margin-left: -8%;
   }
 
+  .centered h1 {
+    font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+    font-size: 2.5em;
+    letter-spacing: 0.16rem;
+    font-weight: 100;
+    color: rgb(255, 132, 13);
+    width:140%;
+    margin-left: -8%;
+
+  }
   .centered h2 {
     font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
-    font-size: 2.7em;
+    font-size: 2.5em;
     letter-spacing: 0.16rem;
     font-weight: 100;
     color: rgb(255, 132, 13);
@@ -226,12 +243,15 @@
 
   .centered h3 {
     font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
-    font-size: 2.2em;
+    font-size: 2.0em;
     letter-spacing: 0.16rem;
     font-weight: 100;
     color: white;
     width:140%;
-    margin-left: -9%;
+    margin-left: -8%;
+  }
+  #bext {
+    margin-left: -8%;
   }
 
   .button {
@@ -244,7 +264,7 @@
     font-size: 4rem;
     line-height: 1.428571429;
     cursor: pointer;
-    text-align: center;
+    /*text-align: center;*/
   }
 
   #section3 a:hover {
@@ -353,11 +373,58 @@
     margin-top: -6px;
     border-top:1px solid rgba(0, 0, 0, 0.05)!important;
     margin-bottom:5px;
-  }
+  } 
 
-  .byLine {
-    font-size: 15px;
-    letter-spacing: 4px;
-    text-align: center;
-    font-weight:300;
-  }
+#test {
+  height: 200px;
+  width: 200px;
+  color: orange ;
+  position: absolute;
+  background-color: orange;
+}
+
+#header-buttons {
+  margin-top: -50px;
+  margin-right: -1000px;
+  float: right;
+}
+
+
+/*  .byLine {
+    position: absolute;
+    top: 63%;
+    left: 10%;
+    color:white;
+    max-width: 22%;
+  }*/
+
+/*#domExplosionList {
+  position: absolute;
+  width: 270px;
+  top: 100%;
+  right: 15%;
+  opacity: 0;
+}
+.dom-explosion-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+}
+.dei-1 { top: 0; left: 0; }
+.dei-2 { top: 0; left: 70px; }
+.dei-3 { top: 0; left: 140px; }
+.dei-4 { top: 0; left: 210px; }
+.dei-5 { top: 70px; left: 0; }
+.dei-6 { top: 70px; left: 70px; }
+.dei-7 { top: 70px; left: 140px; }
+.dei-8 { top: 70px; left: 210px; }
+.dei-9 { top: 140px; left: 0; }
+.dei-10 { top: 140px; left: 70px; }
+.dei-11 { top: 140px; left: 140px; }
+.dei-12 { top: 140px; left: 210px; }
+.dei-13 { top: 210px; left: 0; }
+.dei-14 { top: 210px; left: 70px; }
+.dei-15 { top: 210px; left: 140px; }
+.dei-16 { top: 210px; left: 210px; }*/
+
