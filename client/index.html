@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="sceneit">
 <head>
- <title>SceneIt</title> 
+ <title>Fleek</title> 
   <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css"/>
   <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css"/>
@@ -13,7 +13,6 @@
   <link rel="stylesheet" media="all" type="text/css" href="styles/L.Control.Geonames.css" />
 </head>
 <body>
-
     <div ui-view auto-scroll="false">
 
     </div>
@@ -59,8 +58,8 @@
     var s = skrollr.init({
     easing: {
         //This easing will sure drive you crazy
-        forceHeight: false,
-        smoothScrolling: false
+        forceHeight: true,
+        smoothScrolling: true
     }
 });
   </script>
