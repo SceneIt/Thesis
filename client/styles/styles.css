@@ -21,15 +21,15 @@
     position: fixed;
     top: 0;
     left: 0;
+    height:100%;
     width: 100%;
     min-width: 400px;
-    height: 7%;
-    border-bottom: 1px solid rgb(213, 213, 213);
+    height: 8%;
+    border-bottom: 1px solid rgb(29, 202, 255);
     margin: 0 auto;
     padding: 0 10px;
     opacity: .80;
     background-color: black;
-    color: white;
   }
   .parallax-image-wrapper {
     position:fixed;
@@ -139,6 +139,7 @@
     position: absolute;
     margin: 25% 35%;
     z-index: 1;
+    left:2%;
   } 
 
   .homeText {
@@ -150,7 +151,7 @@
 
   .logo{
     margin: 0 0 0 5%;
-    position: fixed;
+    position: relative;
     z-index: 1;
     opacity: 1.00;
   }
@@ -162,7 +163,7 @@
     cursor: pointer;
     margin-top: 0%;
     vertical-align: baseline;
-    color: white;
+    color: rgb(29, 202, 255);
     font-weight:100;
     opacity:2.00;
   }
@@ -180,7 +181,8 @@
   }
 
   .sec2 {
-    background-image: url(../app/images/sec2bg.jpeg);
+        background-image: url(../app/images/sec2bg.jpg);
+
   }
 
 
@@ -215,7 +217,7 @@
     font-size: 3em;
     letter-spacing: 0.2rem;
     font-weight: 100;
-    color: rgb(255, 132, 13);
+    color: rgb(29, 202, 255);
     width:140%;
     margin-left: -8%;
   }
@@ -235,7 +237,7 @@
     font-size: 2.5em;
     letter-spacing: 0.16rem;
     font-weight: 100;
-    color: rgb(255, 132, 13);
+    color: rgb(29, 202, 255);
     width:140%;
     margin-left: -8%;
   }
@@ -384,8 +386,7 @@
 }
 
 #header-buttons {
-  margin-top: -50px;
-  margin-right: -1000px;
+  top: -200%;
   float: right;
 }
 
