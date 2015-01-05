@@ -8,7 +8,6 @@ angular.module('sceneit.signin', [])
 
   Auth.userInfo = $scope.user;
 
-
   $scope.signin = function(){
     Auth.signin(Auth.userInfo);
   };

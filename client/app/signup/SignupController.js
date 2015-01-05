@@ -6,7 +6,6 @@ angular.module('sceneit.signup', ['ngCookies'])
 		password: 'enter a password',
 		email: 'enter an email'
 	}
-console.log('signup Auth', Auth);
 
 	$scope.user = Auth.userInfo;
 

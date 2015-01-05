@@ -26,7 +26,7 @@ angular.module('sceneit', [
     templateUrl: 'app/map/map.html',
     controller: 'MapController',
     data: {
-      authenticate: true
+      authenticate: false
     }
 
   });
@@ -58,6 +58,7 @@ angular.module('sceneit', [
 .run(function ($rootScope, Auth, Session) {
 
   $rootScope.$on("$stateChangeStart",function(event, nextState, toParams, fromState, fromParams){
+    console.log('State change start');
     if(!Auth.isAuthenticated() && nextState.data.authenticate){
       event.preventDefault();
     }

@@ -31,12 +31,12 @@ module.exports = function(app, express) {
   app.use(helpers.errorHandler);
 
   passport.serializeUser(function(user, done) {
-    console.log('user', user, 'done', done)
-    console.log('serialize');
+    console.log('Serialized');
     done(null, user);
   });
 
   passport.deserializeUser(function(user, done) {
+  	console.log('Deserialized');
     db.User.find({
       where:{
         userName: user.username
@@ -50,11 +50,8 @@ module.exports = function(app, express) {
 
 
   app.post('/api/signup', passport.authenticate('local-signup'),  function(req, res, next){
-          console.log('Authenticate done');
     if(req.isAuthenticated()){
-            console.log('Authenticated');
-      console.log('signup pass');
-      // console.log(res);
+      console.log('Signup success');
       res.cookie('user', req.body.username, { httpOnly: false } );
       res.status(200).send({username: req.body.username});
       next();
@@ -67,7 +64,7 @@ module.exports = function(app, express) {
 
   app.post('/api/signin', passport.authenticate('local-signin'), function(req, res, next){
    if(req.isAuthenticated()){
-      console.log('Authenticated');
+      console.log('Signin success');
       res.cookie('user', req.body.username, { httpOnly: false } );
       res.status(200).send({username: req.body.username});
       next();
@@ -78,67 +75,44 @@ module.exports = function(app, express) {
   });
 
   app.post('/api/logout', function(req, res, next){
-    console.log('hello');
       req.logout();  
       res.clearCookie('user');
-      // req.session.destroy(function(err){
-      //   if(err){
-      //     throw err;
-      //   }
-      //   console.log('Logged out successfully');
-
-      // // });
       delete req.session.user;
       req.session.authenticated = false;
       res.clearCookie('connect.sid');
       res.sendStatus(200);
+      console.log('Logout success');
   });
 
- // app.get('/api/auth', function(req, res, next){
- //  console.log('AUTH was called');
- //  if(!req.isAuthenticated()){
-
- //    res.clearCookie('connect.sid');
- //    res.sendStatus(401);
-
- //  }
- //  });
-
-
-
 	app.get('*', function(req, res) {
-	  console.log('it got *****')
-	  console.log('server is Authenticated', req.isAuthenticated());
-	    if(!req.isAuthenticated()){
+		if(!req.isAuthenticated()){
+			res.sendStatus(401); // load our public/index.html file
+		}
+	});
 
-	            res.sendStatus(401); // load our public/index.html file
-	    }
-	        });
-
-	  passport.use('local-signup', new LocalStrategy({
-	    passReqToCallback : true
+  passport.use('local-signup', new LocalStrategy({
+    passReqToCallback : true
 	  },
-	    function(req,username, password, done){
-	      db.User.find({
-	        where: {
-	          userName: username
-	        }
-	      }).then(function(user){
-	        if(!user){
-	          addUser(req.body.username, req.body.password, req.body.email);
-	          userDB = {username: req.body.username};
-	          return done(null, userDB);//{username: req.body.username, password: req.body.password});
-	        }
+    function(req,username, password, done){
+      db.User.find({
+        where: {
+          userName: username
+        }
+    }).then(function(user){
+      if(!user){
+        addUser(req.body.username, req.body.password, req.body.email);
+        userDB = {username: req.body.username};
+        return done(null, userDB);//{username: req.body.username, password: req.body.password});
+      }
 
-	        if(user){
-	          console.log('User Already Exists');
-	          return done(null, false);
-	        }
-	      }).catch(function(err){
-	      });
-	    }
-	  ));
-	};
+      if(user){
+        console.log('User Already Exists');
+        return done(null, false);
+      }
+    }).catch(function(err){
+	    
+    })}
+  ));
 
 	passport.use('local-signin', new LocalStrategy({
 	  passReqToCallback: true
@@ -170,21 +144,24 @@ module.exports = function(app, express) {
 	}));
 
 
-//Adds user reg info to database
-var addUser = function(username, password, email){
-  db.User.create({
-    userName: username,
-    password: bcrypt.hashSync(password, bcrypt.genSaltSync(10), null),
-    email: email
-  });
-}
+	//Adds user reg info to database
+	var addUser = function(username, password, email){
+	  db.User.create({
+	    userName: username,
+	    password: bcrypt.hashSync(password, bcrypt.genSaltSync(10), null),
+	    email: email
+	  });
+	}
 
-var auth = function(req, res, next){ 
-  if (!req.isAuthenticated()) 
-    res.sendStatus(401); 
-  else next(); 
-}; 
-
+	var auth = function(req, res, next){ 
+	  if (!req.isAuthenticated()){	
+	    res.sendStatus(401); 
+	  }
+	  else {
+	  	next();
+		} 
+	}; 
+};
 
 
 

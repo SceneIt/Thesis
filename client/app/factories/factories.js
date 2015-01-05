@@ -2,7 +2,6 @@ angular.module('sceneit.factories', ['ngCookies'])
 
 .factory('Home', function($http) {
 	var search = function() {
-
 	}
 
 	return {
@@ -17,9 +16,11 @@ angular.module('sceneit.factories', ['ngCookies'])
     _username = usernameIN;
     return _username;
   };
+
   var username = function(){
     return _username;
   }
+
   var create = function(usernameCreate){
     _username = usernameCreate;
   };
@@ -43,19 +44,17 @@ angular.module('sceneit.factories', ['ngCookies'])
     password: 'password',
     email: 'email'
   };
+
+  //Keep state when refreshed
   function init() {
-        if ($cookies["user"]) {
-            Session.create($cookies.user);
-        }
-    }
+		if ($cookies["user"]) {
+			Session.create($cookies.user);
+		}
+	}
   init();
 
-  var isAuthenticated = function(routeAuth){
-    console.log('inside isAuthenticated');
-    console.log('username', Session.username());
-    console.log('routeAuth', routeAuth);
-    console.log('rootScope', $rootScope.username);
-    return !!Session.username() || routeAuth;
+  var isAuthenticated = function(){
+    return !!Session.username();
   };
 
   var signup = function(user){
@@ -65,12 +64,8 @@ angular.module('sceneit.factories', ['ngCookies'])
       data: userInfo
     })
     .then(function(res){
-      console.log('SEssion', Session)
       Session.create(res.data.username);
-      console.log('HTTP username', res.data.username)
       $state.go('home');
-    }).catch(function(err){
-
     });
   };
 
@@ -81,10 +76,7 @@ angular.module('sceneit.factories', ['ngCookies'])
       data: userInfo
     })
     .then(function(res){
-      console.log('SEssion', Session);
-      console.log('siginin data', res);
       Session.create(res.data.username);
-      console.log('HTTP username', res.data.username)
       $state.go('home');
     }))
   };
@@ -95,18 +87,16 @@ angular.module('sceneit.factories', ['ngCookies'])
       url: '/api/logout'
     }).
     then(function(res){
-    console.log('RES logout', res)
     var userInfo = {
       username: 'username',
       password: 'password',
       email: 'email'
     }   
-    $rootScope.username = null;
-    Session.destroy();   
+	    $rootScope.username = null;
+	    Session.destroy();   
       $location.path('/signin');
     }
-  );
-  };
+  );};
 
   return {
     userInfo: userInfo,
