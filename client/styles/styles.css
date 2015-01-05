@@ -21,10 +21,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    height:100%;
     width: 100%;
     min-width: 400px;
-    height: 8%;
+    height: 60px;
     border-bottom: 1px solid rgb(29, 202, 255);
     margin: 0 auto;
     padding: 0 10px;
@@ -386,7 +385,6 @@
 }
 
 #header-buttons {
-  top: -200%;
   float: right;
 }
 
