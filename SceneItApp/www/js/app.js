@@ -29,15 +29,15 @@ angular.module('sceneIt', ['ionic','ngCordova', 'sceneIt.controllers'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-        // controller: 'GeoTestCtrl'
-      }
-    }
-  })
+  // .state('app.comments', {
+  //   url: "/comments",
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: "templates/comments.html"
+  //       // controller: 'GeoTestCtrl'
+  //     }
+  //   }
+  // })
   .state('app.camera', {
     url: "/camera",
     views: {
@@ -55,6 +55,12 @@ angular.module('sceneIt', ['ionic','ngCordova', 'sceneIt.controllers'])
         templateUrl: "templates/browse.html",
         controller: 'GeoLocCtrl'
       }
+    },
+    onEnter: function(){
+        window.viewingMap = true;
+    },
+    onExit: function(){
+        window.viewingMap = false;
     }
   })
 

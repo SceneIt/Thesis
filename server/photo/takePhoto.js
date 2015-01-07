@@ -14,8 +14,10 @@ module.exports = function(app){
   app.post('/take', function(req,res){
     console.log('POST - reading file directory');
     // If this post request is the comment and not the image, save the comment and return
+
     if(req.body.desc){
       comment = req.body.desc.comment;
+      res.send(201);
       return;
     }
     //TODO: add append userID to photostore, make directory if it doesn't exist
@@ -43,11 +45,10 @@ module.exports = function(app){
     });
     busboy.on('finish', function() {
       res.writeHead(200, { 'Connection': 'close' });
-      console.log('done and done');
+      console.log('Done saving picture..');
       res.end("That's all folks!");
 
       //grabs EXIF data, parses
-      //TODO: move to helpers file
       photoController.getExif(saveTo, comment);
     });
     return req.pipe(busboy);

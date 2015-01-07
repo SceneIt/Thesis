@@ -65,7 +65,6 @@ angular.module('sceneit.map', [])
       });
       picMarker.bindPopup('<h5>'+points[i].description+'</h5><br></br><img src = '+points[i].photoUrl+' height = "300", width = "300">')
       markers.addLayer(picMarker);
-      console.log(points[i].photoUrl);
     };
     console.log(markers);    
     return markers;
