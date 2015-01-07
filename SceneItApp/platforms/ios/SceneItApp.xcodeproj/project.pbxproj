@@ -43,6 +43,9 @@
 		27904D07EBB044F5BB9E87B2 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A6F62696914E148F80D2F4 /* CDVJpegHeaderWriter.m */; };
 		4157AE447F32452CA9F3FDF2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A1700A2368431EB66BD377 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3D78EEABC5504F08B88B6D4D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666E23CDF20445EC89458189 /* CoreLocation.framework */; };
+		8858028C0E2E4ECBBFF2E2E0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0B6C039BFB4A78A6FCE1AA /* MBProgressHUD.m */; };
+		1E2FDE362EFA4BF388FB98F3 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B209E544F9B40D3B644280A /* ProgressIndicator.m */; };
+		03BCA200C95D4FC2BD352661 /* ProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CA24956D0F54455BF9E361B /* ProgressIndicator.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,11 @@
 		0A11223A540E4D93B2BBC91F /* CDVExif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVExif.h"; path = "org.apache.cordova.camera/CDVExif.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		40A1700A2368431EB66BD377 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		666E23CDF20445EC89458189 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		CF0B6C039BFB4A78A6FCE1AA /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD.m"; path = "org.pbernasconi.progressindicator/MBProgressHUD.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		9B209E544F9B40D3B644280A /* ProgressIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ProgressIndicator.m"; path = "org.pbernasconi.progressindicator/ProgressIndicator.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1206225815FC4B778F35B9AD /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD.h"; path = "org.pbernasconi.progressindicator/MBProgressHUD.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9DFE1C516FCA43828C666430 /* ProgressIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ProgressIndicator.h"; path = "org.pbernasconi.progressindicator/ProgressIndicator.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		0CA24956D0F54455BF9E361B /* ProgressIndicator.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "ProgressIndicator.bundle"; path = "ProgressIndicator.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* SceneItApp-Info.plist */,
+				0CA24956D0F54455BF9E361B /* ProgressIndicator.bundle */,
 			);
 			name = Resources;
 			path = "SceneItApp/Resources";
@@ -222,6 +231,10 @@
 				C9802B005A874E04A0C32466 /* CDVCamera.h */,
 				C161FCA51E0B45E489C85C15 /* CDVJpegHeaderWriter.h */,
 				0A11223A540E4D93B2BBC91F /* CDVExif.h */,
+				CF0B6C039BFB4A78A6FCE1AA /* MBProgressHUD.m */,
+				9B209E544F9B40D3B644280A /* ProgressIndicator.m */,
+				1206225815FC4B778F35B9AD /* MBProgressHUD.h */,
+				9DFE1C516FCA43828C666430 /* ProgressIndicator.h */,
 			);
 			name = Plugins;
 			path = "SceneItApp/Plugins";
@@ -375,6 +388,7 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				03BCA200C95D4FC2BD352661 /* ProgressIndicator.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +422,8 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				A2A32BD9A93C4EBAAECB55F4 /* CDVCamera.m in Sources */,
 				27904D07EBB044F5BB9E87B2 /* CDVJpegHeaderWriter.m in Sources */,
+				8858028C0E2E4ECBBFF2E2E0 /* MBProgressHUD.m in Sources */,
+				1E2FDE362EFA4BF388FB98F3 /* ProgressIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

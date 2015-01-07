@@ -1,6 +1,6 @@
 {
   "name": "ngCordova",
-  "version": "0.1.9-alpha",
+  "version": "0.1.10-alpha",
   "homepage": "http://ngCordova.com/",
   "authors": [
     "Max Lynch <max@drifty.com>",
@@ -42,14 +42,14 @@
     "angular-mocks": ">= 1.2.23",
     "jquery": "~2.1.1"
   },
-  "_release": "0.1.9-alpha",
+  "_release": "0.1.10-alpha",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.9-alpha",
-    "commit": "df1240558924bb48a13c50530832f49e7869ba44"
+    "tag": "v0.1.10-alpha",
+    "commit": "9e48914e6c2bb37161d58d40b243c50aea33e500"
   },
   "_source": "git://github.com/driftyco/ng-cordova.git",
-  "_target": "~0.1.9-alpha",
+  "_target": "~0.1.10-alpha",
   "_originalSource": "ngCordova",
   "_direct": true
 }
