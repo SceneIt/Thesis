@@ -32,3 +32,4 @@ node_modules/
 bower_components/
 client/bower_components/
 SceneItApp/platforms/
+SceneItApp/plugins/

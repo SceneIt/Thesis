@@ -1802,8 +1802,4 @@ window.cordova = require('cordova');
 
 require('cordova/init');
 
-<<<<<<< HEAD
 })();
-=======
-})();
->>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
