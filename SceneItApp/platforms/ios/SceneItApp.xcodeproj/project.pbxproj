@@ -51,6 +51,7 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		C65F41D74C2842918E23EA23 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB82DC6BAB41DAAB03FAD2 /* IonicKeyboard.m */; };
 		4AF819D097D04827B0F11C9D /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E763631CB14BC58E22FC4B /* UIWebViewExtension.m */; };
 		73D6F14AC93F4FDE9BCF3B92 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E01527654E33446D9E5C1BA6 /* CDVLogger.m */; };
@@ -71,6 +72,10 @@
 		F44704B3D9B64D988554A9BD /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC275929DE241198151A2AE /* CDVJpegHeaderWriter.m */; };
 		F5CF9F45DBBB4ECA984CCFC4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */; };
 >>>>>>> updated client map view, and comments views
+=======
+		F44704B3D9B64D988554A9BD /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC275929DE241198151A2AE /* CDVJpegHeaderWriter.m */; };
+		F5CF9F45DBBB4ECA984CCFC4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */; };
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +158,7 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "SceneItApp/config.xml"; sourceTree = "<group>"; };
 <<<<<<< HEAD
 		5BBB82DC6BAB41DAAB03FAD2 /* IonicKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "IonicKeyboard.m"; path = "com.ionic.keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; };
@@ -184,11 +190,16 @@
 		5A67FE612EC74134AC5BFA00 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 >>>>>>> initial IOS build
 =======
+=======
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 		ECFFE47A92464BD981099F30 /* CDVLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLocation.m; path = org.apache.cordova.geolocation/CDVLocation.m; sourceTree = "<group>"; };
 		F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressIndicator.m; path = org.pbernasconi.progressindicator/ProgressIndicator.m; sourceTree = "<group>"; };
 		F469C11174CE44E2861E790C /* CDVLocalFilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocalFilesystem.h; path = org.apache.cordova.file/CDVLocalFilesystem.h; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = SceneItApp/config.xml; sourceTree = "<group>"; };
+<<<<<<< HEAD
 >>>>>>> updated client map view, and comments views
+=======
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,12 +212,17 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				D5ED7ACAB7494D2E95CF1672 /* CoreLocation.framework in Frameworks */,
 				8A442A6E3DAF4DDE981FACC8 /* ImageIO.framework in Frameworks */,
 =======
 				5E6D17654E954C7F90BD4124 /* CoreLocation.framework in Frameworks */,
 				C870E7BB8C5443479BDBC7A0 /* ImageIO.framework in Frameworks */,
 >>>>>>> initial IOS build
+=======
+				5E6D17654E954C7F90BD4124 /* CoreLocation.framework in Frameworks */,
+				C870E7BB8C5443479BDBC7A0 /* ImageIO.framework in Frameworks */,
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +284,10 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* SceneItApp-Info.plist */,
+<<<<<<< HEAD
+=======
+				375B1514689B487E8336C5ED /* ProgressIndicator.bundle */,
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 			);
 			name = Resources;
 			path = SceneItApp/Resources;
@@ -280,12 +300,17 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				DC4B2151E5E843C799B09D34 /* CoreLocation.framework */,
 				FAFE327E6EB1476EB6796FBA /* ImageIO.framework */,
 =======
 				1CC85795F1424060AFD06D0B /* CoreLocation.framework */,
 				5A67FE612EC74134AC5BFA00 /* ImageIO.framework */,
 >>>>>>> initial IOS build
+=======
+				1CC85795F1424060AFD06D0B /* CoreLocation.framework */,
+				5A67FE612EC74134AC5BFA00 /* ImageIO.framework */,
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +326,7 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 <<<<<<< HEAD
 				5BBB82DC6BAB41DAAB03FAD2 /* IonicKeyboard.m */,
 				33E763631CB14BC58E22FC4B /* UIWebViewExtension.m */,
@@ -318,6 +344,8 @@
 				FCADEBB3B7214C5B9BD13D1A /* CDVJpegHeaderWriter.h */,
 				C65AE5040A4E40C8AB6576C1 /* CDVExif.h */,
 =======
+=======
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 				ECFFE47A92464BD981099F30 /* CDVLocation.m */,
 				C2B4C8F3046042D2AB334CFD /* CDVLocation.h */,
 				DB2C63F6EEB142E18744027D /* CDVCamera.m */,
@@ -325,7 +353,22 @@
 				B63CCC5CE8E046B2BC388EB8 /* CDVCamera.h */,
 				DC4F188D21BB4FBEB2E6728C /* CDVJpegHeaderWriter.h */,
 				87535F5C543A4489B66A07E5 /* CDVExif.h */,
+<<<<<<< HEAD
 >>>>>>> initial IOS build
+=======
+				9D66A8428760454E9421FC22 /* MBProgressHUD.m */,
+				F23360F24B0A4B16B73C0778 /* ProgressIndicator.m */,
+				1B86952D7B2C4D23A7F499F4 /* MBProgressHUD.h */,
+				337692891DCA4919AE9D3D69 /* ProgressIndicator.h */,
+				8B683897E65341FB90CD31C0 /* CDVFile.m */,
+				6D5CEEA2FB5341AEB91C2BDD /* CDVLocalFilesystem.m */,
+				1FF73D7D7E314685A6C760D8 /* CDVAssetLibraryFilesystem.m */,
+				2562FB784CBC4943999E14F3 /* CDVFile.h */,
+				F469C11174CE44E2861E790C /* CDVLocalFilesystem.h */,
+				1130E3420AF5499E9BAA74E6 /* CDVAssetLibraryFilesystem.h */,
+				52D8FA74E58C4EAE895411FE /* CDVFileTransfer.m */,
+				AE674C1357C2492890D4B7AC /* CDVFileTransfer.h */,
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 			);
 			name = Plugins;
 			path = SceneItApp/Plugins;
@@ -484,6 +527,10 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+<<<<<<< HEAD
+=======
+				9646BC2DEB4043D0B1D543C0 /* ProgressIndicator.bundle in Resources */,
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +563,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				C65F41D74C2842918E23EA23 /* IonicKeyboard.m in Sources */,
 				4AF819D097D04827B0F11C9D /* UIWebViewExtension.m in Sources */,
 				73D6F14AC93F4FDE9BCF3B92 /* CDVLogger.m in Sources */,
@@ -528,6 +576,17 @@
 				2461B4C4568C405AA3302E1E /* CDVCamera.m in Sources */,
 				F44704B3D9B64D988554A9BD /* CDVJpegHeaderWriter.m in Sources */,
 >>>>>>> initial IOS build
+=======
+				0DF266BE54BE485B9B6BDD2C /* CDVLocation.m in Sources */,
+				2461B4C4568C405AA3302E1E /* CDVCamera.m in Sources */,
+				F44704B3D9B64D988554A9BD /* CDVJpegHeaderWriter.m in Sources */,
+				61B24C55A9AF4BE9B15D8962 /* MBProgressHUD.m in Sources */,
+				F5CF9F45DBBB4ECA984CCFC4 /* ProgressIndicator.m in Sources */,
+				6439907A6AB94785AE654181 /* CDVFile.m in Sources */,
+				A9B5B0D7549E4F4297A48AF6 /* CDVLocalFilesystem.m in Sources */,
+				21AC03C339C644E982F3E4A1 /* CDVAssetLibraryFilesystem.m in Sources */,
+				1D1A9A98AE514C5BB3E3B642 /* CDVFileTransfer.m in Sources */,
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

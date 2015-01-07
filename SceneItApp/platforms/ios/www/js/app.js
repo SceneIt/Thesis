@@ -4,7 +4,11 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+<<<<<<< HEAD
 angular.module('sceneIt', ['ionic', 'sceneIt.controllers'])
+=======
+angular.module('sceneIt', ['ionic','ngCordova', 'sceneIt.controllers'])
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -80,7 +84,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log("navigator.geolocation works well");
     console.log(navigator.camera);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 }
 // document.addEventListener("deviceready", onDeviceReady, false);
 // function onDeviceReady() {
