@@ -35,9 +35,6 @@ angular.module('sceneIt.controllers', [])
 
 .controller('GeoLocCtrl', function($scope, $interval,$ionicModal, $compile, $http, MapFactory) {
 
-  // onError Callback receives a PositionError object
-  //
-
   $ionicModal.fromTemplateUrl('templates/comments.html', {
     scope: $scope
   }).then(function(comments) {
@@ -156,15 +153,12 @@ angular.module('sceneIt.controllers', [])
       var image = document.getElementById('preview');
       $scope.imageData = imageURI;
       image.src = $scope.imageData;
-
-
     }, function(err) {
       $scope.data = 'fail';
       console.log('camera error');
 
     }, cameraOptions);
   }
-
 
   $scope.description = {};
   $scope.description.comment = '';
@@ -248,5 +242,4 @@ angular.module('sceneIt.controllers', [])
     postPhotos : postPhotos,
     plotPoints : plotPoints
   };
-});
-
+});;

@@ -10,7 +10,6 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-
     next();
 }
 
@@ -21,9 +20,9 @@ module.exports = function(app, express) {
   app.use(bodyParser.json());
   app.use(allowCrossDomain);
   app.use('/api/photo',photoRouter);
-
   require('../photo/photoRoutes')(photoRouter);
-
+  app.use('/photo', photoRouter);
+  require('../photo/takePhoto')(photoRouter);
   //Creates new user route
   var userRouter = express.Router();
   app.use(morgan('dev')); //Console log POST and GET status

@@ -3,7 +3,7 @@ var fs = require('fs');
 var ExifImage = require('exif').ExifImage;
 var q = require('q');
 var path = require('path');
-var rootUrl = encodeURI('http://10.6.32.229:8000/photoStore/');
+var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoStore/');
 
   module.exports = {
   	getPhoto: function(req,res){
