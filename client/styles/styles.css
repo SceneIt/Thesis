@@ -180,10 +180,6 @@
     background-image: url(../app/images/Optimized-city3.png);
   }
 
-  .sec2 {
-        background-image: url(../app/images/sec2bg.jpg);
-
-  }
 
 
 
@@ -444,6 +440,17 @@
 
 .rows img {
   margin-left: 100px;
+
+}
+
+.screen {
+  margin-top: -525px;
+  margin-left: 20px;
+}
+
+.screen img {
+  width: 260px;
+  height: 460px;
 }
 
 /*  .byLine {
