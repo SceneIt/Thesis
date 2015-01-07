@@ -1,0 +1,21 @@
+<ion-view view-title="Camera">
+  <ion-content>
+    <ion-list>
+<<<<<<< HEAD
+    <button ng-click="takePicture()"  class="button button-block button-primary">Take pic</button>
+
+=======
+    <preference name="CameraUsesGeolocation" value="true" />
+    <button ng-click="takePicture()"  class="button button-block button-primary">Take pic</button>
+>>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
+    <button ng-click="selectPicture()"  class="button button-block button-primary">Select pic from album</button>
+    <div class='picPreviewAndText'>
+      <img id="preview" width="200" height="200"></img>
+      <textarea id='desc' placeholder='Enter a description' type='text' rows='2' width="200" ng-model="description.comment" required></textarea>
+      {{ description }}
+    </div>
+    <button ng-click="uploadPicture()"  class="button button-block button-primary">upload pic</button>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

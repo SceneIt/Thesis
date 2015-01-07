@@ -1,0 +1,11 @@
+{
+  "name": "SceneItApp",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+  },
+  "dependencies": {
+    "leaflet": "~0.7.3",
+    "leaflet.markercluster": "~0.4.0"
+  }
+}
