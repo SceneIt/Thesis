@@ -118,10 +118,7 @@ angular.module('sceneIt.controllers', [])
   // map.addControl(control);
 
 })
-<<<<<<< HEAD
 
-=======
->>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
 .controller('cameraCtrl', function($http, $scope, $cordovaProgress, $timeout, $cordovaFile) {
   $scope.data = '_';
   var cameraOptions = {
@@ -146,24 +143,11 @@ angular.module('sceneIt.controllers', [])
   }
   $scope.grabPicture = function(){
     navigator.camera.getPicture(function(imageURI) {
-<<<<<<< HEAD
-      var image = document.getElementById('myImage');
-          image.src = imageURI;
-          $scope.data = imageURI;
-      // imageURI is the URL of the image that we can use for
-      // an <img> element or backgroundImage.
-      console.log('camera success');
-=======
->>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
       $scope.data = 'success';
       var image = document.getElementById('preview');
       $scope.imageData = imageURI;
       image.src = $scope.imageData;
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
     }, function(err) {
       $scope.data = 'fail';
       console.log('camera error');
