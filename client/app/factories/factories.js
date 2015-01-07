@@ -47,8 +47,8 @@
 
   //Keep state when refreshed
   function init() {
-		if ($cookies["user"]) {
-			Session.create($cookies.user);
+		if ($cookies["userID"]) {
+			Session.create($cookies.userID);
 		}
 	}
   init();
@@ -60,10 +60,11 @@
   var signup = function(user){
     $http({
       method: 'POST',
-      url: '/api/signup',
+      url: '/api/user/signup',
       data: userInfo
     })
     .then(function(res){
+      console.log(res);
       Session.create(res.data.username);
       $state.go('home');
     });
@@ -72,7 +73,7 @@
   var signin = function(){
     return ($http({
       method: 'POST',
-      url: '/api/signin',
+      url: '/api/user/signin',
       data: userInfo
     })
     .then(function(res){
@@ -84,7 +85,7 @@
   var signout = function(){
     $http({
       method: 'POST',
-      url: '/api/logout'
+      url: '/api/user/logout'
     }).
     then(function(res){
     var userInfo = {
