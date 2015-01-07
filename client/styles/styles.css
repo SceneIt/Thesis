@@ -418,7 +418,7 @@
 
 }
 #inv-nav {
-  height:20%;
+  height:10%;
   width: 100%;
 }
 
@@ -430,8 +430,18 @@
     left:1%;
 }
 
-#brue h1 {
-  color:blue;
+#section2 {
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+
+}
+
+.rows img {
+  margin: auto;
 }
 
 /*  .byLine {
