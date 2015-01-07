@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "leaflet": "~0.7.3",
-    "leaflet.markercluster": "~0.4.0"
+    "leaflet.markercluster": "~0.4.0",
+    "ngCordova": "~0.1.10-alpha"
   }
 }

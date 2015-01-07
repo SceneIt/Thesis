@@ -49,6 +49,10 @@
                         {
                             "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ProgressIndicator\"><param name=\"ios-package\" value=\"ProgressIndicator\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -67,6 +71,9 @@
     },
     "installed_plugins": {
         "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "com.ionicframework.sceneitapp502836"
+        },
+        "org.pbernasconi.progressindicator": {
             "PACKAGE_NAME": "com.ionicframework.sceneitapp502836"
         }
     },
