@@ -415,6 +415,8 @@
     letter-spacing: 0.16rem;
     font-weight: 100;
     color: white;
+    padding-bottom: 50px;
+    padding-right: 50px;
 
 }
 #inv-nav {
@@ -441,7 +443,7 @@
 }
 
 .rows img {
-  margin: auto;
+  margin-left: 100px;
 }
 
 /*  .byLine {
