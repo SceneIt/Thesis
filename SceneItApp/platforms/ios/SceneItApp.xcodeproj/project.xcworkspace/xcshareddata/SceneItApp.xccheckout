@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BC597B0A-50AE-47AE-988E-6F8F5A2173E6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SceneItApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9143A4D3697969FBCB548A563B5E90E22E2A6758</key>
+		<string>https://github.com/timhua/Thesis.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SceneItApp/platforms/ios/SceneItApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9143A4D3697969FBCB548A563B5E90E22E2A6758</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/timhua/Thesis.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9143A4D3697969FBCB548A563B5E90E22E2A6758</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9143A4D3697969FBCB548A563B5E90E22E2A6758</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Thesis</string>
+		</dict>
+	</array>
+</dict>
+</plist>

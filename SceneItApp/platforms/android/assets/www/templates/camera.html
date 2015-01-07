@@ -1,0 +1,17 @@
+<ion-view view-title="Camera">
+  <ion-content>
+    <ion-list>
+    <preference name="CameraUsesGeolocation" value="true" />
+    <button ng-click="takePicture()"  class="button button-block button-primary">Take pic</button>
+    <button ng-click="selectPicture()"  class="button button-block button-primary">Select pic from album</button>
+    <div class='picPreviewAndText'>
+      <img id="preview" width="200" height="200"></img>
+      <textarea id='desc' placeholder='Enter a description' type='text' rows='2' width="200" ng-model="description.comment">
+      </textarea>
+      {{ description }}
+    </div>
+    <button ng-click="uploadPicture()"  class="button button-block button-primary">upload pic</button>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

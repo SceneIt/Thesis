@@ -6,8 +6,7 @@
     <button ng-click="selectPicture()"  class="button button-block button-primary">Select pic from album</button>
     <div class='picPreviewAndText'>
       <img id="preview" width="200" height="200"></img>
-      <textarea id='desc' placeholder='Enter a description' type='text' rows='2' width="200" ng-model="description.comment">
-      </textarea>
+      <textarea id='desc' placeholder='Enter a description' type='text' rows='2' width="200" ng-model="description.comment" required></textarea>
       {{ description }}
     </div>
     <button ng-click="uploadPicture()"  class="button button-block button-primary">upload pic</button>

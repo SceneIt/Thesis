@@ -2405,7 +2405,7 @@ window.ionic.version = '1.0.0-beta.14';
   ionic.CSS = {};
 
   (function() {
-
+    
     // transform
     var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
                    '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];

@@ -29,6 +29,7 @@ angular.module('sceneIt', ['ionic', 'sceneIt.controllers'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
+<<<<<<< HEAD:mobile/www/js/app.js
 
   .state('app.search', {
     url: "/search",
@@ -39,6 +40,27 @@ angular.module('sceneIt', ['ionic', 'sceneIt.controllers'])
     }
   })
 
+=======
+  // .state('app.comments', {
+  //   url: "/comments",
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: "templates/comments.html"
+  //       // controller: 'GeoTestCtrl'
+  //     }
+  //   }
+  // })
+  .state('app.camera', {
+    url: "/camera",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/camera.html",
+        controller: 'cameraCtrl'
+      }
+    }
+  })
+  // browse state currently acts as map, this may be renamed later if necessary
+>>>>>>> updated client map view, and comments views:SceneItApp/platforms/ios/www/js/app.js
   .state('app.browse', {
     url: "/browse",
     views: {
@@ -46,6 +68,12 @@ angular.module('sceneIt', ['ionic', 'sceneIt.controllers'])
         templateUrl: "templates/browse.html",
         controller: 'GeoLocCtrl'
       }
+    },
+    onEnter: function(){
+        window.viewingMap = true;
+    },
+    onExit: function(){
+        window.viewingMap = false;
     }
   })
 
