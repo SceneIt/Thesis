@@ -35,7 +35,7 @@ var User = sequelize.define('User', {
 
 //setting foreign keys (relationships)
 User.hasMany(Comment);
-User.hasMany(Photos);
+User.hasMany(Photo);
 Photo.hasMany(Comment);
 
 
