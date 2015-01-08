@@ -58,7 +58,12 @@ angular.module('sceneit.home', [])
             // Load client in the browser
             $rootScope.$apply(function() { 
                 var s = $window.skrollr.init({
-                        forceHeight: false
+                        forceHeight: false,
+                                constants: {
+            //fill the box for a "duration" of 150% of the viewport (pause for 150%)
+            //adjust for shorter/longer pause
+            box: '150p'
+        }
                 });
                 defer.resolve(s); 
             });
