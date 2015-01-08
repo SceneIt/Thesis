@@ -27,12 +27,9 @@
     "morgan": "^1.5.1",
     "mysql": "^2.5.4",
     "nodemon": "^1.2.1",
-<<<<<<< HEAD
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
-=======
     "method-override": "^2.3.0",
->>>>>>> 7605bc4347646cbb5c994cadaf6433a65350cc78
     "sequelize": "^2.0.0-rc4"
   }
 }
