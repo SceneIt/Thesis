@@ -19,6 +19,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.10.0",
+    "busboy": "^0.2.9",
     "cartodb": "^0.2.1",
     "dotenv": "^0.4.0",
     "exif": "^0.4.0",

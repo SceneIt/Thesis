@@ -4,7 +4,6 @@ var Busboy = require('busboy');
 var path = require('path');
 var photoStore = path.resolve('client/photoStore');
 var photoController = require('./photoController');
-var q = require('q');
 var bodyParser = require('body-parser');
 var comment;
 
