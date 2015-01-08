@@ -372,13 +372,6 @@
     margin-bottom:5px;
   } 
 
-#test {
-  height: 200px;
-  width: 200px;
-  color: orange ;
-  position: absolute;
-  background-color: orange;
-}
 
 #header-buttons {
   float: right;
@@ -440,6 +433,8 @@
 
 .rows img {
   margin-left: 100px;
+  top: 100px;
+/*  z-index:1000;*/
 
 }
 
@@ -452,6 +447,14 @@
   width: 260px;
   height: 460px;
 }
+
+.section3 {
+  background-color: rgb(29, 202, 255);
+}
+#section2 {
+  height: 2000px;
+}
+
 
 /*  .byLine {
     position: absolute;
