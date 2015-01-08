@@ -45,7 +45,7 @@ module.exports = {
 
   logOut: function(req, res, next){
     req.logout();  
-    res.clearCookie('user');
+    res.clearCookie('userID');
     delete req.session.user;
     req.session.authenticated = false;
     res.clearCookie('connect.sid');
