@@ -1,7 +1,6 @@
 var db = require('../DB/db.js');
 var fs = require('fs');
 var ExifImage = require('exif').ExifImage;
-var q = require('q');
 var path = require('path');
 var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoStore/');
 
