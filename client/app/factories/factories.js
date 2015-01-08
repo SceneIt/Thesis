@@ -1,4 +1,4 @@
-angular.module('sceneit.factories', ['ngCookies'])
+ angular.module('sceneit.factories', ['ngCookies'])
 
 .factory('Home', function($http) {
 	var search = function() {
@@ -107,4 +107,3 @@ angular.module('sceneit.factories', ['ngCookies'])
 
   }
 });
- 

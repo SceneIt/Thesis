@@ -1,24 +1,23 @@
 angular.module('sceneit.map', [])
 
 .controller('MapController',function($scope, $http, MapFactory) {
-	//loads map tiles from custom maps of mapbox
-	var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
-  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	});
-	//creates leaflet map with given lat / long points with zoom level of 6.
-	var map = L.map('map', {
-    center: [40.7127837, -74.0059413],
+  //loads map tiles from custom maps of mapbox
+  var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  //creates leaflet map with given lat / long points with zoom level of 6.
+  var map = L.map('map', {
     zoom: 6
-	});
+  });
   //initializes markercluster
-	//add base map tiles
-	map.addLayer(layer);
+  //add base map tiles
+  map.addLayer(layer);
   $scope.initPoints = function(){
     MapFactory.getPoints().then(function(data){
       map.addLayer(MapFactory.plotPoints(data));
     });
   };
-
+  map.locate({setView: true, maxZoom: 10});
   $scope.initPoints();
   //calling the post photo function
 

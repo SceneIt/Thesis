@@ -23,7 +23,7 @@ angular.module('sceneit.home', [])
 //     };
 // })
 
-.directive('skrollrTag', ['skrollrService', 
+.directive('skrollrTag', ['skrollrService',
     function(skrollrService){
         return {
             link: function(scope, element, attrs){
@@ -50,7 +50,7 @@ angular.module('sceneit.home', [])
     }
 ])
 
-.service('skrollrService', ['$document', '$q', '$rootScope', '$window', 
+.service('skrollrService', ['$document', '$q', '$rootScope', '$window',
     function($document, $q, $rootScope, $window){
         var defer = $q.defer();
 
@@ -90,4 +90,26 @@ angular.module('sceneit.home', [])
 
     }
  ]);
+// =======
+// 		console.log(2);
+// 	}
+// 	angular.element(document.body).css('background-image', 'url("../app/images/city.png")');
+// })
+
+// //this registers enter event on keydown
+// .directive('ngEnter', function () {
+//     return function (scope, element, attrs) {
+//         element.bind("keydown keypress", function (event) {
+//             if(event.which === 13) {
+//                 scope.$apply(function (){
+//                     scope.$eval(attrs.ngEnter);
+//                 });
+ 
+//                 event.preventDefault();
+//             }
+//         });
+//     };
+// });
+// >>>>>>> initial mobile app
+
 
