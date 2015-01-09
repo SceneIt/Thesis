@@ -38,7 +38,6 @@ User.hasMany(Comment);
 User.hasMany(Photo);
 Photo.hasMany(Comment);
 
-
 User.sync();
 Photo.sync();
 Comment.sync();
@@ -48,5 +47,4 @@ exports.sequelize = sequelize;
 exports.User = User;
 exports.Photo = Photo;
 exports.Comment = Comment;
-
 

@@ -65,6 +65,12 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
               score:0
             })
           }
+      })
+    },
+
+    getClickedPhoto: function(req,res){
+      db.Photo.findOne({where:{latitude: req.query.lat, longitude: req.query.lng}}).then(function(photo){
+        res.json(photo.id);
       });
     }
 
