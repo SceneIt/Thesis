@@ -22,12 +22,12 @@
     });
     //creates leaflet map with given lat / long points with zoom level of 6.
     var map = L.map('map', {
-      center: [40.7127837, -74.0059413],
       zoom: 6
     });
 
     //initializes markercluster
     //add base map tiles
+    map.locate({setView: true, maxZoom: 10});
     map.addLayer(layer);
 
     $scope.initPoints = function(){
