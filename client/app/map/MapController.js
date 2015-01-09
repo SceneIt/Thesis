@@ -42,15 +42,12 @@
             MapFactory.showCommentPane();
               $scope.photoId = e.layer.options.icon.options.photoID;
               MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-                console.log('their comments are', comments);
                 if(comments.data === "null" || comments.data.length === 0) {
                   // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
                 } else {
-                  console.log("before", comments.data);
                   comments.data.sort(function(a, b) {
                     return Date.parse(a.createdAt) - Date.parse(b.createdAt);
                   });
-                  console.log("after", comments.data)
                   comments.data.forEach(function(comment) {
                     MapFactory.appendComment(comment);
                   });
@@ -67,10 +64,12 @@
       MapFactory.hideCommentPane();
     }
     $scope.postComment = function() {
-      MapFactory.postComment($scope.photoId, $cookies["userID"], $scope.comment).then(function(comment) {
-        angular.element(document.body.getElementsByTagName('textarea')).val('');
-        MapFactory.appendComment(comment);
-      });
+      if($scope.comment.trim() !== "") {
+        MapFactory.postComment($scope.photoId, $cookies["userID"], $scope.comment).then(function(comment) {
+          angular.element(document.body.getElementsByTagName('textarea')).val('');
+          MapFactory.appendComment(comment);
+        });
+      }
     }
     //calling the post photo function
 
