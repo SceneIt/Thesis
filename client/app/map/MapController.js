@@ -1,4 +1,4 @@
-  angular.module('sceneit.map', [])
+angular.module('sceneit.map', [])
   .directive('ngEnter', function() {
           return function(scope, element, attrs) {
               element.bind("keydown keypress", function(event) {
