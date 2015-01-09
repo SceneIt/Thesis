@@ -1,12 +1,16 @@
 
-<div id='map' style="height:100%; width:80%; position: absolute">
+<div id='map' class="mapStyle">
 </div>
 
 
 <div class="commentPane">
-  <h2> Comments </h2>
-  <ul style= "list-style-type: none;">
-  
-  </ul>
-  <textarea class="form-control textarea" rows="3" placeholder="Write a comment..."></textarea> 
+	<div class="comment-header" >
+		<button type="button" class="close" ng-click="hide()">×</button>
+		<h4 >Comments</h4>
+	</div>
+	<ul class="pre-scrollable" style= "list-style-type: none;">
+	
+	</ul>
+	<textarea type="text" class="form-control textarea" rows="3" placeholder="Write a comment..." ng-model="comment" ng-enter="postComment()"></textarea>
+	
 </div>
