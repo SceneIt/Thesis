@@ -1,13 +1,4 @@
- angular.module('sceneit.factories', ['ngCookies'])
-
-.factory('Home', function($http) {
-	var search = function() {
-	}
-
-	return {
-		search:search
-	}
-})
+angular.module('sceneit.factories', ['ngCookies'])
 
 .factory('Session', function(){
   var _username = null;
@@ -51,6 +42,7 @@
 			Session.create($cookies.userID);
 		}
 	}
+
   init();
 
   var isAuthenticated = function(){
@@ -64,7 +56,6 @@
       data: userInfo
     })
     .then(function(res){
-      console.log(res);
       Session.create(res.data.username);
       $state.go('home');
     });

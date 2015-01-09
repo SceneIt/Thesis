@@ -1,3 +1,65 @@
+  .mapStyle {
+    height:100%; 
+    width:100%; 
+    position: absolute;
+  }
+  h4 {
+    text-align:left;
+  }
+  .close {
+    margin-top:6px;
+  }
+  .comment-header {
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.43px;
+    padding: 6px 15px;
+    background: #428bca;
+    color: #fff;
+  }
+  .pre-scrollable {
+    /*max-height: 45em;*/
+    max-height: 690px;
+  }
+  p {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap:break-word;
+  }
+  .userscomment {
+    text-align: left;
+    margin-left: 20%;
+    line-height: 1.38;
+  }
+  .name {
+    display: block;
+    line-height: 1;
+    margin: 1px 0 4px 0;
+    width: 43%;
+  }
+  .time {
+    float:right;
+    display:block;
+  }
+
+  .timeText {
+    color: #bdc1c9;
+    display: inline-block;
+    vertical-align: middle;
+    cursor:default;    
+  }
+  .profileimg {
+    margin-top: 1px;
+    /*margin-right: 10px;*/
+    margin-left:8%;
+    display: block;
+    float: left;
+  }
+  .webMessengerMessageGroup {
+    padding: 8px 20px 7px;
+    position: relative;
+    margin-left: -25%;
+    margin-top: 0;
+  }
 
   .textarea {
     width: 20%;
@@ -6,10 +68,12 @@
   }
 
   .commentPane {
-    height:100;
+    overflow: scroll;
+    height:100%;
     width:20%;
     float:right;
     text-align:center;
+    display:none;
   }
 
   .commentPane ul li {

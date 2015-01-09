@@ -16,14 +16,19 @@ var allowCrossDomain = function(req, res, next) {
 
 module.exports = function(app, express) {
 	var photoRouter = express.Router();
+	var commentRouter = express.Router();
 
 	app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(allowCrossDomain);
   app.use('/api/photo',photoRouter);
-  require('../photo/photoRoutes')(photoRouter);
   app.use('/photo', photoRouter);
+  app.use('/api/comments',commentRouter);
+
+  require('../photo/photoRoutes')(photoRouter);
   require('../photo/takePhoto')(photoRouter);
+  require('../comment/commentRoutes')(commentRouter);
+
 
   //Creates new user route
   app.use(morgan('dev')); //Console log POST and GET status
@@ -71,5 +76,6 @@ module.exports = function(app, express) {
     utils.passportSignIn
   ));
 
-
 };
+
+
