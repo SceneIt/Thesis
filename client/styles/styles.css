@@ -531,8 +531,13 @@
 }
 
 #howto {
-  top: 300px;
+  margin-right: 1000px;
 }
+
+#overlap2 {
+  margin-top: -460px;
+}
+
 
 
 
