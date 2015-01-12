@@ -544,7 +544,7 @@
   height:240px;
   width:180px;
   margin-left:23%;
-  opacity:.5;
+  opacity:.8;
 }
 
 #section3 div {
@@ -569,7 +569,7 @@
 
 #section4 {
   margin-top:-20px;
-  background:linear-gradient(#FFF 0px, #EEF6F9 30%) repeat scroll 0% 0% transparent;
+  background:linear-gradient(#FFF 0px, rgb(16, 45, 52)200%) repeat scroll 0% 0% transparent;
   height:350px;
   width:100%;
 }
@@ -591,7 +591,7 @@
 
 #section4 img {
   margin-left:60px;
-  max-height:170px;
+  max-height:100px;
   max-width:170px;
   
 
