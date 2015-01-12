@@ -13,9 +13,11 @@
           };
   })
 
-
   .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $compile, $interval) {
-
+    $scope.signout = function(){
+      Auth.signout();
+    };
+    
     $scope.comment = "";
     $scope.photoId = "";
 
