@@ -519,6 +519,23 @@
   height: 2000px;
 }
 
+.popup {
+  font-size: 20px;
+
+
+}
+.leaflet-popup-content-wrapper{
+  background-color: #424242;
+  color: white;
+}
+.popupPhoto{
+  text-align: center;  
+}
+.thumbs, .score {
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+}
 
 /*  .byLine {
     position: absolute;

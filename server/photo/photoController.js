@@ -7,8 +7,8 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
   module.exports = {
   	getPhoto: function(req,res){
       //grabs all photo entries and stores them in an array
-      db.Photo.findAll().then(function(photos){
-        // console.log(photos
+      db.Photo.findAll({include: [{ model: db.User, attributes: ['id','userName']}]}).then(function(photos){
+        console.log(photos)
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.send(photos);
@@ -72,7 +72,18 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
       db.Photo.findOne({where:{latitude: req.query.lat, longitude: req.query.lng}}).then(function(photo){
         res.json(photo.id);
       });
-    }
+    },
 
+    postVotes: function(req, res){
+      db.Photo.find({ where: {id: req.body.photoId}}).on('success', function(photo) {
+        if (photo) { // if the record exists in the db
+          photo.updateAttributes({
+            score: req.body.photoScore
+          }).then(function() {
+            console.log('photoScore submitted');
+          });
+        }
+      });
+    }
   }
 
