@@ -32,6 +32,7 @@ module.exports = {
           userName: req.body.username
         }
       }).then(function(user){
+        console.log(user);
         userID = user.id;
         res.cookie('userID', userID, { httpOnly: false } );
         res.status(200).send({username: req.body.username});

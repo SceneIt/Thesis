@@ -1,4 +1,5 @@
   .mapStyle {
+    margin-top: 60px;
     height:100%; 
     width:100%; 
     position: absolute;
@@ -10,10 +11,11 @@
     margin-top:6px;
   }
   .comment-header {
+    margin-top: 60px;
     border-bottom: 1px solid #e5e5e5;
     min-height: 16.43px;
     padding: 6px 15px;
-    background: #428bca;
+    background: #009999;
     color: #fff;
   }
   .pre-scrollable {
@@ -74,6 +76,7 @@
     float:right;
     text-align:center;
     display:none;
+    background-color: white;
   }
 
   .commentPane ul li {
@@ -618,4 +621,7 @@
 #sectionvid {
   width:100%;
   height:1000px;
+}
+#mapHeader{
+  border-bottom: 1px black;
 }
