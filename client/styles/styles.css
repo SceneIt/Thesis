@@ -635,3 +635,12 @@
 #mapHeader{
   border-bottom: 1px black;
 }
+
+#collage img {
+  margin-top: 50px;
+}
+
+#intropage {
+  margin-top: 200px;
+}
+
