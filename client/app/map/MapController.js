@@ -13,7 +13,9 @@
           };
   })
 
+
   .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $compile, $interval) {
+
     $scope.comment = "";
     $scope.photoId = "";
 
