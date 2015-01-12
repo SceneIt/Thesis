@@ -186,7 +186,7 @@
     margin-left: 3%;
     display: inline-block;
     padding-right: 1%;
-    color: #7B7B7B;
+    color: white;
   }
 
   .footer-links li a:hover {
@@ -194,7 +194,7 @@
   }
 
   .footer-links li a{
-    color: #7B7B7B;
+    color: white;
   }
 
   .centered {
@@ -540,48 +540,51 @@
   font-weight: 100;
 }
 
-#section3 img {
+.profpics {
   height:240px;
   width:180px;
-  margin-left:25%;
+  margin-left:23%;
   opacity:.5;
 }
 
-
-/*  .byLine {
-    position: absolute;
-    top: 63%;
-    left: 10%;
-    color:white;
-    max-width: 22%;
-  }*/
-
-/*#domExplosionList {
-  position: absolute;
-  width: 270px;
-  top: 100%;
-  right: 15%;
-  opacity: 0;
+#section3 div {
+  margin-top: 10px;
 }
-.dom-explosion-item {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
+
+#section3 p{
+  margin-top:3%;
+  margin-left:23%;
+  color: white;
+  font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-size: 1.em;
+  font-weight:100;
+  max-height:3px;
 }
-.dei-1 { top: 0; left: 0; }
-.dei-2 { top: 0; left: 70px; }
-.dei-3 { top: 0; left: 140px; }
-.dei-4 { top: 0; left: 210px; }
-.dei-5 { top: 70px; left: 0; }
-.dei-6 { top: 70px; left: 70px; }
-.dei-7 { top: 70px; left: 140px; }
-.dei-8 { top: 70px; left: 210px; }
-.dei-9 { top: 140px; left: 0; }
-.dei-10 { top: 140px; left: 70px; }
-.dei-11 { top: 140px; left: 140px; }
-.dei-12 { top: 140px; left: 210px; }
-.dei-13 { top: 210px; left: 0; }
-.dei-14 { top: 210px; left: 70px; }
-.dei-15 { top: 210px; left: 140px; }
-.dei-16 { top: 210px; left: 210px; }*/
+
+.iconz {
+  height:20px;
+  width:20px;
+  /*float:left;*/
+}
+
+#section4 {
+  margin-top:-20px;
+  background:linear-gradient(#FFF 0px, #EEF6F9 30%) repeat scroll 0% 0% transparent;
+  height:400px;
+  width:100%;
+}
+
+#section4 h1 {
+  text-align:center;
+  color:rgb(16, 45, 52);
+  font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-size: 3.0em;
+  letter-spacing: 0.16rem;
+  font-weight: 100;
+}
+
+#footerbar {
+  height:50px;
+  width:100%;
+  background-color: rgb(16, 45, 52);
+}
