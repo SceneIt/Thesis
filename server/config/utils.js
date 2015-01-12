@@ -8,7 +8,7 @@ module.exports = {
     // middleware.js
 
     console.error(error.stack);
-    next(error);e
+    next(error);
   },
   errorHandler: function(error, req, res, next) {
     // send error message to client
