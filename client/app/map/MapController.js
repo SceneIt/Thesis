@@ -12,7 +12,7 @@
               });
           };
   })
-  .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies) {
+  .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $interval) {
     $scope.comment = "";
     $scope.photoId = "";
 
@@ -24,11 +24,13 @@
     var map = L.map('map', {
       zoom: 6
     });
+  //initializes markercluster
+  //add base map tiles
+  map.addLayer(layer);
+  map.locate({setView: true, maxZoom: 10});
+  $interval($scope.initPoints,5000)
+  //calling the post photo function
 
-    //initializes markercluster
-    //add base map tiles
-    map.locate({setView: true, maxZoom: 10});
-    map.addLayer(layer);
 
     $scope.initPoints = function(){
       MapFactory.getPoints().then(function(data){
