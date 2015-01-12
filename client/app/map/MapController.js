@@ -12,7 +12,7 @@
               });
           };
   })
-  .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies) {
+  .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $interval) {
     $scope.comment = "";
     $scope.photoId = "";
 
