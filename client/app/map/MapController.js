@@ -12,12 +12,13 @@
               });
           };
   })
-  .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $interval) {
+
+  .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $compile, $interval) {
     $scope.comment = "";
     $scope.photoId = "";
 
     //loads map tiles from custom maps of mapbox
-    var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/scenit.kgp870je/{z}/{x}/{y}.png',{
+    var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/mochicat8.kmifnp9g/{z}/{x}/{y}.png',{
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
     //creates leaflet map with given lat / long points with zoom level of 6.
@@ -34,15 +35,19 @@
 
     $scope.initPoints = function(){
       MapFactory.getPoints().then(function(data){
-        var markers = MapFactory.plotPoints(data);
+        //Removes MapFactory plotPoints and renders data in controller
+        var markers = $scope.plotPoints(data);
         map.addLayer(markers);
-
         markers.on('click', function(e) {
           angular.element(document.body.getElementsByTagName('ul')).text('');
+
           // console.log('coordinates', e.latlng);
           $scope.$apply(function(){
             MapFactory.showCommentPane();
+              console.log(e.layer.options.icon.options);
               $scope.photoId = e.layer.options.icon.options.photoID;
+              $scope.photoScore = e.layer.options.icon.options.score;
+              $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
               MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
                 if(comments.data === "null" || comments.data.length === 0) {
                   // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
@@ -57,11 +62,71 @@
               });
           });
         });
+      }); 
+    };
+
+     $scope.plotPoints = function(points){
+      console.log('points', points);
+      var markers = L.markerClusterGroup();
+      var picIcon = L.Icon.extend({
+        options: {
+          iconSize: [40, 40]
+        }
       });
-      
+
+      for(var i = 0; i < points.length; i ++){
+        var userName = points[i].User ? points[i].User.userName : "Anonymous";
+        var html = '<div class="popup"><h5 class="photoUserName">' + userName+ '</h5> <h5 class="photoDescription">' +   points[i].description+'</h5>' + 
+        '<div class="popupPhoto">'+
+          '<img src= '+points[i].photoUrl+' height = "300", width = "300">' +
+          '<div>' +
+          '<span class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()"></span>'+
+          '<span class="fa fa-thumbs-down thumbs" ng-click = "photoScoreDecr()"></span></div>' + 
+          '<div><span class="score"> {{photoLikes}} likes</span></div></div></div>';
+
+        var linkFunction = $compile(angular.element(html));
+        var newScope = $scope.$new();
+
+        var picMarker = new L.marker([points[i].latitude, points[i].longitude], {
+          icon: new picIcon({
+            photoID: points[i].id,
+            iconUrl: points[i].photoUrl,
+            score: points[i].score
+          })
+        });
+
+        picMarker.bindPopup(linkFunction(newScope)[0]);
+        markers.addLayer(picMarker);
+      };
+
+      return markers;
     };
 
     $scope.initPoints();
+    
+
+    $scope.photoScoreIncr = function(){
+      $scope.photoScore += 1;
+      $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
+      var data = {
+        photoId: $scope.photoId,
+        photoScore: $scope.photoScore
+      };
+      MapFactory.postScore(data);
+    };
+
+    $scope.photoScoreDecr = function(){
+  
+      $scope.photoScore -= 1;
+      $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
+      var data = {
+        photoId: $scope.photoId,
+        photoScore: $scope.photoScore
+      };
+      MapFactory.postScore(data);      
+    };
+
+
     $scope.hide = function() {
       MapFactory.hideCommentPane();
     }
@@ -87,7 +152,7 @@
     }
   })
 
-  .factory('MapFactory', function($http, Auth){
+  .factory('MapFactory', function($http, Auth, $compile){
     var appendComment = function(comment) {
       var parentEl = document.querySelector('.commentPane ul');
       var childEl = document.createElement('li');
@@ -99,6 +164,7 @@
       angular.element(document.body.getElementsByClassName('mapStyle')).css("width", "80%");
       angular.element(document.body.getElementsByClassName('commentPane')).css("display", "block");
     };
+
 
     var hideCommentPane = function() {
       angular.element(document.body.getElementsByClassName('mapStyle')).css("width", "100%");
@@ -153,27 +219,17 @@
           return res.data;
       })
     };
-    var plotPoints = function(points){
-      var markers = L.markerClusterGroup();
-      var picIcon = L.Icon.extend({
-        options: {
-          iconSize: [40, 40]
-        }
-      });
-      for(var i = 0; i < points.length; i ++){
-        var picMarker = new L.marker([points[i].latitude, points[i].longitude], {
-          icon: new picIcon({
-            photoID: points[i].id,
-            iconUrl: points[i].photoUrl
-          })
-        });
-        // console.log(picMarker);
-        
-        picMarker.bindPopup('<h5>'+points[i].description+'</h5><br></br><img src= '+points[i].photoUrl+' height = "300", width = "300">');
-        markers.addLayer(picMarker);
-      };
-      return markers;
+
+    var postScore = function(data){
+      return $http({
+        method: 'POST',
+        url: '/api/photo/votes',
+        data: data
+      }).then(function(res){
+        return res.data;
+      });;
     };
+   
     return {
       appendComment : appendComment,
       hideCommentPane : hideCommentPane,
@@ -183,6 +239,6 @@
       getCommentsForPhoto: getCommentsForPhoto,
       getPoints : getPoints,
       postPhotos : postPhotos,
-      plotPoints : plotPoints
+      postScore: postScore
     };
   });
