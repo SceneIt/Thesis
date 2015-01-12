@@ -42,11 +42,8 @@
         map.addLayer(markers);
         markers.on('click', function(e) {
           angular.element(document.body.getElementsByTagName('ul')).text('');
-
-          // console.log('coordinates', e.latlng);
           $scope.$apply(function(){
             MapFactory.showCommentPane();
-              console.log(e.layer.options.icon.options);
               $scope.photoId = e.layer.options.icon.options.photoID;
               $scope.photoScore = e.layer.options.icon.options.score;
               $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
@@ -68,7 +65,6 @@
     };
 
      $scope.plotPoints = function(points){
-      console.log('points', points);
       var markers = L.markerClusterGroup();
       var picIcon = L.Icon.extend({
         options: {
@@ -191,7 +187,6 @@
 
 
     var postComment = function(id, user, comment){
-      console.log(id, user, comment);
       return $http({
         method: 'POST',
         url: '/api/comments/',
@@ -217,8 +212,7 @@
         url: '/api/photo/data',
         data: photoData
       }).then(function(res){
-          console.log('uplodaded',res.data);
-          return res.data;
+        return res.data;
       })
     };
 

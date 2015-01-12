@@ -8,7 +8,6 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
   	getPhoto: function(req,res){
       //grabs all photo entries and stores them in an array
       db.Photo.findAll({include: [{ model: db.User, attributes: ['id','userName']}]}).then(function(photos){
-        console.log(photos)
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.send(photos);
@@ -80,7 +79,6 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
           photo.updateAttributes({
             score: req.body.photoScore
           }).then(function() {
-            console.log('photoScore submitted');
           });
         }
       });
