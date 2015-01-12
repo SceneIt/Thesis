@@ -632,3 +632,6 @@
   margin-top: 200px;
 }
 
+#mapHeader{
+  border-bottom: 1px black;
+}
