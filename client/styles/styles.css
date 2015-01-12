@@ -593,9 +593,28 @@
   margin-left:60px;
   max-height:100px;
   max-width:170px;
-  
+}
+
+
+.popup {
+  font-size: 20px;
+
 
 }
+.leaflet-popup-content-wrapper{
+  background-color: #424242;
+  color: white;
+}
+.popupPhoto{
+  text-align: center;  
+}
+.thumbs, .score {
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+}
+
+
 #sectionvid {
   width:100%;
   height:1000px;
