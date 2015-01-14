@@ -599,31 +599,32 @@
 
 
 .popup {
-  font-size: 20px;
-
-
+  font-size: 18px;
 }
+
 .leaflet-popup-content-wrapper{
   background-color: #424242;
   color: white;
 }
+
 .popupPhoto{
   text-align: center;  
 }
-.thumbs, .score {
-  cursor: pointer;
-  padding: 10px;
-  color: white;
-}
 
+
+.photoUserName{
+  color: #009999 ;
+}
 
 #sectionvid {
   width:100%;
   height:1000px;
 }
+
 #mapHeader{
   border-bottom: 1px black;
 }
+
 
 #collage img {
   margin-top: 50px;
@@ -645,3 +646,26 @@
   margin-top: 200px;
 }
 
+
+.scoreicon{
+  color: white;
+  background-color: #424242;
+  border-color: #424242;
+  border-opacity: 0;
+}
+
+button.fa { 
+  border-style: hidden;
+  outline:0 none;
+  opacity: 0.5;
+}
+
+.thumbs{
+  background-color: #424242;
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  border-opacity: 0;
+}
+
+.

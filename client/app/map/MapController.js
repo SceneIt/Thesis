@@ -17,7 +17,7 @@
     $scope.signout = function(){
       Auth.signout();
     };
-    
+
     $scope.comment = "";
     $scope.photoId = "";
 
@@ -46,21 +46,24 @@
           angular.element(document.body.getElementsByTagName('ul')).text('');
           $scope.$apply(function(){
             MapFactory.showCommentPane();
-              $scope.photoId = e.layer.options.icon.options.photoID;
-              $scope.photoScore = e.layer.options.icon.options.score;
-              $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
-              MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-                if(comments.data === "null" || comments.data.length === 0) {
-                  // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
-                } else {
-                  comments.data.sort(function(a, b) {
-                    return Date.parse(a.createdAt) - Date.parse(b.createdAt);
-                  });
-                  comments.data.forEach(function(comment) {
-                    MapFactory.appendComment(comment);
-                  });
-                }
-              });
+            $scope.photoId = e.layer.options.icon.options.photoID;
+
+            MapFactory.getScore($scope.photoId).then(function(photo){
+                $scope.photoScore = photo.data;
+            });
+
+            MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
+              if(comments.data === "null" || comments.data.length === 0) {
+                // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
+              } else {
+                comments.data.sort(function(a, b) {
+                  return Date.parse(a.createdAt) - Date.parse(b.createdAt);
+                });
+                comments.data.forEach(function(comment) {
+                  MapFactory.appendComment(comment);
+                });
+              }
+            });
           });
         });
       }); 
@@ -75,14 +78,16 @@
       });
 
       for(var i = 0; i < points.length; i ++){
+        $scope.photoScore = points[i].score;
         var userName = points[i].User ? points[i].User.userName : "Anonymous";
-        var html = '<div class="popup"><h5 class="photoUserName">' + userName+ '</h5> <h5 class="photoDescription">' +   points[i].description+'</h5>' + 
+        var html = '<div class="popup"><h3 class="photoDescription">' +   points[i].description +'</h3>' + '<h6 class="photoUserName"> Uploaded by ' + 
+        userName  + '</h6>'+ 
         '<div class="popupPhoto">'+
           '<img src= '+points[i].photoUrl+' height = "300", width = "300">' +
           '<div>' +
-          '<span class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()"></span>'+
-          '<span class="fa fa-thumbs-down thumbs" ng-click = "photoScoreDecr()"></span></div>' + 
-          '<div><span class="score"> {{photoLikes}} likes</span></div></div></div>';
+          '<span class="scoreicon"> <button class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()"></button></span>'+
+          '<span class="scoreicon"> <button class="fa fa-thumbs-down thumbs" ng-click="photoScoreDecr()"></button></span></div>' + 
+          '<div><span class="score"> {{photoScore}} likes</span></div></div></div>';
 
         var linkFunction = $compile(angular.element(html));
         var newScope = $scope.$new();
@@ -106,24 +111,21 @@
     
 
     $scope.photoScoreIncr = function(){
-      $scope.photoScore += 1;
-      $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
+      $scope.photoScore = $scope.photoScore + 1;
       var data = {
-        photoId: $scope.photoId,
+        id: $scope.photoId,
         photoScore: $scope.photoScore
       };
       MapFactory.postScore(data);
     };
 
     $scope.photoScoreDecr = function(){
-  
       $scope.photoScore -= 1;
-      $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
       var data = {
-        photoId: $scope.photoId,
+        id: $scope.photoId,
         photoScore: $scope.photoScore
       };
-      MapFactory.postScore(data);      
+      MapFactory.postScore(data);   
     };
 
 
@@ -207,6 +209,7 @@
         return(res.data);
       });
     };
+
     //postPhotos function will post object into database
     var postPhotos = function(photoData){
       return $http({
@@ -223,10 +226,19 @@
         method: 'POST',
         url: '/api/photo/votes',
         data: data
-      }).then(function(res){
+      }).then(function(res){ 
+        console.log('success');
         return res.data;
       });;
     };
+
+    var getScore = function(data){
+      return $http.get('/api/photo/votes', {params: {id: data}})
+      .success(function(res){
+        return res.body;
+      });
+    };
+  
    
     return {
       appendComment : appendComment,
@@ -237,6 +249,7 @@
       getCommentsForPhoto: getCommentsForPhoto,
       getPoints : getPoints,
       postPhotos : postPhotos,
-      postScore: postScore
+      postScore: postScore,
+      getScore: getScore
     };
   });
