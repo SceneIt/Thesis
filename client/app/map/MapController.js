@@ -20,6 +20,7 @@
 
     $scope.comment = "";
     $scope.photoId = "";
+    $scope.photoVotes = {};
 
     //loads map tiles from custom maps of mapbox
     var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/mochicat8.kmifnp9g/{z}/{x}/{y}.png',{
@@ -31,12 +32,12 @@
     });
   //initializes markercluster
   //add base map tiles
-  map.addLayer(layer);
-  map.locate({setView: true, maxZoom: 10});
-  $interval($scope.initPoints,5000)
-  //calling the post photo function
-            $scope.thumbsUp = true;
-            $scope.thumbsDown = true;
+    map.addLayer(layer);
+    map.locate({setView: true, maxZoom: 10});
+    $interval($scope.initPoints,5000)
+    //calling the post photo function
+    $scope.thumbsUp = false;
+    $scope.thumbsDown = false;
 
     $scope.initPoints = function(){
       MapFactory.getPoints().then(function(data){
@@ -46,8 +47,6 @@
         markers.on('click', function(e) {
           angular.element(document.body.getElementsByTagName('ul')).text('');
           $scope.$apply(function(){
-                        $scope.thumbsUp = true;
-            $scope.thumbsDown = true;
 
             MapFactory.showCommentPane();
             $scope.photoId = e.layer.options.icon.options.photoID;
@@ -73,15 +72,17 @@
       }); 
     };
 
-     $scope.plotPoints = function(points){
-      var markers = L.markerClusterGroup();
-      var picIcon = L.Icon.extend({
-        options: {
-          iconSize: [40, 40]
-        }
-      });
+   $scope.plotPoints = function(points){
+    var markers = L.markerClusterGroup();
+    var picIcon = L.Icon.extend({
+      options: {
+        iconSize: [40, 40]
+      }
+    });
 
       for(var i = 0; i < points.length; i ++){
+        $scope.photoVotes[points[i].id] = [false, false];
+
         $scope.photoScore = points[i].score;
         var userName = points[i].User ? points[i].User.userName : "Anonymous";
         var html = '<div class="popup"><h3 class="photoDescription">' +   points[i].description +'</h3>' + '<h6 class="photoUserName"> Uploaded by ' + 
@@ -89,8 +90,8 @@
         '<div class="popupPhoto">'+
           '<img src= '+points[i].photoUrl+' height = "300", width = "300">' +
           '<div>' +
-          '<span class="scoreicon"> <button class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()" ng-show="thumbsUp"></button></span>'+
-          '<span class="scoreicon"> <button class="fa fa-thumbs-down thumbs" ng-click="photoScoreDecr()" ng-show="thumbsDown"></button></span></div>' + 
+          '<span class="scoreicon"> <button class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()" ng-disabled="thumbsUp"></button></span>'+
+          '<span class="scoreicon"> <button class="fa fa-thumbs-down thumbs" ng-click="photoScoreDecr()" ng-disabled="thumbsDown"></button></span></div>' + 
           '<div><span class="score"> {{photoScore}} likes</span></div></div></div>';
 
         var linkFunction = $compile(angular.element(html));
@@ -117,24 +118,29 @@
 
     $scope.photoScoreIncr = function(){
       $scope.photoScore = $scope.photoScore + 1;
+      $scope.photoVotes[$scope.photoId][0] = true;
+      $scope.photoVotes[$scope.photoId][1] = false;
       var data = {
         id: $scope.photoId,
         photoScore: $scope.photoScore
       };
       MapFactory.postScore(data);
-      $scope.thumbsUp = false;
-      $scope.thumbsDown = true;
+
+      $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
+      $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
     };
 
     $scope.photoScoreDecr = function(){
       $scope.photoScore -= 1;
+      $scope.photoVotes[$scope.photoId][0] = false;
+      $scope.photoVotes[$scope.photoId][1] = true;
       var data = {
         id: $scope.photoId,
         photoScore: $scope.photoScore
       };
       MapFactory.postScore(data);  
-      $scope.thumbsDown = false; 
-      $scope.thumbsUp = true;
+      $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
+      $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
     };
 
 
