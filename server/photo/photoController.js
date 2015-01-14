@@ -78,8 +78,8 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
         if (photo) { // if the record exists in the db
           photo.updateAttributes({
             score: req.body.photoScore
-          }).then(function() {
-            console.log('success');
+          }).then(function(data) {
+            res.json(data.values);
           });
         }
       });

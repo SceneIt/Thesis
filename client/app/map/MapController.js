@@ -35,7 +35,8 @@
   map.locate({setView: true, maxZoom: 10});
   $interval($scope.initPoints,5000)
   //calling the post photo function
-
+            $scope.thumbsUp = true;
+            $scope.thumbsDown = true;
 
     $scope.initPoints = function(){
       MapFactory.getPoints().then(function(data){
@@ -45,6 +46,9 @@
         markers.on('click', function(e) {
           angular.element(document.body.getElementsByTagName('ul')).text('');
           $scope.$apply(function(){
+                        $scope.thumbsUp = true;
+            $scope.thumbsDown = true;
+
             MapFactory.showCommentPane();
             $scope.photoId = e.layer.options.icon.options.photoID;
 
@@ -85,8 +89,8 @@
         '<div class="popupPhoto">'+
           '<img src= '+points[i].photoUrl+' height = "300", width = "300">' +
           '<div>' +
-          '<span class="scoreicon"> <button class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()"></button></span>'+
-          '<span class="scoreicon"> <button class="fa fa-thumbs-down thumbs" ng-click="photoScoreDecr()"></button></span></div>' + 
+          '<span class="scoreicon"> <button class="fa fa-thumbs-up thumbs" ng-click="photoScoreIncr()" ng-show="thumbsUp"></button></span>'+
+          '<span class="scoreicon"> <button class="fa fa-thumbs-down thumbs" ng-click="photoScoreDecr()" ng-show="thumbsDown"></button></span></div>' + 
           '<div><span class="score"> {{photoScore}} likes</span></div></div></div>';
 
         var linkFunction = $compile(angular.element(html));
@@ -110,6 +114,7 @@
     $scope.initPoints();
     
 
+
     $scope.photoScoreIncr = function(){
       $scope.photoScore = $scope.photoScore + 1;
       var data = {
@@ -117,6 +122,8 @@
         photoScore: $scope.photoScore
       };
       MapFactory.postScore(data);
+      $scope.thumbsUp = false;
+      $scope.thumbsDown = true;
     };
 
     $scope.photoScoreDecr = function(){
@@ -125,7 +132,9 @@
         id: $scope.photoId,
         photoScore: $scope.photoScore
       };
-      MapFactory.postScore(data);   
+      MapFactory.postScore(data);  
+      $scope.thumbsDown = false; 
+      $scope.thumbsUp = true;
     };
 
 
