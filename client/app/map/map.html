@@ -1,4 +1,3 @@
-
 <div id="mapHeader" class="main-header">
   <div class="logo">
     <h1>Mappix
@@ -10,17 +9,35 @@
 </div>
 
 <div id='map' class="mapStyle">
+	<div id="button-wrapper">
+	            <input type="button" id="Btn1" value="Btn1" class="btnStyle span3" />
+	            <input type="button" id="Btn2" value="Btn2" class="btnStyle span3" /> 
+	            <input type="button" id="Btn3" value="Btn3" class="btnStyle span3" />
+	</div> 
 </div>
 
+<div class="container">
+  <div class="footer-links clearfix">
+     <ul>
+         <li>&copy; 2014 Sceneit</li>
+         <li><a ui-sref="about">About</a></li>
+         <li><a ui-sref="contact">Contact</a></li>
+         <li><a ui-sref="privacy">Privacy</a></li>
+     </ul>
+  </div>
+ </div>
 
 <div class="commentPane">
 	<div class="comment-header" >
 		<button type="button" class="close" ng-click="hide()">×</button>
 		<h4 >Comments</h4>
 	</div>
-	<ul class="pre-scrollable" style= "list-style-type: none;">
-	
-	</ul>
+
+	<div class="commentContainer">
+		<ul class="comments pre-scrollable" style= "list-style-type: none;">
+		
+		</ul>
+	</div>
 	<textarea type="text" class="form-control textarea" rows="3" placeholder="Write a comment..." ng-model="comment" ng-enter="postComment()"></textarea>
-	
 </div>
+

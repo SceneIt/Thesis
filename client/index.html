@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <!-- <link rel="stylesheet" media="all" type="text/css" href="styles/JQueryUI.css" /> -->
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <link rel="stylesheet" media="all" type="text/css" href="styles/styles.css" />
   <link rel="stylesheet" media="all" type="text/css" href="styles/Control.Geocoder.css" />
@@ -19,28 +20,16 @@
 
     </div>
 
-<!-- 
-    <div class="container">
-      <div class="footer-links">
-         <ul>
-             <li>© 2014 Sceneit</li>
-             <li><a ui-sref="/about">About</a></li>
-             <li><a ui-sref="/contact">Contact</a></li>
-             <li><a ui-sref="/privacy">Privacy</a></li>
-         </ul>
-      </div>
-
-    </div> -->
-    
-
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="lib/skrollr.min.js"></script>
+  <!-- // <script src="lib/JQueryUI.js"></script> -->
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
   <script src="bower_components/leaflet/dist/leaflet.js"></script>
   <script src="lib/Control.Geocoder.js"></script>
   <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <!-- // <script src="bower_components/leaflet-slider/dist/leaflet.SliderControl.min.js"></script> -->
   <script src="bower_components/moment/moment.js"></script>
   <script src="app/app.js"></script>
   <script src="app/home/HomeController.js"></script>
@@ -48,19 +37,6 @@
   <script src="app/signin/SigninController.js"></script>
   <script src="app/signup/SignupController.js"></script>
   <script src="app/factories/factories.js"></script>
-  <script>
-   $(document).ready(function () {
-      $('.menu-close-icon').click(function (e) {
-          e.preventDefault();
-          $('#side-menu').animate({ right: '-250px' });
-         
-      });
-      $('.menu-open-icon').click(function (e) {
-          e.preventDefault();
-          $('#side-menu').animate({right: '0px', top: '0px' });        
-      });
-    });
-  </script>
   <script type="text/javascript">
     var s = skrollr.init({
     easing: {

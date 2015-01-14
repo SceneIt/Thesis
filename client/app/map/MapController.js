@@ -14,6 +14,7 @@ angular.module('sceneit.map', [])
   })
 
   .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $compile, $interval) {
+
     $scope.signout = function(){
       Auth.signout();
     };
@@ -45,8 +46,10 @@ angular.module('sceneit.map', [])
         //Removes MapFactory plotPoints and renders data in controller
         var markers = $scope.plotPoints(data);
         map.addLayer(markers);
+
         markers.on('click', function(e) {
-          angular.element(document.body.getElementsByTagName('ul')).text('');
+          // document.querySelector('.commentPane ul').text('');
+          angular.element(document.body.getElementsByClassName('comments')).text('');
           $scope.$apply(function(){
 
             MapFactory.showCommentPane();
@@ -99,6 +102,7 @@ angular.module('sceneit.map', [])
         var newScope = $scope.$new();
 
         var picMarker = new L.marker([points[i].latitude, points[i].longitude], {
+          time: "2014-01-12 10:21:59+01",
           icon: new picIcon({
             photoID: points[i].id,
             iconUrl: points[i].photoUrl,
@@ -168,11 +172,14 @@ angular.module('sceneit.map', [])
     if(!Auth.isAuthenticated()) {
       // angular.element(window.document.body.getElementsByTagName('textarea')).css('display','none');
     }
+
+ 
+
   })
 
   .factory('MapFactory', function($http, Auth, $compile){
     var appendComment = function(comment) {
-      var parentEl = document.querySelector('.commentPane ul');
+      var parentEl = document.querySelector('.commentContainer ul');
       var childEl = document.createElement('li');
       childEl.className = "webMessengerMessageGroup";
       childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png"></div><div class="rightHalf"><div class="time"><abbr class="timeText">'+ /*new Date(Date.parse(comment.createdAt)).toLocaleString()*/ moment(comment.createdAt).fromNow() +'</abbr></div><div class="nameWithComment"><strong class="name">' + Auth.userInfo.username + '</strong><div class="userscomment"><p>' +  comment.comment + '</p></div></div></div></div>';

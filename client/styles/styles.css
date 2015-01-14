@@ -1,6 +1,26 @@
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    }
+  * html .clearfix             { zoom: 1; } /* IE6 */
+  *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+    /* End clearfix */
+
+
+  #button-wrapper {
+    position: absolute;
+    bottom: 30px;
+    width: 12%;
+    border: 1px solid red;
+    z-index: 100;
+  }
   .mapStyle {
     margin-top: 60px;
-    height:100%; 
+    height:85vh; 
     width:100%; 
     position: absolute;
   }
@@ -9,6 +29,24 @@
   }
   .close {
     margin-top:6px;
+  }
+  .commentPane {
+    height:70%;
+    width:20%;
+    float:right;
+    text-align:center;
+    display:none;
+    background-color: white;
+  }
+
+  .commentPane ul li {
+    /*border: 1px solid black;*/
+  }
+
+  .commentContainer {
+    overflow: scroll;
+    height: 80vh;
+    margin-bottom:10%;
   }
   .comment-header {
     margin-top: 60px;
@@ -19,8 +57,7 @@
     color: #fff;
   }
   .pre-scrollable {
-    /*max-height: 45em;*/
-    max-height: 690px;
+    max-height: 550px;
   }
   p {
     margin: 0;
@@ -66,21 +103,7 @@
   .textarea {
     width: 20%;
     position: absolute;
-    bottom: 0%;
-  }
-
-  .commentPane {
-    overflow: scroll;
-    height:100%;
-    width:20%;
-    float:right;
-    text-align:center;
-    display:none;
-    background-color: white;
-  }
-
-  .commentPane ul li {
-    /*border: 1px solid black;*/
+    bottom: 10%;
   }
 
   .main-header {
@@ -160,12 +183,18 @@
   }
 
   .container {
-    margin: 0 auto;
+    /*margin: 0 auto;
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 15px;*/
+    /*margin-bottom:20vh;*/
     width:100%;
-    height:3%;
-    background-color: white;
+    /*height:3%;*/
+    background-color: black;
+    z-index:100;
+    margin-top: 90vh;
+    height: 10%;
+    position: fixed;
+    clear:both;
   }
 
 
@@ -189,7 +218,7 @@
     margin-left: 3%;
     display: inline-block;
     padding-right: 1%;
-    color: white;
+    color: rgb(29, 202, 255);
   }
 
   .footer-links li a:hover {
@@ -197,7 +226,7 @@
   }
 
   .footer-links li a{
-    color: white;
+    color: rgb(29, 202, 255);
   }
 
   .centered {
