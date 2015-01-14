@@ -1,12 +1,12 @@
-# Project Name
+# Mappix
 
-> Pithy project description
+A web and mobile application that crowdsources user-generated content to deliver relevant, real-time news in an interactive and visual environment.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Raymond Ma
+  - __Scrum Master__: Judy Zaratan
+  - __Development Team Members__: Issac Pao, Tim Hua
 
 ## Table of Contents
 
@@ -20,15 +20,21 @@
 
 ## Usage
 
-> Some usage instructions
+1. Register and login to a user account.
+2. Snap a pic on the mobile app, add a description, and upload to contribute photographed news content.  
+3. Click browse to explore and discover trending news. 
+4. Contribute to the community by commenting on photos, upvoting relevant news, and downvoting spam.  
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node
+- Angular
+- Express
+- Passport
+- MySQL
+- Leaflet
+- jQuery
+
 
 ## Development
 
@@ -37,14 +43,13 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
 bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](http://github.com/SceneIt/Thesis/issues)
 
 
 ## Contributing
