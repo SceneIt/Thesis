@@ -93,14 +93,16 @@
   }
   .userscomment {
     text-align: left;
-    margin-left: 20%;
+    margin-left: 27%;
     line-height: 1.38;
   }
   .name {
     display: block;
     line-height: 1;
     margin: 1px 0 4px 0;
-    width: 43%;
+    /*width: 43%;*/
+    width: 89px;
+    margin-left:20px;
   }
   .time {
     float:right;
