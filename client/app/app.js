@@ -4,7 +4,8 @@ angular.module('sceneit', [
   'sceneit.map',
   'sceneit.signin',
   'sceneit.signup',
-  'sceneit.factories'
+  'sceneit.factories',
+  
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {

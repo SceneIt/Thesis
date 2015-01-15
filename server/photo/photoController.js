@@ -13,6 +13,7 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
         res.send(photos);
       });
   	},
+
     getPhotoData: function(req, res){
       var id = req.body.id;
       db.Photo.find({

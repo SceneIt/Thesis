@@ -37,6 +37,7 @@ var User = sequelize.define('User', {
 User.hasMany(Comment);
 User.hasMany(Photo);
 Photo.belongsTo(User);
+Comment.belongsTo(User);
 Photo.hasMany(Comment);
 
 User.sync();
