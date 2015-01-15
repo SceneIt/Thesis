@@ -212,7 +212,7 @@ angular.module('sceneit.map', [])
       var parentEl = document.querySelector('.commentContainer ul');
       var childEl = document.createElement('li');
       childEl.className = "webMessengerMessageGroup";
-      childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png"></div><div class="rightHalf"><div class="time"><abbr class="timeText">'+ /*new Date(Date.parse(comment.createdAt)).toLocaleString()*/ moment(comment.createdAt).fromNow() +'</abbr></div><div class="nameWithComment"><strong class="name">' + user + '</strong><div class="userscomment"><p>' +  comment.comment + '</p></div></div></div></div>';
+      childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png"></div><div class="rightHalf"><div class="time"><abbr class="timeText">'+ /*new Date(Date.parse(comment.createdAt)).toLocaleString()*/ moment(comment.createdAt).fromNow() +'</abbr></div><div class="nameWithComment"><div class="name"> <strong>' + user + '</strong></div><div class="userscomment"><p>' +  comment.comment + '</p></div></div></div></div>';
       parentEl.appendChild(childEl);
     }
     var showCommentPane = function() {
