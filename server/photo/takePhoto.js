@@ -43,12 +43,12 @@ module.exports = function(app){
       file.pipe(fs.createWriteStream(saveTo));
     });
     busboy.on('finish', function() {
+      photoController.getExif(saveTo, comment);
       res.writeHead(200, { 'Connection': 'close' });
       console.log('Done saving picture..');
       res.end("That's all folks!");
 
       //grabs EXIF data, parses
-      photoController.getExif(saveTo, comment);
     });
     return req.pipe(busboy);
   });

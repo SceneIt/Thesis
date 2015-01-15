@@ -31,4 +31,5 @@ dist/
 node_modules/
 bower_components/
 client/bower_components/
+client/photoStore/
 SceneItApp/platforms/

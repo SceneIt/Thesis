@@ -35,7 +35,7 @@ module.exports = {
         console.log(user);
         userID = user.id;
         res.cookie('userID', userID, { httpOnly: false } );
-        res.status(200).send({username: req.body.username});
+        res.status(200).send({username: req.body.username, userid: userID});
         next();
       })
     } else{
