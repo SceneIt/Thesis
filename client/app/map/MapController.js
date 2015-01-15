@@ -80,12 +80,13 @@ angular.module('sceneit.map', [])
               $scope.photoScore = photo.data;
           });
 
+
+
             $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
             $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
 
 
           MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-            console.log(comments);
             if(comments.data === "null" || comments.data.length === 0) {
               // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
             } else {
@@ -177,6 +178,8 @@ angular.module('sceneit.map', [])
 
 
     $scope.photoScoreIncr = function(){
+      if(Auth.isAuthenticated()){
+
       $scope.photoScore = $scope.photoScore + 1;
       $scope.photoVotes[$scope.photoId][0] = true;
       $scope.photoVotes[$scope.photoId][1] = false;
@@ -188,9 +191,11 @@ angular.module('sceneit.map', [])
 
       $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
       $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
+      }
     };
 
     $scope.photoScoreDecr = function(){
+      if(Auth.isAuthenticated()){
       $scope.photoScore -= 1;
       $scope.photoVotes[$scope.photoId][0] = false;
       $scope.photoVotes[$scope.photoId][1] = true;
@@ -201,6 +206,7 @@ angular.module('sceneit.map', [])
       MapFactory.postScore(data);  
       $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
       $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
+    }
     };
 
 
