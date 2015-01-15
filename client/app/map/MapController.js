@@ -19,7 +19,7 @@ angular.module('sceneit.map', [])
       Auth.signout();
     };
 
-    $scope.times = ["All", "hours", "day", "week"];
+    $scope.times = ["All", "hour", "day", "week"];
     $scope.mapPoints = [];
     $scope.comment = "";
     $scope.photoId = "";
@@ -37,8 +37,7 @@ angular.module('sceneit.map', [])
   //initializes markercluster
   //add base map tiles
     map.addLayer(layer);
-    // map.locate({setView: true, maxZoom: 10});
-    $interval($scope.initPoints,5000)
+
     //calling the post photo function
     $scope.thumbsUp = false;
     $scope.thumbsDown = false;
