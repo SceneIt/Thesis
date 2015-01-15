@@ -10,13 +10,35 @@
   *:first-child+html .clearfix { zoom: 1; } /* IE7 */
     /* End clearfix */
 
+    .dropdown-menu li a {
+      text-align:center;
+      cursor:pointer;
+    }
+
+    .dropdown-menu .divider {
+    margin: 0 auto;
+    height: 1px;
+    margin: 5px 1px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #DDD3D3;
+    }
+
+  #button-wrapper button {
+    background-color: #009999;
+    height: 10%;
+    width: 80px;
+    color:white;
+  }
 
   #button-wrapper {
     position: absolute;
     bottom: 30px;
-    width: 12%;
-    border: 1px solid red;
+    /*width: 20%;*/
+    /*border: 1px solid red;*/
     z-index: 100;
+    margin-bottom: 0.5%;
+    margin-left: 0.5%;
   }
   .mapStyle {
     margin-top: 60px;

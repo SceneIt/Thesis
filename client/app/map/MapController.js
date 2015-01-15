@@ -14,11 +14,13 @@ angular.module('sceneit.map', [])
   })
 
   .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $compile, $interval) {
-
+    // $('.dropdown-toggle').dropdown('toggle');
     $scope.signout = function(){
       Auth.signout();
     };
 
+    $scope.times = ["All", "hours", "day", "week"];
+    $scope.mapPoints = [];
     $scope.comment = "";
     $scope.photoId = "";
     $scope.photoVotes = {};
@@ -40,11 +42,30 @@ angular.module('sceneit.map', [])
     //calling the post photo function
     $scope.thumbsUp = false;
     $scope.thumbsDown = false;
+    map.addLayer(layer);
+    map.locate({setView: true, maxZoom: 10});
+  // $interval($scope.initPoints,5000)
+  //calling the post photo function
+
+    $scope.showPointsAt = function(time) {
+      map.removeLayer($scope.copy);
+      if(time === "All") {
+        $scope.initPoints();
+      }
+      else {
+        var now = moment();
+        map.addLayer($scope.plotPoints($scope.mapPoints.filter(function(point) {
+          return (now.diff(moment(point.timeStamp), time) < 1);
+        })));
+      }
+    }
 
     $scope.initPoints = function(){
       MapFactory.getPoints().then(function(data){
         //Removes MapFactory plotPoints and renders data in controller
         var markers = $scope.plotPoints(data);
+        $scope.mapPoints = data;
+        $scope.copy = markers;
         map.addLayer(markers);
 
         markers.on('click', function(e) {
@@ -71,6 +92,23 @@ angular.module('sceneit.map', [])
                 });
               }
             });
+              $scope.photoId = e.layer.options.icon.options.photoID;
+              $scope.photoScore = e.layer.options.icon.options.score;
+              $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
+              MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
+                if(comments.data === "null" || comments.data.length === 0) {
+                  // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
+                } else {
+                  comments.data.sort(function(a, b) {
+                    return Date.parse(a.createdAt) - Date.parse(b.createdAt);
+                  });
+                  comments.data.forEach(function(comment) {
+                    if(comment.User) {
+                      MapFactory.appendComment(comment, comment.User.userName);
+                    }
+                  });
+                }
+              });
           });
         });
       }); 
@@ -100,9 +138,8 @@ angular.module('sceneit.map', [])
 
         var linkFunction = $compile(angular.element(html));
         var newScope = $scope.$new();
-
         var picMarker = new L.marker([points[i].latitude, points[i].longitude], {
-          time: "2014-01-12 10:21:59+01",
+          time: points[i].timeStamp,
           icon: new picIcon({
             photoID: points[i].id,
             iconUrl: points[i].photoUrl,
@@ -113,7 +150,7 @@ angular.module('sceneit.map', [])
         picMarker.bindPopup(linkFunction(newScope)[0]);
         markers.addLayer(picMarker);
       };
-
+      $scope.copy = markers;
       return markers;
     };
 
@@ -156,7 +193,7 @@ angular.module('sceneit.map', [])
       if($scope.comment.trim() !== "") {
         MapFactory.postComment($scope.photoId, $cookies["userID"], $scope.comment).then(function(comment) {
           angular.element(document.body.getElementsByTagName('textarea')).val('');
-          MapFactory.appendComment(comment);
+          MapFactory.appendComment(comment, Auth.userInfo.username);
         });
       }
     }
@@ -168,8 +205,8 @@ angular.module('sceneit.map', [])
         MapFactory.hideCommentPane();
     })
 
-    // angular.element(window.document.body.getElementsByClassName('commentPane')).append('<textarea type="text" class="form-control textarea" rows="3" placeholder="Write a comment..." ng-model="comment" ng-enter="postComment()"></textarea>');
     if(!Auth.isAuthenticated()) {
+      MapFactory.hideCommentPane();
       // angular.element(window.document.body.getElementsByTagName('textarea')).css('display','none');
     }
 
@@ -178,11 +215,11 @@ angular.module('sceneit.map', [])
   })
 
   .factory('MapFactory', function($http, Auth, $compile){
-    var appendComment = function(comment) {
+    var appendComment = function(comment, user) {
       var parentEl = document.querySelector('.commentContainer ul');
       var childEl = document.createElement('li');
       childEl.className = "webMessengerMessageGroup";
-      childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png"></div><div class="rightHalf"><div class="time"><abbr class="timeText">'+ /*new Date(Date.parse(comment.createdAt)).toLocaleString()*/ moment(comment.createdAt).fromNow() +'</abbr></div><div class="nameWithComment"><strong class="name">' + Auth.userInfo.username + '</strong><div class="userscomment"><p>' +  comment.comment + '</p></div></div></div></div>';
+      childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png"></div><div class="rightHalf"><div class="time"><abbr class="timeText">'+ /*new Date(Date.parse(comment.createdAt)).toLocaleString()*/ moment(comment.createdAt).fromNow() +'</abbr></div><div class="nameWithComment"><strong class="name">' + user + '</strong><div class="userscomment"><p>' +  comment.comment + '</p></div></div></div></div>';
       parentEl.appendChild(childEl);
     }
     var showCommentPane = function() {

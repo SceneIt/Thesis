@@ -10,16 +10,30 @@
 
 <div id='map' class="mapStyle">
 	<div id="button-wrapper">
-	            <input type="button" id="Btn1" value="Btn1" class="btnStyle span3" />
-	            <input type="button" id="Btn2" value="Btn2" class="btnStyle span3" /> 
-	            <input type="button" id="Btn3" value="Btn3" class="btnStyle span3" />
+	  <div class="btn-group dropup">
+	    <button id="dropup" class="btn">Filter</button>
+	    <button class="btn dropdown-toggle" data-toggle="dropdown">
+	      <span class="caret"></span>
+	    </button>
+	    <ul class="dropdown-menu">
+	    	<li ng-click="showPointsAt(times[3])" > <a> 1 {{times[3]}} ago </a> </li>
+	    	<li class="divider"> </li>
+	    	<li ng-click="showPointsAt(times[2])"> <a> 1 {{times[2]}} ago </a> </li>
+	    	<li class="divider"> </li>
+	    	<li ng-click="showPointsAt(times[1])"> <a> 1 {{times[1]}} ago </a> </li>
+	    	<li class="divider"> </li>
+	    	<li ng-click="showPointsAt(times[0])"> <a> Show {{times[0]}} </a> </li>
+	      <!-- dropdown menu links -->
+	    </ul>
+	  </div>
+
 	</div> 
 </div>
 
 <div class="container">
   <div class="footer-links clearfix">
      <ul>
-         <li>&copy; 2014 Sceneit</li>
+         <li>&copy; 2014 Mappix</li>
          <li><a ui-sref="about">About</a></li>
          <li><a ui-sref="contact">Contact</a></li>
          <li><a ui-sref="privacy">Privacy</a></li>
