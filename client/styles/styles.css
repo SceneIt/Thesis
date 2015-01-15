@@ -592,6 +592,13 @@
 .screen img {
   width: 260px;
   height: 460px;
+  margin-top:-2px;
+}
+.screen video {
+  margin-top:-5px;
+  width:260px;
+  height: 460px;
+  margin-left:100px;
 }
 
 #howto {
