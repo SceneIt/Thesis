@@ -85,6 +85,7 @@ angular.module('sceneit.map', [])
 
 
           MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
+            console.log(comments);
             if(comments.data === "null" || comments.data.length === 0) {
               // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
             } else {
@@ -92,7 +93,7 @@ angular.module('sceneit.map', [])
                 return Date.parse(a.createdAt) - Date.parse(b.createdAt);
               });
               comments.data.forEach(function(comment) {
-                MapFactory.appendComment(comment);
+                MapFactory.appendComment(comment, comment.User.userName);
               });
             }
           });
@@ -210,7 +211,7 @@ angular.module('sceneit.map', [])
       if($scope.comment.trim() !== "") {
         MapFactory.postComment($scope.photoId, $cookies["userID"], $scope.comment).then(function(comment) {
           angular.element(document.body.getElementsByTagName('textarea')).val('');
-          MapFactory.appendComment(comment, Auth.userInfo.username);
+          MapFactory.appendComment(comment, $cookies["username"]);
         });
       }
     }

@@ -13,6 +13,7 @@ module.exports = {
       }).then(function(user){
         userID = user.id;
         res.cookie('user', user.id, { httpOnly: false } );
+        res.cookie('username', user.userName, { httpOnly: false } );
         res.status(200).send({username: req.body.username});
         next();
       })
@@ -35,6 +36,7 @@ module.exports = {
         console.log(user);
         userID = user.id;
         res.cookie('userID', userID, { httpOnly: false } );
+        res.cookie('username', user.userName, { httpOnly: false } );
         res.status(200).send({username: req.body.username, userid: userID});
         next();
       })
@@ -47,6 +49,7 @@ module.exports = {
   logOut: function(req, res, next){
     req.logout();  
     res.clearCookie('userID');
+    res.clearCookie('username');
     delete req.session.user;
     req.session.authenticated = false;
     res.clearCookie('connect.sid');

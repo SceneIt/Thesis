@@ -30,16 +30,11 @@ angular.module('sceneit.factories', ['ngCookies'])
 })
 
 .factory('Auth', function($state, $rootScope, $http, $window, $location, $cookies, Session){
-  var userInfo = {
-    username: 'username',
-    password: 'password',
-    email: 'email'
-  };
 
   //Keep state when refreshed
   function init() {
 		if ($cookies["userID"]) {
-			Session.create($cookies.userID);
+			Session.create($cookies["username"]);
 		}
 	}
 
@@ -53,7 +48,7 @@ angular.module('sceneit.factories', ['ngCookies'])
     $http({
       method: 'POST',
       url: '/api/user/signup',
-      data: userInfo
+      data: user
     })
     .then(function(res){
       Session.create(res.data.username);
@@ -61,11 +56,11 @@ angular.module('sceneit.factories', ['ngCookies'])
     });
   };
 
-  var signin = function(){
+  var signin = function(user){
     return ($http({
       method: 'POST',
       url: '/api/user/signin',
-      data: userInfo
+      data: user
     })
     .then(function(res){
       Session.create(res.data.username);
@@ -79,11 +74,6 @@ angular.module('sceneit.factories', ['ngCookies'])
       url: '/api/user/logout'
     }).
     then(function(res){
-    var userInfo = {
-      username: 'username',
-      password: 'password',
-      email: 'email'
-    }   
 	    $rootScope.username = null;
 	    Session.destroy();   
       $location.path('/signin');
@@ -91,7 +81,6 @@ angular.module('sceneit.factories', ['ngCookies'])
   );};
 
   return {
-    userInfo: userInfo,
     signin: signin,
     signup: signup,
     signout: signout,
