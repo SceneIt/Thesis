@@ -74,13 +74,22 @@ var rootUrl = encodeURI('http://corruptflamingo-staging.azurewebsites.net/photoS
     },
 
     postVotes: function(req, res){
-      db.Photo.find({ where: {id: req.body.photoId}}).on('success', function(photo) {
+      db.Photo.find({ where: {id: req.body.id}}).on('success', function(photo) {
         if (photo) { // if the record exists in the db
           photo.updateAttributes({
             score: req.body.photoScore
-          }).then(function() {
+          }).then(function(data) {
+            res.json(data.values);
           });
         }
+      });
+    },
+
+    getVotes: function(req, res){
+      console.log('req', req.query.id);
+      db.Photo.findOne({ where: {id: req.query.id}}).then(function(photo){
+        res.json(photo.dataValues.score);
+
       });
     }
   }
