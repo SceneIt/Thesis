@@ -68,6 +68,13 @@ angular.module('sceneit.map', [])
         $scope.$apply(function(){
 
           MapFactory.showCommentPane();
+          if(!Auth.isAuthenticated()) {
+            angular.element(window.document.body.getElementsByTagName('textarea')).css('display','none');
+          }
+          else {
+            angular.element(window.document.body.getElementsByTagName('textarea')).css('display','block');
+
+          }
           $scope.photoId = e.layer.options.icon.options.photoID;
 
           MapFactory.getScore($scope.photoId).then(function(photo){
@@ -209,13 +216,6 @@ angular.module('sceneit.map', [])
     map.on('click', function() {
         MapFactory.hideCommentPane();
     })
-
-    if(!Auth.isAuthenticated()) {
-      MapFactory.hideCommentPane();
-      // angular.element(window.document.body.getElementsByTagName('textarea')).css('display','none');
-    }
-
- 
 
   })
 
