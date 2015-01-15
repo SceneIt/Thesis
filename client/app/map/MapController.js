@@ -53,10 +53,58 @@ angular.module('sceneit.map', [])
       }
       else {
         var now = moment();
-        map.addLayer($scope.plotPoints($scope.mapPoints.filter(function(point) {
+        var newMarkers = $scope.plotPoints($scope.mapPoints.filter(function(point) {
           return (now.diff(moment(point.timeStamp), time) < 1);
-        })));
+        }));
+        addEventListeners(newMarkers);
+        map.addLayer(newMarkers);
       }
+    }
+
+    var addEventListeners = function(markers) {
+      markers.on('click', function(e) {
+        // document.querySelector('.commentPane ul').text('');
+        angular.element(document.body.getElementsByClassName('comments')).text('');
+        $scope.$apply(function(){
+
+          MapFactory.showCommentPane();
+          $scope.photoId = e.layer.options.icon.options.photoID;
+
+          MapFactory.getScore($scope.photoId).then(function(photo){
+              $scope.photoScore = photo.data;
+          });
+
+          MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
+            if(comments.data === "null" || comments.data.length === 0) {
+              // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
+            } else {
+              comments.data.sort(function(a, b) {
+                return Date.parse(a.createdAt) - Date.parse(b.createdAt);
+              });
+              comments.data.forEach(function(comment) {
+                MapFactory.appendComment(comment);
+              });
+            }
+          });
+            $scope.photoId = e.layer.options.icon.options.photoID;
+            $scope.photoScore = e.layer.options.icon.options.score;
+            $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
+            MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
+              if(comments.data === "null" || comments.data.length === 0) {
+                // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
+              } else {
+                comments.data.sort(function(a, b) {
+                  return Date.parse(a.createdAt) - Date.parse(b.createdAt);
+                });
+                comments.data.forEach(function(comment) {
+                  if(comment.User) {
+                    MapFactory.appendComment(comment, comment.User.userName);
+                  }
+                });
+              }
+            });
+        });
+      });
     }
 
     $scope.initPoints = function(){
@@ -67,49 +115,7 @@ angular.module('sceneit.map', [])
         $scope.copy = markers;
         map.addLayer(markers);
 
-        markers.on('click', function(e) {
-          // document.querySelector('.commentPane ul').text('');
-          angular.element(document.body.getElementsByClassName('comments')).text('');
-          $scope.$apply(function(){
-
-            MapFactory.showCommentPane();
-            $scope.photoId = e.layer.options.icon.options.photoID;
-
-            MapFactory.getScore($scope.photoId).then(function(photo){
-                $scope.photoScore = photo.data;
-            });
-
-            MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-              if(comments.data === "null" || comments.data.length === 0) {
-                // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
-              } else {
-                comments.data.sort(function(a, b) {
-                  return Date.parse(a.createdAt) - Date.parse(b.createdAt);
-                });
-                comments.data.forEach(function(comment) {
-                  MapFactory.appendComment(comment);
-                });
-              }
-            });
-              $scope.photoId = e.layer.options.icon.options.photoID;
-              $scope.photoScore = e.layer.options.icon.options.score;
-              $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
-              MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-                if(comments.data === "null" || comments.data.length === 0) {
-                  // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
-                } else {
-                  comments.data.sort(function(a, b) {
-                    return Date.parse(a.createdAt) - Date.parse(b.createdAt);
-                  });
-                  comments.data.forEach(function(comment) {
-                    if(comment.User) {
-                      MapFactory.appendComment(comment, comment.User.userName);
-                    }
-                  });
-                }
-              });
-          });
-        });
+        addEventListeners(markers);
       }); 
     };
 
