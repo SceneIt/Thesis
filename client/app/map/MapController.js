@@ -157,9 +157,9 @@ angular.module('sceneit.map', [])
       }
     }
     //calling the post photo function
+   map.addControl(new L.Control.Geocoder({position:'topright', collapsed: false, showResultIcons: false}));
 
-    var control = L.control.geonames({username: 'cbi.test'});
-    map.addControl(control);
+
     map.on('click', function() {
         MapFactory.hideCommentPane();
     })
