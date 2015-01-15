@@ -28,12 +28,13 @@ angular.module('sceneit.map', [])
     });
     //creates leaflet map with given lat / long points with zoom level of 6.
     var map = L.map('map', {
-      zoom: 6
+      center: [37.6910, -122.3108],
+      zoom: 10
     });
   //initializes markercluster
   //add base map tiles
     map.addLayer(layer);
-    map.locate({setView: true, maxZoom: 10});
+    // map.locate({setView: true, maxZoom: 10});
     $interval($scope.initPoints,5000)
     //calling the post photo function
     $scope.thumbsUp = false;
