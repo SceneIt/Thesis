@@ -96,6 +96,7 @@ angular.module('sceneit.map', [])
               });
             }
           });
+
             $scope.photoId = e.layer.options.icon.options.photoID;
             $scope.photoScore = e.layer.options.icon.options.score;
             $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
@@ -113,6 +114,7 @@ angular.module('sceneit.map', [])
                 });
               }
             });
+
         });
       });
     }
