@@ -308,20 +308,9 @@
     opacity:2.00;
   }
 
-  .city {
-    background-image: url(../app/images/Optimized-city.png);
-  }
-
   .city2 {
-    background-image: url(../app/images/map3.jpg);
+    background-image: url(../app/images/map4.jpg);
   }
-
-  .city3 {
-    background-image: url(../app/images/Optimized-city3.png);
-  }
-
-
-
 
   #properties {
   width: 100%;
@@ -758,4 +747,28 @@ button.fa {
   border-opacity: 0;
 }
 
-.
+.marker-cluster-medium {
+  width:70px !important;
+  height:70px !important;
+  border-radius:60px !important;
+
+  }
+.marker-cluster-medium div {
+  width:60px; 
+  height:60px;
+  border-radius:60px;
+
+  }
+
+.marker-cluster-large {
+  width:90px !important;
+  height:90px !important;
+  border-radius:80px !important;
+}
+.marker-cluster-large div {
+  width:80px;
+  height:80px;
+  border-radius:80px;
+}
+
+
