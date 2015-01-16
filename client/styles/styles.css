@@ -308,20 +308,9 @@
     opacity:2.00;
   }
 
-  .city {
-    background-image: url(../app/images/Optimized-city.png);
-  }
-
   .city2 {
-    background-image: url(../app/images/map3.jpg);
+    background-image: url(../app/images/map4.jpg);
   }
-
-  .city3 {
-    background-image: url(../app/images/Optimized-city3.png);
-  }
-
-
-
 
   #properties {
   width: 100%;
