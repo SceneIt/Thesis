@@ -3,8 +3,11 @@
   <div class="logo">
     <h1> <a ui-sref="home"> Mappix </a>
       <div id='header-buttons'>
-      <button type ="button class" class ="btn btn-info" ui-sref="signup" >signup</button>
-      <button type="button class" class = "btn btn-info" ui-sref="signin">login</button>
+      	<a ui-sref="signin" >login</a>
+ 										|
+      	<a ui-sref="signup">signup</a>
+      <!-- <button type ="button class" class ="btn btn-info" ui-sref="signup" >signup</button>
+      <button type="button class" class = "btn btn-info" ui-sref="signin">login</button> -->
     </div>
     </h1>
   </div>
@@ -29,16 +32,16 @@
 				<h1>Photos that tell stories</h1>
 				<h2>The future of photojournalism is you.</h2>
 			</div>
-			<div class="map-button" data-0="top:0%" data-200="top:6%" data-500="top:0%">	
-					<a href = "/#/map"
-					<button type ="button" class="btn btn-lg btn-info" id = 'btext'>View Map</button>
-				</a>
+			<div >	
+				<div class="demo" data-0="top:0%" data-200="top:2%" data-500="top:-3%">
+					<a ui-sref= "map" class="button">DEMO</a>
+				</div>
 			</div>
 		</div>
 		<div class="header sec2 photo" id="section2">
 			<div id='inv-nav'></div>
 			<div class='rows'>
-				<div class='col-md-6' data-smooth-scrolling="off"	data-850="transform:translateY(0px);" data-3000="transform:translateY(2150px)">
+				<div class='col-md-6' data-smooth-scrolling="off"	data-850="transform:translateY(0px);" data-3000="transform:translateY(2150px)" data-3350="transform:translateY(2500px)" data-3700="transform:translateY(2150px)">
 					<div data-2500="transform:translateX(0%);" data-3000="transform:translateX(65%)">
 					<img src='./app/images/iphone.svg'/>
 					<div class='screen'>
