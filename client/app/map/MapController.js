@@ -204,7 +204,7 @@ angular.module('sceneit.map', [])
       }
     }
     //calling the post photo function
-   map.addControl(new L.Control.Geocoder({position:'topright', collapsed: false, showResultIcons: false}));
+   map.addControl(new L.Control.Geocoder({position:'bottomright', collapsed: false, showResultIcons: false}));
 
 
     map.on('click', function() {
