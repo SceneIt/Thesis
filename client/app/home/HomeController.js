@@ -1,6 +1,7 @@
 angular.module('sceneit.home', [])
 
-.controller('HomeController',function($scope, $state) {
+.controller('HomeController',function($scope, $state, Auth) {
+    angular.extend($scope, Auth);
 	$scope.func = function() {
 		//render map image
 		$state.go('map');
