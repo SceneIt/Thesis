@@ -7,10 +7,8 @@ angular.module('sceneit.signup', ['ngCookies'])
 		email: 'enter an email'
 	}
 
-	$scope.user = Auth.userInfo;
-
  	$scope.signup = function(){
- 		Auth.signup(Auth.userInfo);
+ 		Auth.signup($scope.user);
  	};
 }); 
 
