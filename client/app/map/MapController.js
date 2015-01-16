@@ -116,7 +116,10 @@ angular.module('sceneit.map', [])
     var markers = L.markerClusterGroup();
     var picIcon = L.Icon.extend({
       options: {
-        iconSize: [40, 40]
+        iconSize: [40, 40],
+        // shadowSize: [45,51],
+        shadowSize: [50,57],
+        shadowAnchor: [24,24.5]
       }
     });
 
@@ -141,6 +144,7 @@ angular.module('sceneit.map', [])
           icon: new picIcon({
             photoID: points[i].id,
             iconUrl: points[i].photoUrl,
+            shadowUrl: 'http://4.bp.blogspot.com/-TJN_xoDt9OE/T9JoAzZ7seI/AAAAAAAABBw/wlp5T_omFKw/s1600/Taped+Polaroid+-+Jennifer+Fehr+Designs.png',
             score: points[i].score
           })
         });
