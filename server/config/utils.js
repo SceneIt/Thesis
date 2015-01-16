@@ -53,6 +53,7 @@ module.exports = {
     }).then(function(user){
       if(!user){
         console.log('User Does Not Exist');
+        return done(null, false);
       }
       if(user){
         if(bcrypt.compareSync(password, user.dataValues.password)){

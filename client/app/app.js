@@ -56,7 +56,7 @@ angular.module('sceneit', [
   // $locationProvider.html5Mode(true);
 })
 
-.run(function ($rootScope, Auth, Session) {
+.run(function ($rootScope, Auth) {
 
   $rootScope.$on("$stateChangeStart",function(event, nextState, toParams, fromState, fromParams){
     console.log('State change start');

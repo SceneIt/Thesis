@@ -22,7 +22,7 @@
 			collapsed: true,
 			expand: 'click',
 			position: 'topright',
-			placeholder: 'Search...',
+			placeholder: 'Enter Location',
 			errorMessage: 'Nothing found.'
 		},
 
