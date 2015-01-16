@@ -39,9 +39,7 @@ angular.module('sceneit.map', [])
     map.addLayer(layer);
 
     //calling the post photo function
-    $scope.thumbsUp = false;
-    $scope.thumbsDown = false;
-    map.addLayer(layer);
+
     // map.locate({setView: true, maxZoom: 10});
   // $interval($scope.initPoints,5000)
   //calling the post photo function
@@ -81,9 +79,11 @@ angular.module('sceneit.map', [])
               $scope.photoScore = photo.data;
           });
 
-            $scope.photoId = e.layer.options.icon.options.photoID;
-            $scope.photoScore = e.layer.options.icon.options.score;
-            $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
+
+
+            $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
+            $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
+
             MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
               if(comments.data === "null" || comments.data.length === 0) {
                 // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
@@ -98,6 +98,7 @@ angular.module('sceneit.map', [])
                 });
               }
             });
+
         });
       });
     }
@@ -159,6 +160,8 @@ angular.module('sceneit.map', [])
 
 
     $scope.photoScoreIncr = function(){
+      if(Auth.isAuthenticated()){
+
       $scope.photoScore = $scope.photoScore + 1;
       $scope.photoVotes[$scope.photoId][0] = true;
       $scope.photoVotes[$scope.photoId][1] = false;
@@ -170,9 +173,11 @@ angular.module('sceneit.map', [])
 
       $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
       $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
+      }
     };
 
     $scope.photoScoreDecr = function(){
+      if(Auth.isAuthenticated()){
       $scope.photoScore -= 1;
       $scope.photoVotes[$scope.photoId][0] = false;
       $scope.photoVotes[$scope.photoId][1] = true;
@@ -183,6 +188,7 @@ angular.module('sceneit.map', [])
       MapFactory.postScore(data);  
       $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
       $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
+    }
     };
 
 
@@ -193,7 +199,7 @@ angular.module('sceneit.map', [])
       if($scope.comment.trim() !== "") {
         MapFactory.postComment($scope.photoId, $cookies["userID"], $scope.comment).then(function(comment) {
           angular.element(document.body.getElementsByTagName('textarea')).val('');
-          MapFactory.appendComment(comment, Auth.userInfo.username);
+          MapFactory.appendComment(comment, $cookies["username"]);
         });
       }
     }

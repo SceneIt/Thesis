@@ -6,9 +6,7 @@ angular.module('sceneit.signin', [])
     password: 'password'
   };
 
-   $scope.user =  Auth.userInfo;
-
   $scope.signin = function(){
-    Auth.signin(Auth.userInfo);
+    Auth.signin($scope.user);
   };
 })
