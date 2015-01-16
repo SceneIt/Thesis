@@ -5,9 +5,10 @@
       <button type="button class" class ="btn btn-info" ng-click="signout()">Sign Out</button>
     </div> -->
       <div id='header-buttons'>
-        <a ui-sref="signin" >login</a>
+        <a ng-if="!isAuthenticated()" ng-click="signin()" ui-sref="signin" >login</a>
+        <a ng-if="isAuthenticated()" ng-click="signout()" ui-sref="signin" >logout</a>
     										|
-        <a ui-sref="signup">signup</a>
+        <a ng-click="signup()" ui-sref="signup">signup</a>
       </div>
     </h1>
   </div>

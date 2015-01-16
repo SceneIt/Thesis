@@ -14,11 +14,8 @@ angular.module('sceneit.map', [])
   })
 
   .controller('MapController',function($scope, $http, MapFactory, Auth, $cookies, $compile, $interval) {
-    // $('.dropdown-toggle').dropdown('toggle');
-    $scope.signout = function(){
-      Auth.signout();
-    };
-
+    angular.extend($scope, Auth);
+   
     $scope.times = ["All", "hour", "day", "week"];
     $scope.mapPoints = [];
     $scope.comment = "";
