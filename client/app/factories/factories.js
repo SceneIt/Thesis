@@ -2,6 +2,7 @@ angular.module('sceneit.factories', ['ngCookies'])
 
 .factory('Auth', function($state, $http, $window, $cookies){
 
+  //User authenticated check
   var isAuthenticated = function(){
     if($cookies['userID']){
       return true;
@@ -9,31 +10,29 @@ angular.module('sceneit.factories', ['ngCookies'])
     return false;
   };
 
+  //Signup post to server
   var signup = function(user){
     return $http({
       method: 'POST',
       url: '/api/user/signup',
       data: user
     }).then(function(res){
-      console.log(res);
-      if(isAuthenticated()){
         $state.go('home');
-      }
     });
   };
 
+  //Signin post to server
   var signin = function(user){
     return $http({
       method: 'POST',
       url: '/api/user/signin',
       data: user
     }).then(function(res){
-      console.log(res);
-
       $state.go('home');
     });
   };
 
+  // Signout post to server
   var signout = function(){
     return $http({
       method: 'POST',
