@@ -42,7 +42,7 @@ angular.module('sceneit.map', [])
     $scope.thumbsUp = false;
     $scope.thumbsDown = false;
     map.addLayer(layer);
-    map.locate({setView: true, maxZoom: 10});
+    // map.locate({setView: true, maxZoom: 10});
   // $interval($scope.initPoints,5000)
   //calling the post photo function
 
