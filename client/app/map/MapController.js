@@ -85,23 +85,6 @@ angular.module('sceneit.map', [])
             $scope.thumbsUp = $scope.photoVotes[$scope.photoId][0];
             $scope.thumbsDown = $scope.photoVotes[$scope.photoId][1];
 
-
-          MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-            if(comments.data === "null" || comments.data.length === 0) {
-              // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
-            } else {
-              comments.data.sort(function(a, b) {
-                return Date.parse(a.createdAt) - Date.parse(b.createdAt);
-              });
-              comments.data.forEach(function(comment) {
-                MapFactory.appendComment(comment, comment.User.userName);
-              });
-            }
-          });
-
-            $scope.photoId = e.layer.options.icon.options.photoID;
-            $scope.photoScore = e.layer.options.icon.options.score;
-            $scope.photoLikes = ($scope.photoScore > 0) ? $scope.photoScore : 0;
             MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
               if(comments.data === "null" || comments.data.length === 0) {
                 // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
