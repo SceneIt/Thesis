@@ -1,7 +1,7 @@
 angular.module('sceneit.home', [])
 
-.controller('HomeController', function($scope, $state, Auth) {
-  angular.extend($scope, Auth);
+.controller('HomeController', function($scope, $state, AuthFactory) {
+  angular.extend($scope, AuthFactory);
 
   //Button function call to route to map
   $scope.func = function() {

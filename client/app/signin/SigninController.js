@@ -1,12 +1,12 @@
 angular.module('sceneit.signin', [])
 
-.controller('SigninController', function($scope, Auth) {
+.controller('SigninController', function($scope, AuthFactory) {
   $scope.user = {
     username: 'username',
     password: 'password'
   };
 
   $scope.signin = function(){
-    Auth.signin($scope.user);
+    AuthFactory.signin($scope.user);
   };
 })
