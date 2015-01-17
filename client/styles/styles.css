@@ -800,4 +800,12 @@ button.fa {
   border-radius:80px;
 }
 
+.marker-cluster-medium span {
+  line-height:50px !important;
+}
+
+.marker-cluster-large span {
+  line-height: 70px !important;
+}
+
 
