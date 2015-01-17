@@ -44,17 +44,17 @@ angular.module('sceneit.map', [])
   map.addLayer(layer);
 
   //Creates control parameters for zoom and geosearch
-  var zoomControl = L.control.zoom( {position:'topleft'} );
   var searchControl = new L.Control.Geocoder({
     position: 'topleft',
     collapsed: false,
     showResultIcons: false,
   });
+  var zoomControl = L.control.zoom( {position:'topleft'} );
 
 
   //Renders control icons onto the map
-  map.addControl(zoomControl);  
   map.addControl(searchControl);
+  map.addControl(zoomControl);  
 
   map.on('click', function() {
     MapFactory.hideCommentPane();
