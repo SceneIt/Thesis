@@ -258,10 +258,21 @@
   }
 
   .footer-links ul li{
+    /*margin-top: 1%;*/
     margin-left: 3%;
     display: inline-block;
     padding-right: 1%;
     color: #009999;
+  }
+
+  .home-footer ul{
+    list-style: none;
+    text-align: center;
+    margin-top: 1%;
+    display: inline-block;
+    padding-right: 1%;
+    color: #009999;
+    margin-left: 44%;
   }
 
   .footer-links li a:hover {
@@ -414,13 +425,6 @@
 
   .demo {
     margin-top: 80%;
-  }
- 
-  #section3 {
-    margin-top:60px;
-    height: 400px;
-    width: 100%;
-    background-color: #444444;
   }
 
   span.glyphicon-search {
@@ -616,12 +620,13 @@
   color:white;
   font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
   font-size: 3.0em;
-  letter-spacing: 0.16rem;
+  letter-spacing: 1.16rem;
   font-weight: 100;
+  color: white;
 }
 
 .profpics {
-  margin-top: 8%;
+  margin-top: 7%;
   height:240px;
   width:180px;
   margin-left:23%;
@@ -637,21 +642,42 @@
   margin-left:23%;
   color: white;
   font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
-  font-size: 1.em;
+  font-size: 2em;
   font-weight:100;
   max-height:3px;
+  text-align: center;
+}
+
+.names{
+  margin-top:1%;
+  margin-left:0%;
+  color: white;
+  font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-size: 2em;
+  font-weight:100;
+  text-align: center;
+  letter-spacing: .1em;
 }
 
 .iconz {
-  height:20px;
-  width:20px;
-  /*float:left;*/
+  height:30px;
+  width:30px;
+}
+
+.iconContainer {
+  margin-left:40%;
+}
+
+#section3 {
+  /*margin-top:0px;*/
+  height: 457px;
+  width: 100%;
+  background-color: #444444;
 }
 
 #section4 {
-  margin-top:-20px;
   background:linear-gradient(#FFF 0px, rgb(16, 45, 52)200%) repeat scroll 0% 0% transparent;
-  height:350px;
+  height:240px;
   width:100%;
 }
 
@@ -660,17 +686,20 @@
   color:rgb(16, 45, 52);
   font-family: "Helvetica Light","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
   font-size: 3.0em;
-  letter-spacing: 0.16rem;
+  letter-spacing: 1.16rem;
   font-weight: 100;
+  color: #009999;
 }
 
 #footerbar {
+  /*margin-top: -70px;*/
   height:50px;
   width:100%;
   background-color: #444444;
 }
 
 #section4 img {
+  /*margin-top: %;*/
   margin-left:60px;
   max-height:100px;
   max-width:170px;
@@ -692,7 +721,7 @@
 
 
 .photoUserName{
-  color: #009999 ;
+  color: #009999;
 }
 
 #sectionvid {
