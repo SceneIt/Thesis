@@ -56,11 +56,11 @@ angular.module('sceneit', [
   // $locationProvider.html5Mode(true);
 })
 
-.run(function ($rootScope, Auth) {
+.run(function ($rootScope, AuthFactory) {
 
   $rootScope.$on("$stateChangeStart",function(event, nextState, toParams, fromState, fromParams){
     console.log('State change start');
-    if(!Auth.isAuthenticated() && nextState.data.authenticate){
+    if(!AuthFactory.isAuthenticated() && nextState.data.authenticate){
       event.preventDefault();
     }
   })

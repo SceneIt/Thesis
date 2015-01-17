@@ -1,6 +1,6 @@
 angular.module('sceneit.signup', ['ngCookies'])
 
-.controller('SignupController', function($scope, $state, $http, $cookies, Auth, $rootScope) {
+.controller('SignupController', function($scope, $state, $http, $cookies, AuthFactory, $rootScope) {
 	$scope.user = {
 		username: 'enter a username',
 		password: 'enter a password',
@@ -8,7 +8,7 @@ angular.module('sceneit.signup', ['ngCookies'])
 	}
 
  	$scope.signup = function(){
- 		Auth.signup($scope.user);
+ 		AuthFactory.signup($scope.user);
  	};
 }); 
 
