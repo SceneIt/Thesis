@@ -127,7 +127,7 @@ angular.module('sceneit.factories', ['ngCookies'])
       return res.data;
     })
   };
-
+  // Post score to database
   var postScore = function(data) {
     return $http({
       method: 'POST',
@@ -139,6 +139,7 @@ angular.module('sceneit.factories', ['ngCookies'])
     });;
   };
 
+  // Get score from database
   var getScore = function(data) {
     return $http.get('/api/photo/votes', {
         params: {
