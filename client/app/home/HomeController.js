@@ -10,7 +10,7 @@ angular.module('sceneit.home', [])
 })
 
 
-//Skrollr Directive
+//Skrollr Directive to let Angular watch for skrollr functionality in child elements
 .directive('skrollrTag', ['skrollrService',
   function(skrollrService) {
     return {
@@ -20,7 +20,7 @@ angular.module('sceneit.home', [])
         });
 
         /*
-         * @$scope.watch()
+         *
          * This will watch for any new elements being added as children to
          * whatever element this directive is placed on.
          * If new elements are added, Skrollr will be refreshed to pull in new elements
@@ -51,7 +51,7 @@ angular.module('sceneit.home', [])
           forceHeight: false,
 
           /*
-           * @Box
+           * 
            * Fill @box a "duration" of 150% of the viewport (pause for 150%)
            * Adjust for shorter/longer pause
            */
