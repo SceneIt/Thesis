@@ -5,7 +5,6 @@
 	        border-radius: 4px;
 	line-height: 26px;
 	overflow: hidden;
-	left:210% !important;
 }
 
 .leaflet-touch .leaflet-control-geocoder {
