@@ -1,5 +1,6 @@
 angular.module('sceneit.map', [])
 
+//directive for keypress 'Enter' event
 .directive('ngEnter', function() {
   return function(scope, element, attrs) {
     element.bind("keydown keypress", function(event) {
@@ -9,7 +10,6 @@ angular.module('sceneit.map', [])
             'event': event
           });
         });
-
         event.preventDefault();
       }
     });
@@ -22,8 +22,7 @@ angular.module('sceneit.map', [])
   $scope.times = ["All", "hour", "day", "week"];
   $scope.mapPoints = [];
   $scope.comment = "";
-  $scope.photoId = "";
-  
+  $scope.photoId = ""; 
   var photoVotes = {};
 
   //loads map tiles from custom maps of mapbox
@@ -31,14 +30,12 @@ angular.module('sceneit.map', [])
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   });
 
-
   //creates leaflet map with given lat / long points with zoom level of 6.
   var map = L.map('map', {
     center: [37.6910, -122.3108],
     zoom: 10,
     zoomControl:false 
   });
-
 
   //add base map tiles
   map.addLayer(layer);
@@ -49,76 +46,63 @@ angular.module('sceneit.map', [])
     collapsed: false,
     showResultIcons: false,
   });
-  var zoomControl = L.control.zoom( {position:'topleft'} );
-
 
   //Renders control icons onto the map
+  var zoomControl = L.control.zoom( {position:'topleft'} );
   map.addControl(searchControl);
   map.addControl(zoomControl);  
 
   map.on('click', function() {
     MapFactory.hideCommentPane();
-  })
+  });
 
-
-  // map.locate({setView: true, maxZoom: 10});
-  // $interval($scope.initPoints,5000)
-
+  //shows photos based on selected timeframe (hour, day, week)
   $scope.showPointsAt = function(time) {
+    //clear map
     map.removeLayer($scope.copy);
+
     if (time === "All") {
       $scope.initPoints();
     } else {
       var now = moment();
+
+      //plot all photos that satisfy time selection and add new event listeners
       var newMarkers = $scope.plotPoints($scope.mapPoints.filter(function(point) {
         return (now.diff(moment(point.timeStamp), time) < 1);
       }));
       addEventListeners(newMarkers);
       map.addLayer(newMarkers);
     }
-  }
+  };
 
   var addEventListeners = function(markers) {
     markers.on('click', function(e) {
-      // document.querySelector('.commentPane ul').text('');
-
-
       // Logs photoID to a local variable and assign to scope
+      // Set captured thumbsUp and thumbsDown for clicked photo
       var photoID = e.layer.options.icon.options.photoID;
       $scope.photoId = photoID;
-
+      $scope.thumbs = photoVotes[photoID];
 
       // Fetch clicked photo score from database
       MapFactory.getScore(photoID).then(function(photo) {
         $scope.photoScore = photo.data;
-      });
+      }); 
 
-      // Set captured thumbsUp and thumbsDown for clicked photo 
-      $scope.thumbs = photoVotes[photoID];
-
-      angular.element(document.body.getElementsByClassName('comments')).text('');
+      angular.element(MapFactory.getElsByClass('comments')).text('');
       $scope.$apply(function() {
-
+        //show comment pane everytime a photo is clicked
         MapFactory.showCommentPane();
-
-        if (!AuthFactory.isAuthenticated()) {
-          angular.element(window.document.body.getElementsByTagName('textarea')).css('display', 'none');
-        } else {
-          angular.element(window.document.body.getElementsByTagName('textarea')).css('display', 'block');
-        }
-
-
-
-
-
+        MapFactory.setPostCommentAuth(AuthFactory.isAuthenticated());
+        
+        //get comments for photo from DB, sort them by latest to earliest, and append to DOM
         MapFactory.getCommentsForPhoto($scope.photoId).then(function(comments) {
-          if (comments.data === "null" || comments.data.length === 0) {
-            // angular.element(window.document.body.getElementsByTagName('ul')).append('<li> No comments yet. </li>');
-          } else {
+          if (comments.data !== "null" && comments.data.length !== 0) {
             comments.data.sort(function(a, b) {
               return Date.parse(a.createdAt) - Date.parse(b.createdAt);
             });
+
             comments.data.forEach(function(comment) {
+              //user must exist in order to append comment
               if (comment.User) {
                 MapFactory.appendComment(comment, comment.User.userName);
               }
@@ -127,7 +111,7 @@ angular.module('sceneit.map', [])
         });
       });
     });
-  }
+  };
 
   $scope.initPoints = function() {
     MapFactory.getPoints().then(function(data) {
@@ -136,7 +120,6 @@ angular.module('sceneit.map', [])
       $scope.mapPoints = data;
       $scope.copy = markers;
       map.addLayer(markers);
-
       addEventListeners(markers);
     });
   };
@@ -153,7 +136,6 @@ angular.module('sceneit.map', [])
     });
 
     for (var i = 0; i < points.length; i++) {
-
       //Initialize each photo with no votes from user
       photoVotes[points[i].id] = false;
 
@@ -182,6 +164,7 @@ angular.module('sceneit.map', [])
       picMarker.bindPopup(linkFunction(newScope)[0]);
       markers.addLayer(picMarker);
     };
+
     $scope.copy = markers;
     return markers;
   };
@@ -195,9 +178,9 @@ angular.module('sceneit.map', [])
     var data = {
       id: $scope.photoId,
       photoScore: $scope.photoScore
-    }
+    };
     MapFactory.postScore(data);
-  }
+  };
 
   // Increment photo score and post
   $scope.photoScoreIncr = function() {
@@ -217,19 +200,17 @@ angular.module('sceneit.map', [])
     }
   };
 
-
   $scope.hide = function() {
     MapFactory.hideCommentPane();
-  }
+  };
 
+  //user's entered comment is sent to the server, and comment box is cleared
   $scope.postComment = function() {
     if ($scope.comment.trim() !== "") {
       MapFactory.postComment($scope.photoId, $cookies["userID"], $scope.comment).then(function(comment) {
-        angular.element(document.body.getElementsByTagName('textarea')).val('');
+        angular.element(MapFactory.getElsByTag('textarea')).val('');
         MapFactory.appendComment(comment, $cookies["username"]);
       });
     }
-  }
-
-})
-
+  };
+});

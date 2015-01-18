@@ -51,23 +51,31 @@ angular.module('sceneit.factories', ['ngCookies'])
 })
 
 .factory('MapFactory', function($http) {
+
+  //add comment object HTML as a list item
   var appendComment = function(comment, user) {
     var parentEl = document.querySelector('.commentContainer ul');
     var childEl = document.createElement('li');
     childEl.className = "webMessengerMessageGroup";
-    childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png"></div><div class="rightHalf"><div class="time"><abbr class="timeText">' + /*new Date(Date.parse(comment.createdAt)).toLocaleString()*/ moment(comment.createdAt).fromNow() + '</abbr></div><div class="nameWithComment"><div class="name"> <strong>' + user + '</strong></div><div class="userscomment"><p>' + comment.comment + '</p></div></div></div></div>';
+    childEl.innerHTML = '<div class="clearFix"><div class="profileimg"><img width="32" height="32" src="../app/images/profilepic.png">' +
+      '</div><div class="rightHalf"><div class="time"><abbr class="timeText">' +
+        moment(comment.createdAt).fromNow() + '</abbr></div><div class="nameWithComment"><div class="name"> <strong>' + 
+          user + '</strong></div><div class="userscomment"><p>' + comment.comment + '</p></div></div></div></div>';
     parentEl.appendChild(childEl);
   }
-  var showCommentPane = function() {
-    angular.element(document.body.getElementsByClassName('mapStyle')).css("width", "80%");
-    angular.element(document.body.getElementsByClassName('commentPane')).css("display", "block");
-  };
 
+  //map width shortened so comment pane can come in the from the right side
+  var showCommentPane = function() {
+    angular.element(getElsByClass('mapStyle')).css("width", "80%");
+    angular.element(getElsByClass('commentPane')).css("display", "block");
+  };
 
   var hideCommentPane = function() {
-    angular.element(document.body.getElementsByClassName('mapStyle')).css("width", "100%");
-    angular.element(document.body.getElementsByClassName('commentPane')).css("display", "none");
+    angular.element(getElsByClass('mapStyle')).css("width", "100%");
+    angular.element(getElsByClass('commentPane')).css("display", "none");
   };
+
+  //DB returns the info for the photo that is clicked by the user
   var findPhoto = function(coordinates) {
     return $http({
       method: 'GET',
@@ -81,18 +89,19 @@ angular.module('sceneit.factories', ['ngCookies'])
     });
   };
 
+  //retrieves all the comments for a specific photo
   var getCommentsForPhoto = function(id) {
     return $http.get('/api/comments/', {
-        params: {
-          id: id
-        }
-      })
-      .success(function(res) {
-        return (res);
-      });
+      params: {
+        id: id
+      }
+    })
+    .success(function(res) {
+      return (res);
+    });
   };
 
-
+  //user's entered comment will be recorded as an entry in the DB
   var postComment = function(id, user, comment) {
     return $http({
       method: 'POST',
@@ -125,8 +134,9 @@ angular.module('sceneit.factories', ['ngCookies'])
       data: photoData
     }).then(function(res) {
       return res.data;
-    })
+    });
   };
+
   // Post score to database
   var postScore = function(data) {
     return $http({
@@ -136,23 +146,43 @@ angular.module('sceneit.factories', ['ngCookies'])
     }).then(function(res) {
       console.log('success');
       return res.data;
-    });;
+    });
   };
 
   // Get score from database
   var getScore = function(data) {
     return $http.get('/api/photo/votes', {
-        params: {
-          id: data
-        }
-      })
-      .success(function(res) {
-        return res.body;
-      });
+      params: {
+        id: data
+      }
+    })
+    .success(function(res) {
+      return res.body;
+    });
   };
 
+  var getElsByTag = function(str) {
+    return document.body.getElementsByTagName(str);
+  };
+
+  var getElsByClass = function(str) {
+    return document.body.getElementsByClassName(str);
+  };
+
+  //if user is not authenticated, user cannot contribute comment
+  //if user is authenticated, user can contribute comment
+  var setPostCommentAuth = function(bool) {
+    if (!bool) {
+      angular.element(getElsByTag('textarea')).css('display', 'none');
+    } else {
+      angular.element(getElsByTag('textarea')).css('display', 'block');
+    }
+  }
 
   return {
+    setPostCommentAuth: setPostCommentAuth,
+    getElsByClass: getElsByClass,
+    getElsByTag: getElsByTag,
     appendComment: appendComment,
     hideCommentPane: hideCommentPane,
     showCommentPane: showCommentPane,
@@ -165,5 +195,3 @@ angular.module('sceneit.factories', ['ngCookies'])
     getScore: getScore
   };
 });
-
-

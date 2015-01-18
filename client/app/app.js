@@ -5,7 +5,6 @@ angular.module('sceneit', [
   'sceneit.signin',
   'sceneit.signup',
   'sceneit.factories',
-  
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -51,15 +50,10 @@ angular.module('sceneit', [
       authenticate: false
     }
   });
-
-
-  // $locationProvider.html5Mode(true);
 })
 
 .run(function ($rootScope, AuthFactory) {
-
   $rootScope.$on("$stateChangeStart",function(event, nextState, toParams, fromState, fromParams){
-    console.log('State change start');
     if(!AuthFactory.isAuthenticated() && nextState.data.authenticate){
       event.preventDefault();
     }
