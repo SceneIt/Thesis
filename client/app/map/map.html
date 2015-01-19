@@ -1,52 +1,46 @@
 <div id="mapHeader" class="main-header">
-  <div class="logo">
-    <h1><a ui-sref="home"> Mappix </a>
-     <!--  <div id='header-buttons'>
-      <button type="button class" class ="btn btn-info" ng-click="signout()">Sign Out</button>
-    </div> -->
-      <div id='header-buttons'>
-        <a ng-if="!isAuthenticated()" ng-click="signin()" ui-sref="signin" >login</a>
-        <a ng-if="isAuthenticated()" ng-click="signout()" ui-sref="signin" >logout</a>
-    										|
-        <a ng-click="signup()" ui-sref="signup">signup</a>
-      </div>
-    </h1>
-  </div>
+	<div class="logo">
+		<h1><a ui-sref="home"> Mappix </a>
+			<div id='header-buttons'>
+				<a ng-if="!isAuthenticated()" ng-click="signin()" ui-sref="signin" >login</a>
+				<a ng-if="isAuthenticated()" ng-click="signout()" ui-sref="signin" >logout</a>
+				|
+				<a ng-click="signup()" ui-sref="signup">signup</a>
+			</div>
+		</h1>
+	</div>
 </div>
 
 <div id='map' class="mapStyle">
 	<div id="button-wrapper">
-	  <div class="btn-group dropup">
-	    <button id="dropup" class="btn">Filter</button>
-	    <button class="btn dropdown-toggle" data-toggle="dropdown">
-	      <span class="caret"></span>
-	    </button>
-	    <ul class="dropdown-menu">
-	    	<li ng-click="showPointsAt(times[3])" > <a> 1 {{times[3]}} ago </a> </li>
-	    	<li class="divider"> </li>
-	    	<li ng-click="showPointsAt(times[2])"> <a> 1 {{times[2]}} ago </a> </li>
-	    	<li class="divider"> </li>
-	    	<li ng-click="showPointsAt(times[1])"> <a> 1 {{times[1]}} ago </a> </li>
-	    	<li class="divider"> </li>
-	    	<li ng-click="showPointsAt(times[0])"> <a> Show {{times[0]}} </a> </li>
-	      <!-- dropdown menu links -->
-	    </ul>
-	  </div>
-
+		<div class="btn-group dropup">
+			<button id="dropup" class="btn">Filter</button>
+			<button class="btn dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li ng-click="showPointsAt(times[3])" > <a> 1 {{times[3]}} ago </a> </li>
+				<li class="divider"> </li>
+				<li ng-click="showPointsAt(times[2])"> <a> 1 {{times[2]}} ago </a> </li>
+				<li class="divider"> </li>
+				<li ng-click="showPointsAt(times[1])"> <a> 1 {{times[1]}} ago </a> </li>
+				<li class="divider"> </li>
+				<li ng-click="showPointsAt(times[0])"> <a> Show {{times[0]}} </a> </li>
+				<!-- dropdown menu links -->
+			</ul>
+		</div>
 	</div> 
 </div>
-
 <div class="container">
-  <div class="footer-links clearfix">
-     <ul>
-         <li>&copy; 2014 Mappix</li>
-         <li><a href="../#/home#aboutteam">About</a></li>
-         <li><a ui-sref="contact">Contact</a></li>
-         <li><a ui-sref="privacy">Privacy</a></li>
-     </ul>
-  </div>
- </div>
-
+	<div class="footer-links clearfix">
+		<ul>
+			<li>&copy; 2014 Mappix</li>
+			<li><a href="../#/home#aboutteam">About</a></li>
+			<li><a ui-sref="contact">Contact</a></li>
+			<li><a ui-sref="privacy">Privacy</a></li>
+		</ul>
+	</div>
+</div>
 <div class="commentPane">
 	<div class="comment-header" >
 		<button type="button" class="close" ng-click="hide()">×</button>
@@ -55,7 +49,6 @@
 
 	<div class="commentContainer">
 		<ul class="comments pre-scrollable" style= "list-style-type: none;">
-		
 		</ul>
 	</div>
 	<textarea type="text" class="form-control textarea" rows="3" placeholder="Write a comment..." ng-model="comment" ng-enter="postComment()"></textarea>
