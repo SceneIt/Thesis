@@ -149,7 +149,7 @@ angular.module('sceneit.map', [])
       photoVotes[points[i].id] = false;
       var time = points[i].createdAt;
       var userName = points[i].User ? points[i].User.userName : "Anonymous";
-      var html = '<div class="popup"><h3 class="photoDescription">' + points[i].description + '</h3>' + '<h6 class="photoUserName"> Uploaded by ' +
+      var html = '<div class="popup"><h3 class="photoDescription">' + points[i].description + '</h3>' + '<h6 class="photoUserName"> Reported by ' +
         userName + ' ' + moment(time).fromNow() + '</h6>' +
         '<div class="popupPhoto">' +
         '<img src= ' + points[i].photoUrl + ' height = "300", width = "300">' +
