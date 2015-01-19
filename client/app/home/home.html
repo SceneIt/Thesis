@@ -2,7 +2,7 @@
 <div class="main-header">
   <div class="logo">
     <h1> 
-    	<a ui-sref="home"> Mappix </a>
+    	<a ng-click="reload()" style="cursor:pointer"> Mappix </a>
       <div id='header-buttons'>
       	<a ng-if="!isAuthenticated()" ng-click="signin()" ui-sref="signin" >login</a>
       	<a ng-if="isAuthenticated()" ng-click="signout()" ui-sref="signin" >logout</a>
@@ -44,7 +44,7 @@
 			<div id='inv-nav'></div>
 			<div class='rows'>
 				<div class='col-md-6' data-smooth-scrolling="off"	data-850="transform:translateY(0px);" data-3000="transform:translateY(2150px)" data-3350="transform:translateY(2500px)" data-3700="transform:translateY(2150px)">
-					<div data-2500="transform:translateX(0%);" data-3000="transform:translateX(72%)">
+					<div data-2500="transform:translateX(0%);" data-2750="transform:translateX(72%)">
 					<img src='./app/images/iphone.svg'/>
 					<div class='screen'>
 					<div data-2200="opacity:0;" data-2900="opacity:1">

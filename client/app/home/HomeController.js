@@ -3,9 +3,9 @@ angular.module('sceneit.home', [])
 .controller('HomeController', function($scope, $state, AuthFactory) {
   angular.extend($scope, AuthFactory);
 
-  //Button function call to route to map
-  $scope.func = function() {
-    $state.go('map');
+  //reload home page
+  $scope.reload = function() {
+    window.location.reload();
   }
 })
 
