@@ -4,58 +4,38 @@ angular.module('sceneit', [
   'sceneit.map',
   'sceneit.signin',
   'sceneit.signup',
-  'sceneit.factories',
+  'sceneit.factories'
 ])
 
+//Defines routes for Mappix app
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
-  .state('home', {
-    url: '/home',
-    templateUrl: 'app/home/home.html',
-    controller: 'HomeController',
-    data: {
-      authenticate: false
-    }
-  });
+    .state('home', {
+      url: '/home',
+      templateUrl: 'app/home/home.html',
+      controller: 'HomeController'
+    });
 
   $stateProvider
-  .state('map', {
-    url: '/map',
-    templateUrl: 'app/map/map.html',
-    controller: 'MapController',
-    data: {
-      authenticate: false
-    }
-
-  });
-
- $stateProvider
-  .state('signin', {
-    url: '/signin',
-    templateUrl: 'app/signin/signin.html',
-    controller: 'SigninController',
-    data: {
-      authenticate: false
-    }
-  });
+    .state('map', {
+      url: '/map',
+      templateUrl: 'app/map/map.html',
+      controller: 'MapController'
+    });
 
   $stateProvider
-  .state('signup', {
-    url: '/signup',
-    templateUrl: 'app/signup/signup.html',
-    controller: 'SignupController',
-     data: {
-      authenticate: false
-    }
-  });
-})
+    .state('signin', {
+      url: '/signin',
+      templateUrl: 'app/signin/signin.html',
+      controller: 'SigninController'
+    });
 
-.run(function ($rootScope, AuthFactory) {
-  $rootScope.$on("$stateChangeStart",function(event, nextState, toParams, fromState, fromParams){
-    if(!AuthFactory.isAuthenticated() && nextState.data.authenticate){
-      event.preventDefault();
-    }
-  })
+  $stateProvider
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'app/signup/signup.html',
+      controller: 'SignupController'
+    });
 });
