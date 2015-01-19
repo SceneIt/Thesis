@@ -112,20 +112,23 @@ angular.module('sceneit.map', [])
       });
     });
   };
-
   $scope.initPoints = function() {
+    //callse the factory to get photourl, lat and longitude of photos
     MapFactory.getPoints().then(function(data) {
       //Removes MapFactory plotPoints and renders data in controller
       var markers = $scope.plotPoints(data);
       $scope.mapPoints = data;
       $scope.copy = markers;
+      //adds clusters to the map
       map.addLayer(markers);
       addEventListeners(markers);
     });
   };
 
   $scope.plotPoints = function(points) {
+    //initiates markers as a clustergroup object
     var markers = L.markerClusterGroup();
+    //changing icon size and where the polaroid is anchored to
     var picIcon = L.Icon.extend({
       options: {
         iconSize: [40, 40],
