@@ -22,11 +22,13 @@ angular.module('sceneit.map', [])
   $scope.times = ["All", "hour", "day", "week"];
   $scope.mapPoints = [];
   $scope.comment = "";
-  $scope.photoId = ""; 
+  $scope.photoId = "";
+
+
   var photoVotes = {};
 
   //loads map tiles from custom maps of mapbox
-  var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/mochicat8.kmifnp9g/{z}/{x}/{y}.png',   {
+  var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v3/mochicat8.kmifnp9g/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   });
 
@@ -34,7 +36,7 @@ angular.module('sceneit.map', [])
   var map = L.map('map', {
     center: [37.6910, -122.3108],
     zoom: 10,
-    zoomControl:false 
+    zoomControl: false
   });
 
   //add base map tiles
@@ -47,10 +49,14 @@ angular.module('sceneit.map', [])
     showResultIcons: false,
   });
 
+  var zoomControl = L.control.zoom({
+    position: 'topleft'
+  });
+
+
   //Renders control icons onto the map
-  var zoomControl = L.control.zoom( {position:'topleft'} );
   map.addControl(searchControl);
-  map.addControl(zoomControl);  
+  map.addControl(zoomControl);
 
   map.on('click', function() {
     MapFactory.hideCommentPane();
@@ -141,10 +147,10 @@ angular.module('sceneit.map', [])
     for (var i = 0; i < points.length; i++) {
       //Initialize each photo with no votes from user
       photoVotes[points[i].id] = false;
-
+      var time = points[i].createdAt;
       var userName = points[i].User ? points[i].User.userName : "Anonymous";
-      var html = '<div class="popup"><h3 class="photoDescription">' + points[i].description + '</h3>' + '<h6 class="photoUserName"> Uploaded by ' +
-        userName + '</h6>' +
+      var html = '<div class="popup"><h3 class="photoDescription">' + points[i].description + '</h3>' + '<h6 class="photoUserName"> Reported by ' +
+        userName + ' ' + moment(time).fromNow() + '</h6>' +
         '<div class="popupPhoto">' +
         '<img src= ' + points[i].photoUrl + ' height = "300", width = "300">' +
         '<div>' +
